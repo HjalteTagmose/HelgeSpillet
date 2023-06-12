@@ -36,7 +36,7 @@ albedo_color = Color(0.568627, 0.741176, 0.741176, 1)
 material = SubResource("StandardMaterial3D_im5qx")
 height = 1.0
 
-[node name="Game" type="Node3D"]
+[node name="root" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00629854, -1.19209e-07, 0.00031352)
 
 [node name="Ground" type="StaticBody3D" parent="."]
@@ -107,3 +107,4 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Meat" parent="." instance=ExtResource("3_yy6qd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91333, 0.92057, 0)

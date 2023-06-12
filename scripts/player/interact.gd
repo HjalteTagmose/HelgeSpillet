@@ -5,27 +5,36 @@ var pickup_point
 
 func _ready():
 	pickup_point = get_node("Pickup")
+	body_entered.connect(on_body_entered)
+	body_exited.connect(on_body_exited)
+
+func on_body_entered(body):
+	if body.is_in_group("interactable") && !holding_object():
+		body.show_prompt()
 	
+func on_body_exited(body):
+	if body.is_in_group("interactable"):
+		body.hide_prompt()
+
 func _process(delta):
-	var bodies = get_overlapping_bodies()
-	for body in bodies:
-		if body.is_in_group("interactable"):
-			var interactable = body
-			interactable.show_prompt(interactable)
-	
 	if Input.is_action_just_pressed("interact"):
-#		interact()
-		print("interact")
-		
-		if held_obj != null:
+		if holding_object():
 			drop()
+		else:
+			var bodies = get_overlapping_bodies()
+			for body in bodies:
+				if body.is_in_group("interactable"):
+					interact(body)
 
 func interact(interactable):
-	interactable.pickup(self)
+	print("pickup: ", interactable)
+	interactable.interact(pickup_point)
 	held_obj = interactable
-	print("pickup: ", held_obj)
 
 func drop():
+	print("drop: ", held_obj)
 	held_obj.drop()
 	held_obj = null
-	print("drop: ", held_obj)
+
+func holding_object():
+	return held_obj != null
