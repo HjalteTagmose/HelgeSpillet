@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://su7gr0kg3pwy"]
+[gd_scene load_steps=12 format=3 uid="uid://su7gr0kg3pwy"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_us2fk"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_2pyfy"]
+[ext_resource type="Script" path="res://scripts/player/interact.gd" id="2_rvkvd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g0p8o"]
 size = Vector3(60, 2, 60)
@@ -15,10 +16,12 @@ size = Vector3(60, 2, 60)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6i5hc"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_di00c"]
-top_radius = 0.1
-bottom_radius = 0.1
-height = 0.5
+[sub_resource type="SphereMesh" id="SphereMesh_dc7a4"]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rarjo"]
+size = Vector3(0.920606, 1.98684, 1.61669)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_itop8"]
 
@@ -38,8 +41,8 @@ material_override = SubResource("StandardMaterial3D_ri566")
 mesh = SubResource("BoxMesh_ml6kj")
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("1_us2fk")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000441551, 1.00271, -0.000282407)
+script = ExtResource("1_2pyfy")
 
 [node name="Collision" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_k8g0v")
@@ -50,13 +53,20 @@ skeleton = NodePath("../../Ground")
 
 [node name="Arm_R" type="MeshInstance3D" parent="Player/Mesh"]
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -0.3, 0.1, 0.6)
-mesh = SubResource("CylinderMesh_di00c")
+mesh = SubResource("SphereMesh_dc7a4")
 skeleton = NodePath("../..")
 
 [node name="Arm_L" type="MeshInstance3D" parent="Player/Mesh"]
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0.3, 0.1, 0.6)
-mesh = SubResource("CylinderMesh_di00c")
+mesh = SubResource("SphereMesh_dc7a4")
 skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="Player/Mesh"]
+script = ExtResource("2_rvkvd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Mesh/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.796632)
+shape = SubResource("BoxShape3D_rarjo")
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 6, 6)
@@ -66,7 +76,7 @@ size = 10.0
 [node name="Light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.994258, -0.0936114, -0.0518469, 0, -0.484504, 0.874789, -0.10701, 0.869766, 0.481722, -5.59683, 5.20692, 0)
 
-[node name="Meat" type="RigidBody3D" parent="."]
+[node name="Meat" type="RigidBody3D" parent="." groups=["pickupable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 0)
 
 [node name="Collision" type="CollisionShape3D" parent="Meat"]
