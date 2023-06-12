@@ -36,15 +36,12 @@ func _physics_process(delta):
 		target_speed_z = direction.z * SPEED
 		target_rot = atan2(direction.x, direction.z)
 	else:
-		target_speed_x = 0
-		target_speed_z = 0
+		target_speed_x = 0.0
+		target_speed_z = 0.0
 	
 	velocity.x = lerp(velocity.x, target_speed_x, delta * ACCELERATION); 
 	velocity.z = lerp(velocity.z, target_speed_z, delta * ACCELERATION); 
 	rot = lerp_angle(rot, target_rot, delta * ANGULAR_ACCELERATION)
 	
 	mesh.rotation.y = rot
-	move_and_slide()
-
-	print(rad_to_deg(target_rot))
-	
+	move_and_slide()	
