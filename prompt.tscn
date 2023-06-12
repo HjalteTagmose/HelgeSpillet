@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://3shcinr627re"]
+
+[node name="Prompt" type="Label"]
+offset_right = 40.0
+offset_bottom = 26.0
+text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"

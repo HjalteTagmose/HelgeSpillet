@@ -9,6 +9,7 @@ var rot = 0.0
 var target_rot = 0.0
 var target_speed_x = 0.0
 var target_speed_z = 0.0
+var push_force = .2;
 
 var mesh
 var interact
@@ -21,6 +22,17 @@ func _ready():
 
 func _physics_process(delta):
 	move(delta)
+	process_collisions()
+
+func process_collisions():
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		for k in range(collision.get_collision_count()):
+			var body = collision.get_collider(k) as RigidBody3D
+			if body == null:
+				continue
+			var point = collision.get_position(k) - body.global_position
+			body.apply_impulse(-collision.get_normal(k) * push_force, point)
 
 func move(delta):
 	# Add the gravity.

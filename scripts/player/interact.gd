@@ -7,29 +7,25 @@ func _ready():
 	pickup_point = get_node("Pickup")
 	
 func _process(delta):
+	var bodies = get_overlapping_bodies()
+	for body in bodies:
+		if body.is_in_group("interactable"):
+			var interactable = body
+			interactable.show_prompt(interactable)
+	
 	if Input.is_action_just_pressed("interact"):
+#		interact()
 		print("interact")
 		
 		if held_obj != null:
 			drop()
-		
-		var bodies = get_overlapping_bodies()
-		for body in bodies:
-			print(body)
-			if body.is_in_group("interactable"):
-				interact(body)
 
-func interact(body):
+func interact(interactable):
+	interactable.pickup(self)
+	held_obj = interactable
 	print("pickup: ", held_obj)
-	held_obj = body
-	body.reparent(self)
-	body.position = pickup_point.position
-	body.freeze = true
-	body.collision_layer = 0
 
 func drop():
-	print("drop: ", held_obj)
-	held_obj.reparent(get_tree().root)
-	held_obj.freeze = false
-	held_obj.collision_layer = 1
+	held_obj.drop()
 	held_obj = null
+	print("drop: ", held_obj)

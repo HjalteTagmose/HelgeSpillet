@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://su7gr0kg3pwy"]
+[gd_scene load_steps=14 format=3 uid="uid://su7gr0kg3pwy"]
 
-[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_2pyfy"]
-[ext_resource type="Script" path="res://scripts/player/interact.gd" id="2_rvkvd"]
+[ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_66jnj"]
+[ext_resource type="Script" path="res://scripts/player/Interact.gd" id="2_gl7je"]
+[ext_resource type="PackedScene" uid="uid://b4pjv6pveta55" path="res://interactable.tscn" id="3_yy6qd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g0p8o"]
 size = Vector3(60, 2, 60)
@@ -15,21 +16,25 @@ size = Vector3(60, 2, 60)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rarjo"]
 size = Vector3(0.920606, 1.98684, 1.61669)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_6i5hc"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k8g0v"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_dc7a4"]
 radius = 0.2
 height = 0.4
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k8g0v"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0kynb"]
+albedo_color = Color(1, 0.611765, 0.509804, 1)
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qeuab"]
-friction = 0.6
-bounce = 0.1
+[sub_resource type="SphereMesh" id="SphereMesh_fxxnc"]
+radius = 0.4
+height = 0.8
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_itop8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_im5qx"]
+albedo_color = Color(0.568627, 0.741176, 0.741176, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_8jsyv"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6i5hc"]
+material = SubResource("StandardMaterial3D_im5qx")
+height = 1.0
 
 [node name="Game" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00629854, -1.19209e-07, 0.00031352)
@@ -45,11 +50,11 @@ material_override = SubResource("StandardMaterial3D_ri566")
 mesh = SubResource("BoxMesh_ml6kj")
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000441551, 1.00271, -0.000282407)
-script = ExtResource("1_2pyfy")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_66jnj")
 
 [node name="Interaction" type="Area3D" parent="Player"]
-script = ExtResource("2_rvkvd")
+script = ExtResource("2_gl7je")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Interaction"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.796632)
@@ -58,22 +63,33 @@ shape = SubResource("BoxShape3D_rarjo")
 [node name="Pickup" type="Node3D" parent="Player/Interaction"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.05181)
 
-[node name="Mesh" type="MeshInstance3D" parent="Player"]
-mesh = SubResource("CapsuleMesh_6i5hc")
-skeleton = NodePath("../../Ground")
+[node name="Collision" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_k8g0v")
+
+[node name="Mesh" type="Node3D" parent="Player"]
 
 [node name="Arm_R" type="MeshInstance3D" parent="Player/Mesh"]
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -0.3, 0.1, 0.6)
 mesh = SubResource("SphereMesh_dc7a4")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_0kynb")
 
 [node name="Arm_L" type="MeshInstance3D" parent="Player/Mesh"]
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0.3, 0.1, 0.6)
 mesh = SubResource("SphereMesh_dc7a4")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_0kynb")
 
-[node name="Collision" type="CollisionShape3D" parent="Player"]
-shape = SubResource("CapsuleShape3D_k8g0v")
+[node name="Head" type="MeshInstance3D" parent="Player/Mesh"]
+transform = Transform3D(1, 0, 0, 0, 0.881176, 0, 0, 0, 1, 0, 0.759989, 0)
+mesh = SubResource("SphereMesh_fxxnc")
+skeleton = NodePath("../Body")
+surface_material_override/0 = SubResource("StandardMaterial3D_0kynb")
+
+[node name="Body" type="MeshInstance3D" parent="Player/Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1.17269, 0, 0, 0, 1, 0, -0.10458, 0)
+mesh = SubResource("CapsuleMesh_6i5hc")
+skeleton = NodePath("../../../Ground")
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 6, 6)
@@ -81,16 +97,13 @@ projection = 1
 size = 10.0
 
 [node name="Light" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.994258, -0.0936114, -0.0518469, 0, -0.484504, 0.874789, -0.10701, 0.869766, 0.481722, -5.59683, 5.20692, 0)
+transform = Transform3D(0.222219, -0.879202, 0.421453, 0.488753, 0.474478, 0.732115, -0.843647, 0.0432965, 0.53515, 0, 4.24264, -4.24264)
+sky_mode = 1
 
-[node name="Meat" type="RigidBody3D" parent="." groups=["interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 0)
-physics_material_override = SubResource("PhysicsMaterial_qeuab")
-freeze_mode = 1
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Collision" type="CollisionShape3D" parent="Meat"]
-shape = SubResource("BoxShape3D_itop8")
-
-[node name="Meat" type="MeshInstance3D" parent="Meat"]
-mesh = SubResource("BoxMesh_8jsyv")
-skeleton = NodePath("../..")
+[node name="Meat" parent="." instance=ExtResource("3_yy6qd")]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4pjv6pveta55"]
+
+[ext_resource type="Script" path="res://scripts/player/Interactable.gd" id="1_joks3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qeuab"]
+friction = 0.6
+bounce = 0.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_itop8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8jsyv"]
+
+[node name="Meat" type="RigidBody3D" groups=["interactable"]]
+physics_material_override = SubResource("PhysicsMaterial_qeuab")
+freeze_mode = 1
+script = ExtResource("1_joks3")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_itop8")
+
+[node name="Meat" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_8jsyv")
+skeleton = NodePath("../..")
