@@ -8,6 +8,8 @@ const ANGULAR_ACCELERATION = 10
 var mesh : Node3D
 var rot = 0.0
 var target_rot = 0.0
+var target_speed_x = 0.0
+var target_speed_z = 0.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -30,14 +32,17 @@ func _physics_process(delta):
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if direction:
-		velocity.x = lerp(velocity.x, direction.x * SPEED, delta * ACCELERATION)
-		velocity.z = lerp(velocity.z, direction.z * SPEED, delta * ACCELERATION)
+		target_speed_x = direction.x * SPEED
+		target_speed_z = direction.z * SPEED
 		target_rot = atan2(direction.x, direction.z)
 	else:
-		velocity.x = lerp(velocity.x, 0.0, delta * ACCELERATION)
-		velocity.z = lerp(velocity.z, 0.0, delta * ACCELERATION)
+		target_speed_x = 0
+		target_speed_z = 0
 	
+	velocity.x = lerp(velocity.x, target_speed_x, delta * ACCELERATION); 
+	velocity.z = lerp(velocity.z, target_speed_z, delta * ACCELERATION); 
 	rot = lerp_angle(rot, target_rot, delta * ANGULAR_ACCELERATION)
+	
 	mesh.rotation.y = rot
 	move_and_slide()
 
