@@ -7,6 +7,7 @@ func _init():
 	add_child(prompt)
 
 func interact(point):
+	hide_prompt()
 	reparent(point)
 	global_position = point.global_position
 	freeze = true
@@ -22,7 +23,7 @@ func show_prompt():
 	var world_position = get_global_position()
 	var screen_position = camera.unproject_position(world_position)
 	prompt.set_position(screen_position)
+	prompt.visible = true
 
 func hide_prompt():
-	prompt.set_position(Vector2(-9999,9999))
-
+	prompt.visible = false 
