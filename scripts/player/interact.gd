@@ -1,8 +1,13 @@
 extends Area3D
 
+var held_obj
+
 func _ready():
-	body_entered.connect(_on_body_entered)
+	body_entered.connect(on_body_entered)
 	
-func _on_body_entered(body):
+func on_body_entered(body):
+	if held_obj != null:
+		return
+	
 	if body.is_in_group("pickupable"):
 		print("pickupable entered the trigger area.")
