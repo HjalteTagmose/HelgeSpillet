@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://su7gr0kg3pwy"]
+[gd_scene load_steps=13 format=3 uid="uid://su7gr0kg3pwy"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_2pyfy"]
 [ext_resource type="Script" path="res://scripts/player/interact.gd" id="2_rvkvd"]
@@ -23,11 +23,15 @@ height = 0.4
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k8g0v"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qeuab"]
+friction = 0.6
+bounce = 0.1
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_itop8"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8jsyv"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Game" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00629854, -1.19209e-07, 0.00031352)
 
 [node name="Ground" type="StaticBody3D" parent="."]
@@ -50,6 +54,9 @@ script = ExtResource("2_rvkvd")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Interaction"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.796632)
 shape = SubResource("BoxShape3D_rarjo")
+
+[node name="Pickup" type="Node3D" parent="Player/Interaction"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.05181)
 
 [node name="Mesh" type="MeshInstance3D" parent="Player"]
 mesh = SubResource("CapsuleMesh_6i5hc")
@@ -76,8 +83,10 @@ size = 10.0
 [node name="Light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.994258, -0.0936114, -0.0518469, 0, -0.484504, 0.874789, -0.10701, 0.869766, 0.481722, -5.59683, 5.20692, 0)
 
-[node name="Meat" type="RigidBody3D" parent="." groups=["pickupable"]]
+[node name="Meat" type="RigidBody3D" parent="." groups=["interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 0)
+physics_material_override = SubResource("PhysicsMaterial_qeuab")
+freeze_mode = 1
 
 [node name="Collision" type="CollisionShape3D" parent="Meat"]
 shape = SubResource("BoxShape3D_itop8")

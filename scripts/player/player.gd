@@ -10,8 +10,8 @@ var target_rot = 0.0
 var target_speed_x = 0.0
 var target_speed_z = 0.0
 
-var mesh : Node3D
-var interact : Node3D
+var mesh
+var interact
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
