@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dj7ex1hceenny"]
+
+[ext_resource type="Material" uid="uid://bdi5o7mn1ulgu" path="res://floor.tres" id="1_wo7fx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g0p8o"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ml6kj"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k8g0v"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6i5hc"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="Collision" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_g0p8o")
+
+[node name="Mesh" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+material_override = ExtResource("1_wo7fx")
+mesh = SubResource("BoxMesh_ml6kj")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Collision" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_k8g0v")
+
+[node name="Mesh" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("CapsuleMesh_6i5hc")
+skeleton = NodePath("../../Ground")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.911396, 0.41153, 0, -0.41153, 0.911396, 0, 4.03927, 7.31239)
+
+[node name="Light" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.994258, -0.0936114, -0.0518469, 0, -0.484504, 0.874789, -0.10701, 0.869766, 0.481722, -5.59683, 5.20692, 0)
