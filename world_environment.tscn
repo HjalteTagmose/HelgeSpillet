@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://drckmf010fx4m"]
+
+[sub_resource type="Environment" id="Environment_qv07e"]
+background_mode = 1
+background_color = Color(0.760784, 0.760784, 0.760784, 1)
+ambient_light_color = Color(0.0313726, 0.0941176, 0.0823529, 1)
+ssao_enabled = true
+ssao_radius = 0.77
+ssao_intensity = 1.99
+glow_enabled = true
+glow_normalized = true
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_6bym6"]
+exposure_multiplier = 0.913
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_qv07e")
+camera_attributes = SubResource("CameraAttributesPractical_6bym6")
