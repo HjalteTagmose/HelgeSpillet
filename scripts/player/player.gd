@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody3D
 
+const ROTATION = 0#-45
 const SPEED = 5.0
 const ACCELERATION = 10
 const JUMP_VELOCITY = 4.5
@@ -46,7 +47,7 @@ func move(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = -Input.get_vector("left", "right", "up", "down")
+	var input_dir = -Input.get_vector("left", "right", "up", "down").rotated(deg_to_rad(ROTATION))
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if direction:
