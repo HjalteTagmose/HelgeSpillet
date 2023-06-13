@@ -22,11 +22,18 @@ func _process(delta):
 		if holding_object():
 			drop()
 		else:
-			var bodies = get_overlapping_bodies()
-			for body in bodies:
-				if body.is_in_group("interactable"):
-					interact(body)
-					return
+			var body = get_first_overlap_in_group("interactable")
+			if body != null:
+				interact(body)
+
+	if Input.is_action_just_pressed("use"):
+		if holding_object():
+			return
+
+		var body = get_first_overlap_in_group("usable")
+		print(body)
+		if body != null:
+			use(body)
 
 func interact(interactable):
 	if holding_object():
@@ -41,5 +48,15 @@ func drop():
 	held_obj.drop()
 	held_obj = null
 
+func use(usable):
+	print("tried to use: ", usable)
+
 func holding_object():
 	return held_obj != null
+	
+func get_first_overlap_in_group(group):
+	var bodies = get_overlapping_bodies()
+	for body in bodies:
+		if body.is_in_group(group):
+			return body
+	return null

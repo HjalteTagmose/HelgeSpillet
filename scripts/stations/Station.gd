@@ -1,12 +1,14 @@
 class_name Station
-extends Area3D
+extends StaticBody3D
 
 @export var place_point : Node3D
+var trigger : Area3D
 var occupant
 var can_be_used = false
 
 func _ready():
-	body_entered.connect(on_body_entered)
+	trigger = get_node("Trigger")
+	trigger.body_entered.connect(on_body_entered)
 	
 func _process(delta):
 	if !has_occupant():
@@ -27,8 +29,7 @@ func on_body_entered(body):
 		occupant = body
 
 func use():
-	if !has_occupant():
-		return
+	print("using station: ", self)
 		
 func has_occupant():
 #	print("occupant: ", occupant)
