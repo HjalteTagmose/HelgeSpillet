@@ -29,6 +29,9 @@ func _process(delta):
 					return
 
 func interact(interactable):
+	if holding_object():
+		return
+	
 	print("pickup: ", interactable)
 	interactable.pickup(pickup_point)
 	held_obj = interactable

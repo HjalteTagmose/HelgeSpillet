@@ -1,4 +1,4 @@
-class_name Station
+class_name CutStation
 extends Area3D
 
 @export var place_point : Node3D

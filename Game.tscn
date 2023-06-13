@@ -55,6 +55,7 @@ material_override = SubResource("StandardMaterial3D_ri566")
 mesh = SubResource("BoxMesh_ml6kj")
 
 [node name="Station" parent="." instance=ExtResource("1_4vqu8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.75, 2)
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.720612, 0)
