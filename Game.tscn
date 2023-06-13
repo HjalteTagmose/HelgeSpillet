@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://su7gr0kg3pwy"]
+[gd_scene load_steps=31 format=3 uid="uid://su7gr0kg3pwy"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_66jnj"]
 [ext_resource type="Script" path="res://scripts/stations/CutStation.gd" id="1_i5i0c"]
@@ -27,6 +27,12 @@ albedo_color = Color(0.282353, 0.282353, 0.282353, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y561p"]
 size = Vector3(1.5, 0.5, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5djyk"]
+size = Vector3(1, 2.25279, 0.856906)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g0g2x"]
+size = Vector3(1.3523, 1.95945, 1.88968)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rarjo"]
 size = Vector3(0.920606, 1.98684, 1.61669)
@@ -107,13 +113,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 [node name="Collider" type="CollisionShape3D" parent="CutStation/Trigger"]
 shape = SubResource("BoxShape3D_y561p")
 
-[node name="GrindStation" type="StaticBody3D" parent="." node_paths=PackedStringArray("place_point") groups=["usable"]]
+[node name="GrindStation" type="StaticBody3D" parent="." node_paths=PackedStringArray("spawn_point", "place_point") groups=["usable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.543767, 0.730036, 6.89926)
 script = ExtResource("2_bwmfc")
+spawn_point = NodePath("SpawnPoint")
 place_point = NodePath("PlacePoint")
 
 [node name="PlacePoint" type="Node3D" parent="GrindStation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48703, -0.271808)
+
+[node name="SpawnPoint" type="Node3D" parent="GrindStation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.624569, -1.28102)
 
 [node name="Mesh" type="MeshInstance3D" parent="GrindStation"]
 mesh = SubResource("BoxMesh_5kqag")
@@ -122,11 +132,15 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ss56x")
 [node name="Collision" type="CollisionShape3D" parent="GrindStation"]
 shape = SubResource("BoxShape3D_y561p")
 
+[node name="Collision2" type="CollisionShape3D" parent="GrindStation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0808611)
+shape = SubResource("BoxShape3D_5djyk")
+
 [node name="Trigger" type="Area3D" parent="GrindStation"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Collider" type="CollisionShape3D" parent="GrindStation/Trigger"]
-shape = SubResource("BoxShape3D_y561p")
+shape = SubResource("BoxShape3D_g0g2x")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.76523, 0.720612, 5.18402)
@@ -172,7 +186,7 @@ mesh = SubResource("CapsuleMesh_6i5hc")
 skeleton = NodePath("../../../Ground")
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(-0.679571, 0.419582, -0.601776, 0.0203028, 0.830736, 0.556296, 0.733329, 0.365825, -0.573063, -7.987, 6.654, -2.639)
+transform = Transform3D(-0.679571, 0.419583, -0.601776, 0.0203028, 0.830736, 0.556296, 0.733329, 0.365825, -0.573063, -8.139, 6.212, -2.639)
 fov = 54.4
 size = 10.0
 
@@ -202,12 +216,36 @@ transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 transform = Transform3D(102.576, 0, 0, 0, -4.48373e-06, 102.576, 0, -102.576, -4.48373e-06, -4.3689, -0.393754, 4.35624)
 material_override = ExtResource("7_jjmhe")
 mesh = SubResource("QuadMesh_758sb")
-skeleton = NodePath("../Camera3D")
+skeleton = NodePath("")
 
 [node name="SlagterEnv" parent="Environment" instance=ExtResource("8_pqisq")]
 
 [node name="Plane" parent="Environment/SlagterEnv" index="1"]
 transform = Transform3D(0.349517, 0, 0.156175, 0, 0.382822, 0, -0.156175, 0, 0.349517, 0.685358, 2.21496, 1.16841)
+
+[node name="Cylinder002" parent="Environment/SlagterEnv" index="5"]
+transform = Transform3D(-2.22035e-08, 0, 0.186256, 0, 0.186256, 0, -0.186256, 0, -2.22035e-08, -1.6294, 1.56389, 5.75865)
+
+[node name="Cylinder003" parent="Environment/SlagterEnv" index="6"]
+transform = Transform3D(-0.0231724, -0.0168241, 0.184042, -0.0142162, 0.185095, 0.0151305, -0.184262, -0.0121647, -0.0243121, -1.79044, 1.58225, 5.67883)
+
+[node name="Cylinder004" parent="Environment/SlagterEnv" index="7"]
+transform = Transform3D(0.0273244, 0.0201873, 0.183132, -0.0236232, 0.18399, -0.0167572, -0.18272, -0.0207686, 0.0295524, -2.0284, 1.61117, 5.74865)
+
+[node name="Cylinder005" parent="Environment/SlagterEnv" index="8"]
+transform = Transform3D(-2.22035e-08, 0, 0.186256, 0, 0.186256, 0, -0.186256, 0, -2.22035e-08, -1.24875, 1.60656, 5.58444)
+
+[node name="Cylinder006" parent="Environment/SlagterEnv" index="9"]
+transform = Transform3D(-0.0231724, -0.0168241, 0.184042, -0.0142162, 0.185095, 0.0151305, -0.184262, -0.0121647, -0.0243121, -1.06738, 1.56002, 5.679)
+
+[node name="Cylinder007" parent="Environment/SlagterEnv" index="10"]
+transform = Transform3D(0.0273244, 0.0201873, 0.183132, -0.0236232, 0.18399, -0.0167572, -0.18272, -0.0207686, 0.0295524, -1.41793, 1.62968, 5.69251)
+
+[node name="Hanger002" parent="Environment/SlagterEnv" index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.62669, 2.2536, 5.737)
+
+[node name="Hanger004" parent="Environment/SlagterEnv" index="16"]
+transform = Transform3D(1, 0, 0, 0, 0.998313, -0.058055, 0, 0.058055, 0.998313, -1.21314, 2.2536, 5.737)
 
 [node name="Cylinder010" parent="Environment/SlagterEnv" index="23"]
 visible = false
@@ -222,10 +260,6 @@ camera_attributes = SubResource("CameraAttributesPractical_pybv3")
 [node name="OmniLight3D" type="OmniLight3D" parent="Environment/WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.300884, 0.378211, -1.52068)
 visible = false
-
-[node name="Camera3D" type="Camera3D" parent="Environment"]
-transform = Transform3D(-0.921885, 0.197055, -0.333613, 0.0122234, 0.875379, 0.483282, 0.387272, 0.441453, -0.809407, -7.49, 6.941, -6.917)
-fov = 38.2
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(-4.37114e-08, -0.405094, 0.914275, 0, 0.914275, 0.405094, -1, 1.77072e-08, -3.99642e-08, 2.79373, 2.32947, 0.441298)

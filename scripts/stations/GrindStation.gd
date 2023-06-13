@@ -1,6 +1,7 @@
 class_name GrindStation
 extends Station
 
+@export var spawn_point : Node3D
 var hakket_flæsk_prefab = preload("res://Meats/hakket_flæsk.tscn")
 
 func use():
@@ -8,14 +9,14 @@ func use():
 	
 	if !can_use():
 		return
-		
+
 	var hakket_flæsk = hakket_flæsk_prefab.instantiate()
-	hakket_flæsk.position = occupant.global_position
+	hakket_flæsk.position = spawn_point.global_position
 	get_tree().get_root().add_child(hakket_flæsk)
 	occupant.free()
 
 func can_use():
-	return super.has_occupant() && occupant.can_cut
-	
+	return super.has_occupant() && can_use_item(occupant)
+
 func can_use_item(item):
-	return item.can_cut
+	return item.can_grind

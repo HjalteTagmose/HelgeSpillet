@@ -8,7 +8,7 @@ func use():
 	
 	if !can_use():
 		return
-		
+
 	var flæskesteg = flæskesteg_prefab.instantiate()
 	flæskesteg.position = occupant.global_position
 	get_tree().get_root().add_child(flæskesteg)
