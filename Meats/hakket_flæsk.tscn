@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://fahal60i11ri"]
+[gd_scene load_steps=7 format=3 uid="uid://blpbx87uk1n3v"]
 
-[ext_resource type="PackedScene" uid="uid://dgftqy74eco5t" path="res://Meats/meat.tscn" id="1_c2sne"]
+[ext_resource type="PackedScene" uid="uid://dgftqy74eco5t" path="res://Meats/meat.tscn" id="1_7f4yk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jpffi"]
 size = Vector3(0.514873, 1, 0.501765)
@@ -16,9 +16,8 @@ albedo_color = Color(0.890196, 0.529412, 0.517647, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkfqn"]
 albedo_color = Color(0.721569, 0.32549, 0.329412, 1)
 
-[node name="Flæsk" instance=ExtResource("1_c2sne")]
-can_cut = true
-can_ground = true
+[node name="Hakket Flæsk" instance=ExtResource("1_7f4yk")]
+can_pack = true
 
 [node name="Collision" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.193682, 0)

@@ -6,7 +6,7 @@ var prompt : Prompt = preload("res://prompt.tscn").instantiate()
 func _init():
 	print(prompt)
 	add_child(prompt)
-	
+
 func interact(point):
 	hide_prompt()
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://su7gr0kg3pwy"]
+[gd_scene load_steps=29 format=3 uid="uid://su7gr0kg3pwy"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_66jnj"]
 [ext_resource type="Script" path="res://scripts/stations/CutStation.gd" id="1_i5i0c"]
+[ext_resource type="Script" path="res://scripts/stations/GrindStation.gd" id="2_bwmfc"]
 [ext_resource type="Script" path="res://scripts/player/Interact.gd" id="2_gl7je"]
 [ext_resource type="PackedScene" uid="uid://fahal60i11ri" path="res://Meats/flæsk.tscn" id="3_imjn6"]
 [ext_resource type="PackedScene" uid="uid://d3jcpqhotb6ej" path="res://Meats/mørbrad.tscn" id="4_ogele"]
@@ -85,25 +86,46 @@ visible = false
 material_override = SubResource("StandardMaterial3D_ri566")
 mesh = SubResource("BoxMesh_ml6kj")
 
-[node name="Table" type="StaticBody3D" parent="." node_paths=PackedStringArray("place_point") groups=["usable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75203, 0.730036, 6.89926)
+[node name="CutStation" type="StaticBody3D" parent="." node_paths=PackedStringArray("place_point") groups=["usable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.42508, 0.730036, 6.89926)
 script = ExtResource("1_i5i0c")
 place_point = NodePath("PlacePoint")
 
-[node name="PlacePoint" type="Node3D" parent="Table"]
+[node name="PlacePoint" type="Node3D" parent="CutStation"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 
-[node name="Mesh" type="MeshInstance3D" parent="Table"]
+[node name="Mesh" type="MeshInstance3D" parent="CutStation"]
 mesh = SubResource("BoxMesh_5kqag")
 surface_material_override/0 = SubResource("StandardMaterial3D_ss56x")
 
-[node name="Collision" type="CollisionShape3D" parent="Table"]
+[node name="Collision" type="CollisionShape3D" parent="CutStation"]
 shape = SubResource("BoxShape3D_y561p")
 
-[node name="Trigger" type="Area3D" parent="Table"]
+[node name="Trigger" type="Area3D" parent="CutStation"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="Collider" type="CollisionShape3D" parent="Table/Trigger"]
+[node name="Collider" type="CollisionShape3D" parent="CutStation/Trigger"]
+shape = SubResource("BoxShape3D_y561p")
+
+[node name="GrindStation" type="StaticBody3D" parent="." node_paths=PackedStringArray("place_point") groups=["usable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.543767, 0.730036, 6.89926)
+script = ExtResource("2_bwmfc")
+place_point = NodePath("PlacePoint")
+
+[node name="PlacePoint" type="Node3D" parent="GrindStation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="GrindStation"]
+mesh = SubResource("BoxMesh_5kqag")
+surface_material_override/0 = SubResource("StandardMaterial3D_ss56x")
+
+[node name="Collision" type="CollisionShape3D" parent="GrindStation"]
+shape = SubResource("BoxShape3D_y561p")
+
+[node name="Trigger" type="Area3D" parent="GrindStation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Collider" type="CollisionShape3D" parent="GrindStation/Trigger"]
 shape = SubResource("BoxShape3D_y561p")
 
 [node name="Player" type="CharacterBody3D" parent="."]
@@ -183,6 +205,9 @@ mesh = SubResource("QuadMesh_758sb")
 skeleton = NodePath("../Camera3D")
 
 [node name="SlagterEnv" parent="Environment" instance=ExtResource("8_pqisq")]
+
+[node name="Plane" parent="Environment/SlagterEnv" index="1"]
+transform = Transform3D(0.349517, 0, 0.156175, 0, 0.382822, 0, -0.156175, 0, 0.349517, 0.685358, 2.21496, 1.16841)
 
 [node name="Cylinder010" parent="Environment/SlagterEnv" index="23"]
 visible = false
