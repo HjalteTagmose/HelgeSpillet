@@ -1,3 +1,4 @@
+class_name Interact
 extends Area3D
 
 var held_obj
