@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://su7gr0kg3pwy"]
+[gd_scene load_steps=17 format=3 uid="uid://su7gr0kg3pwy"]
 
+[ext_resource type="PackedScene" uid="uid://cd7m7dcqjhq2p" path="res://station.tscn" id="1_4vqu8"]
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_66jnj"]
 [ext_resource type="Script" path="res://scripts/player/Interact.gd" id="2_gl7je"]
 [ext_resource type="PackedScene" uid="uid://fahal60i11ri" path="res://Meats/flæsk.tscn" id="3_imjn6"]
@@ -19,6 +20,7 @@ size = Vector3(60, 2, 60)
 size = Vector3(0.920606, 1.98684, 1.61669)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k8g0v"]
+height = 1.72576
 
 [sub_resource type="SphereMesh" id="SphereMesh_dc7a4"]
 radius = 0.2
@@ -44,6 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00629854, -1.19209e-07, 0.0
 [node name="Ground" type="StaticBody3D" parent="."]
 
 [node name="Collision" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_g0p8o")
 
 [node name="Mesh" type="MeshInstance3D" parent="Ground"]
@@ -51,8 +54,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 material_override = SubResource("StandardMaterial3D_ri566")
 mesh = SubResource("BoxMesh_ml6kj")
 
+[node name="Station" parent="." instance=ExtResource("1_4vqu8")]
+
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.720612, 0)
 script = ExtResource("1_66jnj")
 
 [node name="Interaction" type="Area3D" parent="Player"]
@@ -66,6 +71,7 @@ shape = SubResource("BoxShape3D_rarjo")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.05181)
 
 [node name="Collision" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.163867, 0)
 shape = SubResource("CapsuleShape3D_k8g0v")
 
 [node name="Mesh" type="Node3D" parent="Player"]

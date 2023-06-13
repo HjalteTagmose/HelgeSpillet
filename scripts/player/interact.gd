@@ -29,7 +29,7 @@ func _process(delta):
 
 func interact(interactable):
 	print("pickup: ", interactable)
-	interactable.interact(pickup_point)
+	interactable.pickup(pickup_point)
 	held_obj = interactable
 
 func drop():

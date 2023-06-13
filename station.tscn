@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd7m7dcqjhq2p"]
+
+[ext_resource type="Script" path="res://station.gd" id="1_jrdm0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y561p"]
+size = Vector3(1.5, 0.5, 1.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5kqag"]
+size = Vector3(1.5, 0.5, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ss56x"]
+albedo_color = Color(0.282353, 0.282353, 0.282353, 1)
+
+[node name="Station" type="Area3D" node_paths=PackedStringArray("place_point")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55744, 0.75, 2.19392)
+script = ExtResource("1_jrdm0")
+place_point = NodePath("PlacePoint")
+
+[node name="Trigger" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_y561p")
+
+[node name="PlacePoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+
+[node name="Table" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Table"]
+mesh = SubResource("BoxMesh_5kqag")
+surface_material_override/0 = SubResource("StandardMaterial3D_ss56x")
+
+[node name="Collision" type="CollisionShape3D" parent="Table"]
+shape = SubResource("BoxShape3D_y561p")

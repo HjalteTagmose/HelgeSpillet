@@ -16,8 +16,10 @@ canHak = true
 canPak = true
 
 [node name="Collision" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.150086, 0)
 shape = SubResource("CylinderShape3D_y5163")
 
 [node name="Mesh" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.150086, 0)
 mesh = SubResource("CylinderMesh_lcikl")
 surface_material_override/0 = SubResource("StandardMaterial3D_8lalr")
