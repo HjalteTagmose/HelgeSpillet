@@ -26,6 +26,7 @@ func _process(delta):
 			for body in bodies:
 				if body.is_in_group("interactable"):
 					interact(body)
+					return
 
 func interact(interactable):
 	print("pickup: ", interactable)

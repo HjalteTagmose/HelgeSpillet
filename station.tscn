@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cd7m7dcqjhq2p"]
 
-[ext_resource type="Script" path="res://station.gd" id="1_jrdm0"]
+[ext_resource type="Script" path="res://scripts/Station.gd" id="1_t2wri"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y561p"]
 size = Vector3(1.5, 0.5, 1.5)
@@ -13,7 +13,7 @@ albedo_color = Color(0.282353, 0.282353, 0.282353, 1)
 
 [node name="Station" type="Area3D" node_paths=PackedStringArray("place_point")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55744, 0.75, 2.19392)
-script = ExtResource("1_jrdm0")
+script = ExtResource("1_t2wri")
 place_point = NodePath("PlacePoint")
 
 [node name="Trigger" type="CollisionShape3D" parent="."]

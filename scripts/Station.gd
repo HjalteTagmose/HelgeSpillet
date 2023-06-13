@@ -2,6 +2,7 @@ class_name Station
 extends Area3D
 
 @export var place_point : Node3D
+var is_full = false
 
 func _ready():
 	body_entered.connect(on_body_entered)
@@ -12,3 +13,4 @@ func on_body_entered(body):
 		body.is_held = false
 		body.freeze = false
 		body.collision_layer = 1
+		is_full = true
