@@ -4,7 +4,6 @@ extends StaticBody3D
 @export var place_point : Node3D
 var trigger : Area3D
 var occupant
-var can_be_used = false
 
 func _ready():
 	trigger = get_node("Trigger")
@@ -21,7 +20,7 @@ func on_body_entered(body):
 	if has_occupant():
 		return
 	
-	if body.is_in_group("interactable") && !body.is_held:
+	if body.is_in_group("interactable") && !body.is_held && can_use_item(body):
 		body.pickup(place_point)
 		body.is_held = false
 		body.freeze = false
@@ -34,3 +33,6 @@ func use():
 func has_occupant():
 #	print("occupant: ", occupant)
 	return occupant != null
+
+func can_use_item(item):
+	return false

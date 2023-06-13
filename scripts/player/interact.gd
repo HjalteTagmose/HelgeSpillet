@@ -49,7 +49,7 @@ func drop():
 	held_obj = null
 
 func use(usable):
-	print("tried to use: ", usable)
+	usable.use()
 
 func holding_object():
 	return held_obj != null

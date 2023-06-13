@@ -1,9 +1,9 @@
 class_name Meat
 extends Pickupable
 
-@export var canCut = false
-@export var canHak = false
-@export var canPak = false
+@export var can_cut = false
+@export var can_pack = false
+@export var can_ground = false
 
 enum MeatType
 { 

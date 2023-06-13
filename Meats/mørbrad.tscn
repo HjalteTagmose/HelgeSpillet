@@ -12,8 +12,8 @@ height = 0.3
 albedo_color = Color(0.647059, 0.321569, 0.313726, 1)
 
 [node name="Mørbrad" instance=ExtResource("1_g7qf6")]
-canHak = true
-canPak = true
+can_pack = true
+can_ground = true
 
 [node name="Collision" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.150086, 0)
