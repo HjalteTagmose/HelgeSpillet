@@ -13,7 +13,7 @@ func _ready():
 func _process(delta):
 	if !has_occupant():
 		return
-	
+
 	if occupant.is_held:
 		occupant = null
 
