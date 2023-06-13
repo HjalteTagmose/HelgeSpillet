@@ -16,7 +16,7 @@ func _process(delta):
 	
 	if occupant.is_held:
 		occupant = null
-	
+
 func on_body_entered(body):
 	if has_occupant():
 		return
