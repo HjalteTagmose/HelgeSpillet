@@ -1,9 +1,9 @@
 extends Area3D
 
 var camera
-var speed = 5
+var speed = 2.5
 var main_pos
-var sec_pos = Vector3(0,1,0)
+@export var sec_pos : Vector3
 
 var end_pos
 var go = false
@@ -16,14 +16,14 @@ func _ready():
 	end_pos = main_pos
 	
 func _process(delta):
-	var t = clamp(delta * speed * 1 if go else -1, 0.0, 1.0)
+	var t = (delta * speed)
 	camera.global_position = lerp(camera.global_position, end_pos, t)
 	pass
 	
 func on_body_entered(body):
 	var name = body.name 
-	end_pos = sec_pos
 	if name.begins_with("Player"):
+		end_pos = sec_pos
 		print("move cam to: ", end_pos)
 		go = true
 		

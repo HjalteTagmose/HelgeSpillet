@@ -66,7 +66,7 @@ height = 1.0
 [sub_resource type="Curve3D" id="Curve3D_mba5a"]
 bake_interval = 0.1
 _data = {
-"points": PackedVector3Array(0.0586872, 0, -1.54055, -0.0586872, 0, 1.54055, 3.25556, 1.19209e-07, -3.47191, 1.11507, 0, -0.029344, -1.11507, 0, 0.029344, 2.28721, 1.19209e-07, -1.12441, 0.806956, 0, 0.425486, -0.806956, 0, -0.425486, 0.179363, -0.0657142, -1.59683, 0.586877, 0, 0.0146719, -0.586877, 0, -0.0146719, -1.38764, 0.178582, -2.01981, 1.99192, 0.282477, -0.0921996, -1.99192, -0.282477, 0.0921996, -6.30357, 0.0618836, -1.9718),
+"points": PackedVector3Array(0.310878, 0, 5.28488, -0.310878, 0, -5.28488, 8.17588, 1.19209e-07, 6.02069, 1.11507, 0, -0.029344, -1.11507, 0, 0.029344, 2.28721, 1.19209e-07, -1.12441, 0.806956, 0, 0.425486, -0.806956, 0, -0.425486, 0.179, 0, -1.597, 0.586877, 0, 0.0146719, -0.586877, 0, -0.0146719, -1.388, 0, -2.02, 1.992, 0, -0.092, -1.99192, -0.282477, 0.0921996, -6.304, 0, -1.972),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
@@ -91,7 +91,7 @@ size = Vector3(25.2673, 11.64, 1)
 size = Vector3(3.679, 11.415, 7.948)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_51qds"]
-size = Vector3(16.0706, 12.9963, 11.5721)
+size = Vector3(30.8476, 12.9963, 11.5721)
 
 [node name="root" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00629854, -1.19209e-07, 0.00031352)
@@ -232,7 +232,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(-1, -6.65758e-08, 5.66605e-08, 0, 0.64812, 0.761539, -8.74228e-08, 0.761538, -0.64812, -1.683, 9.731, -4.896)
-fov = 44.4
+fov = 47.0
 size = 10.0
 
 [node name="Light" type="DirectionalLight3D" parent="."]
@@ -341,9 +341,10 @@ shape = SubResource("BoxShape3D_omv3x")
 
 [node name="CamTrigger" type="Area3D" parent="."]
 script = ExtResource("14_sqa7d")
+sec_pos = Vector3(-8.35, 9.75, -7)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CamTrigger"]
-transform = Transform3D(0.928174, 0, 0.372146, 0, 1, 0, -0.372146, 0, 0.928174, -4.40457, 0, -7.19823)
+transform = Transform3D(0.676529, 0, 0.736416, 0, 1, 0, -0.736416, 0, 0.676529, -10.0419, 0, -4.51403)
 shape = SubResource("BoxShape3D_51qds")
 
 [editable path="Environment/SlagterEnv"]
