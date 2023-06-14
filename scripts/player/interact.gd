@@ -1,7 +1,9 @@
 class_name Interact
 extends Area3D
 
-signal picked_up_obj
+signal picked_up_meat
+signal dropped_meat
+
 var held_obj
 var pickup_point
 
@@ -19,13 +21,22 @@ func on_body_exited(body):
 		body.hide_prompt()
 
 func _process(delta):
+
+	var customer = get_first_overlap_in_group("customer")
+	print(customer)
+
 	if Input.is_action_just_pressed("interact"):
 		if holding_object():
+			customer = get_first_overlap_in_group("customer")
+			if customer != null:
+				if customer.wants(held_obj):
+					customer.give(held_obj)
 			drop()
 		else:
 			var body = get_first_overlap_in_group("interactable")
 			if body != null:
 				interact(body)
+				return
 
 	if Input.is_action_just_pressed("use"):
 		if holding_object():
@@ -42,10 +53,14 @@ func interact(interactable):
 	
 	print("pickup: ", interactable)
 	interactable.pickup(pickup_point)
+	picked_up_meat.emit(interactable)
 	held_obj = interactable
 
 func drop():
 	print("drop: ", held_obj)
+	dropped_meat.emit()
+	if held_obj == null:
+		return
 	held_obj.drop()
 	held_obj = null
 
