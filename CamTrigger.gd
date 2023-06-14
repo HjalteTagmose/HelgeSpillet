@@ -21,15 +21,13 @@ func _process(delta):
 	pass
 	
 func on_body_entered(body):
-	var name = body.name 
-	if name.begins_with("Player"):
+	if body.name.begins_with("Player"):
 		end_pos = sec_pos
 		print("move cam to: ", end_pos)
 		go = true
 		
 func on_body_exited(body):
-	var name = body.name 
-	if name.begins_with("Player"):
+	if body.name.begins_with("Player"):
 		end_pos = main_pos
 		print("move cam to: ", end_pos)
 		go = false

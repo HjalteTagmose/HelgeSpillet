@@ -1,5 +1,4 @@
-class_name Pickupable
-extends Interactable
+class_name Pickupable extends Interactable
 
 var is_held = false
 

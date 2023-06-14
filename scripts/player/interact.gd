@@ -20,7 +20,7 @@ func on_body_exited(body):
 	if body.is_in_group("interactable"):
 		body.hide_prompt()
 
-func _process(delta):
+func _process(_delta):
 	var customer = get_first_overlap_in_group("customer")
 	if customer != null && holding_object():
 		customer = customer.get_parent()

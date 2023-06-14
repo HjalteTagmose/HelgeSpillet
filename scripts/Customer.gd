@@ -4,7 +4,7 @@ extends PathFollow3D
 signal on_leave
 
 @export var order : Meat.Type
-var prompt : Prompt = preload("res://prompt.tscn").instantiate()
+var prompt : Prompt = preload("res://Prefabs/prompt.tscn").instantiate()
 
 var goal = 0
 var speed = 3

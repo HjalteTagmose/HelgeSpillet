@@ -1,7 +1,7 @@
 class_name CutStation
 extends Station
 
-var flæskesteg_prefab = preload("res://Meats/flæskesteg.tscn")
+var flæskesteg_prefab = preload("res://Prefabs/Meats/flæskesteg.tscn")
 
 func use():
 	super.use()

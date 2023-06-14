@@ -1,4 +1,4 @@
-class_name Meat
+class_name Meat 
 extends Pickupable
 
 @export var can_cut = false

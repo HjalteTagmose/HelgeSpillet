@@ -5,7 +5,7 @@ extends StaticBody3D
 @export var spawn_point : Node3D
 @export var prompt_offset : Vector3
 
-var prompt : Prompt = preload("res://prompt.tscn").instantiate()
+var prompt : Prompt = preload("res://Prefabs/prompt.tscn").instantiate()
 var trigger : Area3D
 var occupant
 
@@ -15,7 +15,7 @@ func _ready():
 	prompt.text = "Z"
 	add_child(prompt)
 
-func _process(delta):
+func _process(_delta):
 	if !has_occupant():
 		prompt.hide()
 		return

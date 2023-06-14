@@ -1,7 +1,7 @@
 class_name GrindStation
 extends Station
 
-var hakket_flæsk_prefab = preload("res://Meats/hakket_flæsk.tscn")
+var hakket_flæsk_prefab = preload("res://Prefabs/Meats/hakket_flæsk.tscn")
 
 func use():
 	super.use()

@@ -1,9 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdecrlwxfxnli"]
+[gd_scene load_steps=3 format=3 uid="uid://bdecrlwxfxnli"]
 
-[ext_resource type="Script" path="res://scripts/prompt.gd" id="1_fuggp"]
+[ext_resource type="Script" path="res://scripts/ui/order.gd" id="1_1sf7k"]
 
-[node name="Prompt" type="Label"]
-offset_right = 40.0
-offset_bottom = 26.0
+[sub_resource type="LabelSettings" id="LabelSettings_dekjn"]
+
+[node name="Order" type="Panel"]
+offset_right = 131.0
+offset_bottom = 48.0
+script = ExtResource("1_1sf7k")
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "iwantsomethin'"
-script = ExtResource("1_fuggp")
+label_settings = SubResource("LabelSettings_dekjn")
+horizontal_alignment = 3
+vertical_alignment = 3

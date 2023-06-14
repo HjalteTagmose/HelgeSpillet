@@ -1,9 +1,9 @@
 class_name PackStation
 extends Station
 
-var pakket_flæskesteg_prefab = preload("res://Meats/pakket_flæskesteg.tscn")
-var pakket_svinekød_prefab = preload("res://Meats/pakket_hakket_flæsk.tscn")
-var pakket_mørbrad_prefab = preload("res://Meats/pakket_mørbrad.tscn")
+var pakket_flæskesteg_prefab = preload("res://Prefabs/Meats/pakket_flæskesteg.tscn")
+var pakket_svinekød_prefab = preload("res://Prefabs/Meats/pakket_hakket_flæsk.tscn")
+var pakket_mørbrad_prefab = preload("res://Prefabs/Meats/pakket_mørbrad.tscn")
 
 func use():
 	super.use()
