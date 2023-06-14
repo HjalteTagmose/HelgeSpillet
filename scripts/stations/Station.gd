@@ -2,7 +2,7 @@ class_name Station
 extends StaticBody3D
 
 @export var place_point : Node3D
-@export var offset : Vector3
+@export var prompt_offset : Vector3
 
 var prompt : Prompt = preload("res://prompt.tscn").instantiate()
 var trigger : Area3D
@@ -11,7 +11,7 @@ var occupant
 func _ready():
 	trigger = get_node("Trigger")
 	trigger.body_entered.connect(on_body_entered)
-	prompt.text = "z"
+	prompt.text = "Z"
 	add_child(prompt)
 	
 func _process(delta):
@@ -21,14 +21,12 @@ func _process(delta):
 
 	if occupant.is_held:
 		occupant = null
+		prompt.hide()
 		return
 		
-	var camera = get_viewport().get_camera_3d()
-	var world_position = get_global_position() + offset
-	var screen_position = camera.unproject_position(world_position)
-	prompt.set_position(screen_position)
+	prompt.set_pos(global_position, prompt_offset)
 	prompt.show()
-
+		
 func on_body_entered(body):
 	if has_occupant():
 		return
