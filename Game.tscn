@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://su7gr0kg3pwy"]
+[gd_scene load_steps=35 format=3 uid="uid://su7gr0kg3pwy"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_66jnj"]
 [ext_resource type="Script" path="res://scripts/stations/CutStation.gd" id="1_i5i0c"]
@@ -9,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://d3jcpqhotb6ej" path="res://Meats/mørbrad.tscn" id="4_ogele"]
 [ext_resource type="PackedScene" uid="uid://bijcc8oxg6pde" path="res://Meats/spegepølse.tscn" id="5_yxbex"]
 [ext_resource type="Material" uid="uid://d0wi6lghk43v2" path="res://Assets/M_Black.tres" id="7_jjmhe"]
-[ext_resource type="Script" path="res://Customer.gd" id="8_p43rp"]
 [ext_resource type="PackedScene" uid="uid://bh5iio6ew0317" path="res://Assets/SlagterEnv/SlagterEnv.blend" id="8_pqisq"]
+[ext_resource type="Script" path="res://CustomerManager.gd" id="8_xv5vf"]
+[ext_resource type="PackedScene" uid="uid://cbx4lglyxnq2" path="res://kunde.tscn" id="9_7rkjk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g0p8o"]
 size = Vector3(60, 2, 60)
@@ -61,19 +62,12 @@ material = SubResource("StandardMaterial3D_im5qx")
 height = 1.0
 
 [sub_resource type="Curve3D" id="Curve3D_mba5a"]
+bake_interval = 0.1
 _data = {
-"points": PackedVector3Array(0.0586872, 0, -1.54055, -0.0586872, 0, 1.54055, 3.25556, 1.19209e-07, -3.47191, 1.11507, 0, -0.029344, -1.11507, 0, 0.029344, 2.28721, 1.19209e-07, -1.12441, 0.806956, 0, 0.425486, -0.806956, 0, -0.425486, -0.587797, 1.19209e-07, -1.72637, 0.586877, 0, 0.0146719, -0.586877, 0, -0.0146719, -2.24572, 1.19209e-07, -2.73873, -0.0586877, 0, -1.48186, 0.0586877, 0, 1.48186, -5.12142, 1.19209e-07, -1.68235),
+"points": PackedVector3Array(0.0586872, 0, -1.54055, -0.0586872, 0, 1.54055, 3.25556, 1.19209e-07, -3.47191, 1.11507, 0, -0.029344, -1.11507, 0, 0.029344, 2.28721, 1.19209e-07, -1.12441, 0.806956, 0, 0.425486, -0.806956, 0, -0.425486, 0.179363, -0.0657142, -1.59683, 0.586877, 0, 0.0146719, -0.586877, 0, -0.0146719, -1.38764, 0.178582, -2.01981, 1.99192, 0.282477, -0.0921996, -1.99192, -0.282477, 0.0921996, -6.30357, 0.0618836, -1.9718),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_murst"]
-albedo_color = Color(1, 0.317647, 0.239216, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_23c3v"]
-material = SubResource("StandardMaterial3D_murst")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_yo4an"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_758sb"]
 
@@ -226,8 +220,8 @@ mesh = SubResource("CapsuleMesh_6i5hc")
 skeleton = NodePath("../../../Ground")
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(-0.679571, 0.419583, -0.601776, 0.0203028, 0.830736, 0.556296, 0.733329, 0.365825, -0.573063, -8.139, 6.212, -2.639)
-fov = 54.4
+transform = Transform3D(-1, -6.65758e-08, 5.66605e-08, 0, 0.64812, 0.761539, -8.74228e-08, 0.761538, -0.64812, -1.683, 9.731, -4.896)
+fov = 44.4
 size = 10.0
 
 [node name="Light" type="DirectionalLight3D" parent="."]
@@ -246,100 +240,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.34947, 1, -0.304139)
 [node name="Mørbrad" parent="." instance=ExtResource("4_ogele")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.299078, 1, 3.40022)
 
-[node name="Path3D" type="Path3D" parent="."]
+[node name="Kunder" type="Path3D" parent="."]
 curve = SubResource("Curve3D_mba5a")
-
-[node name="Kunde2" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.0653026, 0, -0.997858, 0, 1, 0, 0.997858, 0, -0.0653026, 1.60783, 1.19209e-07, -1.13677)
-progress = 3.59731
-script = ExtResource("8_p43rp")
-p = 0.3
-
-[node name="RigidBody3D" type="RigidBody3D" parent="Path3D/Kunde2"]
-transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 0, 0.707757, 0)
-mass = 25.0
-freeze_mode = 1
-
-[node name="Collision" type="CollisionShape3D" parent="Path3D/Kunde2/RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.163867, 0)
-shape = SubResource("CapsuleShape3D_k8g0v")
-
-[node name="Mesh" type="Node3D" parent="Path3D/Kunde2"]
-transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 0, 0.707757, 0)
-
-[node name="Arm_R" type="MeshInstance3D" parent="Path3D/Kunde2/Mesh"]
-transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -0.3, 0.1, 0.6)
-mesh = SubResource("SphereMesh_dc7a4")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_0kynb")
-
-[node name="Arm_L" type="MeshInstance3D" parent="Path3D/Kunde2/Mesh"]
-transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0.3, 0.1, 0.6)
-mesh = SubResource("SphereMesh_dc7a4")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_0kynb")
-
-[node name="Head" type="MeshInstance3D" parent="Path3D/Kunde2/Mesh"]
-transform = Transform3D(1, 0, 0, 0, 0.881176, 0, 0, 0, 1, 0, 0.759989, 0)
-mesh = SubResource("SphereMesh_fxxnc")
-skeleton = NodePath("../Body")
-surface_material_override/0 = SubResource("StandardMaterial3D_0kynb")
-
-[node name="Body" type="MeshInstance3D" parent="Path3D/Kunde2/Mesh"]
-transform = Transform3D(1, 0, 0, 0, 1.17269, 0, 0, 0, 1, 0, -0.10458, 0)
-mesh = SubResource("SphereMesh_23c3v")
-skeleton = NodePath("../../../../Ground")
-
-[node name="Trigger" type="Area3D" parent="Path3D/Kunde2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.707757, 1.02766)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/Kunde2/Trigger"]
-shape = SubResource("BoxShape3D_yo4an")
-
-[node name="Kunde" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.999268, 0, -0.038067, 0, 1, 0, 0.038067, 0, 0.999268, 3.25556, 1.19209e-07, -3.47191)
-script = ExtResource("8_p43rp")
-
-[node name="RigidBody3D" type="RigidBody3D" parent="Path3D/Kunde"]
-transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 0, 0.707757, 0)
-mass = 25.0
-freeze_mode = 1
-
-[node name="Collision" type="CollisionShape3D" parent="Path3D/Kunde/RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.163867, 0)
-shape = SubResource("CapsuleShape3D_k8g0v")
-
-[node name="Mesh" type="Node3D" parent="Path3D/Kunde"]
-transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 0, 0.707757, 0)
-
-[node name="Arm_R" type="MeshInstance3D" parent="Path3D/Kunde/Mesh"]
-transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -0.3, 0.1, 0.6)
-mesh = SubResource("SphereMesh_dc7a4")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_0kynb")
-
-[node name="Arm_L" type="MeshInstance3D" parent="Path3D/Kunde/Mesh"]
-transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0.3, 0.1, 0.6)
-mesh = SubResource("SphereMesh_dc7a4")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_0kynb")
-
-[node name="Head" type="MeshInstance3D" parent="Path3D/Kunde/Mesh"]
-transform = Transform3D(1, 0, 0, 0, 0.881176, 0, 0, 0, 1, 0, 0.759989, 0)
-mesh = SubResource("SphereMesh_fxxnc")
-skeleton = NodePath("../Body")
-surface_material_override/0 = SubResource("StandardMaterial3D_0kynb")
-
-[node name="Body" type="MeshInstance3D" parent="Path3D/Kunde/Mesh"]
-transform = Transform3D(1, 0, 0, 0, 1.17269, 0, 0, 0, 1, 0, -0.10458, 0)
-mesh = SubResource("SphereMesh_23c3v")
-skeleton = NodePath("../../../../Ground")
-
-[node name="Trigger" type="Area3D" parent="Path3D/Kunde"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.707757, 1.02766)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/Kunde/Trigger"]
-shape = SubResource("BoxShape3D_yo4an")
+script = ExtResource("8_xv5vf")
+prefab = ExtResource("9_7rkjk")
 
 [node name="Spegepølse" parent="." instance=ExtResource("5_yxbex")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.82179, 1, 1.50831)
@@ -381,12 +285,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.62669, 2.2536, 5.737)
 
 [node name="Hanger004" parent="Environment/SlagterEnv" index="16"]
 transform = Transform3D(1, 0, 0, 0, 0.998313, -0.058055, 0, 0.058055, 0.998313, -1.21314, 2.2536, 5.737)
-
-[node name="Cylinder010" parent="Environment/SlagterEnv" index="23"]
-visible = false
-
-[node name="Floor008" parent="Environment/SlagterEnv" index="26"]
-visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
 environment = SubResource("Environment_yh588")

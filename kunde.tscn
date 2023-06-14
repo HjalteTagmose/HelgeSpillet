@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbx4lglyxnq2"]
+
+[ext_resource type="Script" path="res://Customer.gd" id="1_blq3y"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k8g0v"]
+height = 1.72576
+
+[sub_resource type="SphereMesh" id="SphereMesh_dc7a4"]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0kynb"]
+albedo_color = Color(1, 0.611765, 0.509804, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_fxxnc"]
+radius = 0.4
+height = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_murst"]
+albedo_color = Color(1, 0.317647, 0.239216, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_23c3v"]
+material = SubResource("StandardMaterial3D_murst")
+
+[node name="Kunde" type="PathFollow3D"]
+transform = Transform3D(0.999268, 0, -0.0380671, 0, 1, 0, 0.0380671, 0, 0.999268, 3.25556, 1.19209e-07, -3.47191)
+script = ExtResource("1_blq3y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Collision" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 0, 0.871624, 0)
+shape = SubResource("CapsuleShape3D_k8g0v")
+
+[node name="Mesh" type="Node3D" parent="."]
+transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 0, 0.707757, 0)
+
+[node name="Arm_R" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -0.3, 0.1, 0.6)
+mesh = SubResource("SphereMesh_dc7a4")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_0kynb")
+
+[node name="Arm_L" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0.3, 0.1, 0.6)
+mesh = SubResource("SphereMesh_dc7a4")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_0kynb")
+
+[node name="Head" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 0.881176, 0, 0, 0, 1, 0, 0.759989, 0)
+mesh = SubResource("SphereMesh_fxxnc")
+skeleton = NodePath("../Body")
+surface_material_override/0 = SubResource("StandardMaterial3D_0kynb")
+
+[node name="Body" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1.17269, 0, 0, 0, 1, 0, -0.10458, 0)
+mesh = SubResource("SphereMesh_23c3v")
+skeleton = NodePath("../../../../Ground")
