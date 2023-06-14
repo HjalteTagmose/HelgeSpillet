@@ -1,25 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnwetn36o4ein"]
+[gd_scene load_steps=5 format=3 uid="uid://dnwetn36o4ein"]
 
-[ext_resource type="Material" uid="uid://d0wi6lghk43v2" path="res://Assets/M_Black.tres" id="1_au8qg"]
 [ext_resource type="PackedScene" uid="uid://bh5iio6ew0317" path="res://Assets/SlagterEnv/SlagterEnv.blend" id="1_yywbi"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_758sb"]
+[ext_resource type="PackedScene" uid="uid://bvthbv83f1wu" path="res://Assets/Figurer/SM_HelgeFigur.obj" id="3_x5bix"]
 
 [sub_resource type="Environment" id="Environment_yh588"]
+background_mode = 1
+background_color = Color(0.364706, 0.6, 0.721569, 1)
+background_energy_multiplier = 0.66
 ambient_light_source = 2
-ambient_light_color = Color(0.87451, 0.87451, 0.87451, 1)
-ambient_light_energy = 1.21
+ambient_light_color = Color(0.882353, 0.941176, 1, 1)
+reflected_light_source = 1
+tonemap_mode = 2
+tonemap_white = 0.79
 ssao_enabled = true
+ssao_intensity = 3.01
+glow_bloom = 0.12
+fog_light_color = Color(0.239216, 0.360784, 0.521569, 1)
+fog_light_energy = 1.84
+fog_sun_scatter = 0.41
+fog_density = 0.0
+fog_sky_affect = 0.809
+fog_height = 6.82
+fog_height_density = -0.0118
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_pybv3"]
 
 [node name="Environment" type="Node3D"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(102.576, 0, 0, 0, -4.48373e-06, 102.576, 0, -102.576, -4.48373e-06, -4.3689, -0.393754, 4.35624)
-material_override = ExtResource("1_au8qg")
-mesh = SubResource("QuadMesh_758sb")
-skeleton = NodePath("../Camera3D")
 
 [node name="SlagterEnv" parent="." instance=ExtResource("1_yywbi")]
 
@@ -30,16 +36,19 @@ visible = false
 environment = SubResource("Environment_yh588")
 camera_attributes = SubResource("CameraAttributesPractical_pybv3")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.300884, 0.378211, -1.52068)
-visible = false
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.68962, 0.343811, -0.637353, 0, 0.880113, 0.474764, 0.724172, 0.327407, -0.606943, -12.4752, 9.32675, -6.97557)
+fov = 38.2
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(-1, 4.64977e-08, -7.40318e-08, 0, 0.846825, 0.531872, 8.74228e-08, 0.531872, -0.846825, -2.47011, 6.92597, -7.48968)
 fov = 38.2
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-4.37114e-08, -0.405094, 0.914275, 0, 0.914275, 0.405094, -1, 1.77072e-08, -3.99642e-08, 2.79373, 2.32947, 0.441298)
 visible = false
+
+[node name="SM_HelgeFigur" parent="." instance=ExtResource("3_x5bix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70406, 0, 2.70353)
 
 [editable path="SlagterEnv"]

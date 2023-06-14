@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dof2vlln7ifjl"]
+
+[ext_resource type="Texture2D" uid="uid://3e5abyhtnt1s" path="res://Assets/Figurer/Textures/t_HelgeFigur.png" id="1_jxspy"]
+
+[resource]
+albedo_texture = ExtResource("1_jxspy")
+texture_filter = 0

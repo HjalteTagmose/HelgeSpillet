@@ -6,6 +6,7 @@
 albedo_texture = ExtResource("1_wgb0v")
 metallic = 0.53
 metallic_specular = 1.0
+roughness = 0.43
 ao_enabled = true
 ao_light_affect = 0.39
 texture_filter = 0
