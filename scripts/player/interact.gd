@@ -21,14 +21,11 @@ func on_body_exited(body):
 		body.hide_prompt()
 
 func _process(delta):
-
-	var customer = get_first_overlap_in_group("customer")
-	print(customer)
-
 	if Input.is_action_just_pressed("interact"):
 		if holding_object():
-			customer = get_first_overlap_in_group("customer")
+			var customer = get_first_overlap_in_group("customer")
 			if customer != null:
+				customer = customer.get_parent()
 				if customer.wants(held_obj):
 					customer.give(held_obj)
 			drop()

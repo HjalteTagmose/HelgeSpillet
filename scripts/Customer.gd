@@ -1,11 +1,14 @@
 class_name Customer
 extends PathFollow3D
 
+signal on_leave
+
 @export var order : Meat.Type
 var prompt : Prompt = preload("res://prompt.tscn").instantiate()
 
 var goal = 0
 var speed = 3
+var num = 0
 
 func _ready():
 	var interaction = get_tree().get_root().get_node("root").get_node("Player").get_node("Interaction")
@@ -30,7 +33,11 @@ func wants(meat):
 func give(meat):
 	print("got meat")
 	meat.free()
-	self.free()
+	leave()
+
+func leave():
+	on_leave.emit(num)
+	queue_free();
 
 func update_prompt(meat):
 	if wants(meat):
