@@ -1,7 +1,7 @@
 class_name Interactable 
 extends RigidBody3D
 
-var prompt : Prompt = preload("res://prompt.tscn").instantiate()
+var prompt : Prompt = preload("res://Prefabs/prompt.tscn").instantiate()
 
 func _init():
 	print(prompt)
