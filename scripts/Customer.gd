@@ -11,10 +11,10 @@ var speed = 3
 var num = 0
 
 func _ready():
-	var interaction = get_tree().get_root().get_node("root").get_node("Player").get_node("Interaction")
-	interaction.picked_up_meat.connect(update_prompt)
-	interaction.dropped_meat.connect(prompt.hide)
-	
+#	var interaction = get_tree().get_root().get_node("root").get_node("Player").get_node("Interaction")
+#	interaction.picked_up_meat.connect(update_prompt)
+#	interaction.dropped_meat.connect(prompt.hide)
+
 	speed += randf_range(-0.1 * speed, 0.1 * speed)
 	add_child(prompt)
 	prompt.hide()
