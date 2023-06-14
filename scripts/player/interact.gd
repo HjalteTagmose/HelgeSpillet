@@ -46,6 +46,7 @@ func _process(delta):
 		print(body)
 		if body != null:
 			use(body)
+			print(body)
 
 func interact(interactable):
 	if holding_object():

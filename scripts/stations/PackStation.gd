@@ -17,6 +17,7 @@ func use():
 		Meat.Type.FLÆSKESTEG:
 			spawn(pakket_flæskesteg_prefab)
 		Meat.Type.HAKKET_SVINEKØD:
+			print("pakket_svinekød")
 			spawn(pakket_svinekød_prefab)
 
 func can_use_item(item):

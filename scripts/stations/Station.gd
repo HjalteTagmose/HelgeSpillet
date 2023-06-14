@@ -55,6 +55,6 @@ func can_use():
 func spawn(prefab):
 	print("spawn")
 	var obj = prefab.instantiate()
-	obj.global_position = spawn_point.global_position
 	get_tree().get_root().add_child(obj)
+	obj.global_position = spawn_point.global_position
 	occupant.free()

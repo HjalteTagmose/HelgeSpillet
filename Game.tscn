@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://su7gr0kg3pwy"]
+[gd_scene load_steps=36 format=3 uid="uid://su7gr0kg3pwy"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_66jnj"]
 [ext_resource type="Script" path="res://scripts/stations/CutStation.gd" id="1_i5i0c"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://fahal60i11ri" path="res://Meats/flæsk.tscn" id="3_imjn6"]
 [ext_resource type="PackedScene" uid="uid://d3jcpqhotb6ej" path="res://Meats/mørbrad.tscn" id="4_ogele"]
 [ext_resource type="PackedScene" uid="uid://bijcc8oxg6pde" path="res://Meats/spegepølse.tscn" id="5_yxbex"]
+[ext_resource type="PackedScene" uid="uid://bvthbv83f1wu" path="res://Assets/Figurer/SM_HelgeFigur.obj" id="6_enwq1"]
 [ext_resource type="Material" uid="uid://d0wi6lghk43v2" path="res://Assets/M_Black.tres" id="7_jjmhe"]
 [ext_resource type="Script" path="res://scripts/CustomerManager.gd" id="8_7ecmo"]
 [ext_resource type="PackedScene" uid="uid://bh5iio6ew0317" path="res://Assets/SlagterEnv/SlagterEnv.blend" id="8_pqisq"]
@@ -194,30 +195,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.05181)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.163867, 0)
 shape = SubResource("CapsuleShape3D_k8g0v")
 
-[node name="Mesh" type="Node3D" parent="Player"]
+[node name="old" type="Node3D" parent="Player"]
+visible = false
 
-[node name="Arm_R" type="MeshInstance3D" parent="Player/Mesh"]
+[node name="Arm_R" type="MeshInstance3D" parent="Player/old"]
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -0.3, 0.1, 0.6)
 mesh = SubResource("SphereMesh_dc7a4")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_0kynb")
 
-[node name="Arm_L" type="MeshInstance3D" parent="Player/Mesh"]
+[node name="Arm_L" type="MeshInstance3D" parent="Player/old"]
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0.3, 0.1, 0.6)
 mesh = SubResource("SphereMesh_dc7a4")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_0kynb")
 
-[node name="Head" type="MeshInstance3D" parent="Player/Mesh"]
+[node name="Head" type="MeshInstance3D" parent="Player/old"]
 transform = Transform3D(1, 0, 0, 0, 0.881176, 0, 0, 0, 1, 0, 0.759989, 0)
 mesh = SubResource("SphereMesh_fxxnc")
 skeleton = NodePath("../Body")
 surface_material_override/0 = SubResource("StandardMaterial3D_0kynb")
 
-[node name="Body" type="MeshInstance3D" parent="Player/Mesh"]
+[node name="Body" type="MeshInstance3D" parent="Player/old"]
 transform = Transform3D(1, 0, 0, 0, 1.17269, 0, 0, 0, 1, 0, -0.10458, 0)
 mesh = SubResource("CapsuleMesh_6i5hc")
 skeleton = NodePath("../../../Ground")
+
+[node name="Mesh" type="Node3D" parent="Player"]
+
+[node name="SM_HelgeFigur" parent="Player/Mesh" instance=ExtResource("6_enwq1")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.760509, 0)
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(-1, -6.65758e-08, 5.66605e-08, 0, 0.64812, 0.761539, -8.74228e-08, 0.761538, -0.64812, -1.683, 9.731, -4.896)
