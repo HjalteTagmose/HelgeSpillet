@@ -1,6 +1,7 @@
 class_name Interact
 extends Area3D
 
+signal picked_up_obj
 var held_obj
 var pickup_point
 

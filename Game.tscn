@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://d3jcpqhotb6ej" path="res://Meats/mørbrad.tscn" id="4_ogele"]
 [ext_resource type="PackedScene" uid="uid://bijcc8oxg6pde" path="res://Meats/spegepølse.tscn" id="5_yxbex"]
 [ext_resource type="Material" uid="uid://d0wi6lghk43v2" path="res://Assets/M_Black.tres" id="7_jjmhe"]
+[ext_resource type="Script" path="res://scripts/CustomerManager.gd" id="8_7ecmo"]
 [ext_resource type="PackedScene" uid="uid://bh5iio6ew0317" path="res://Assets/SlagterEnv/SlagterEnv.blend" id="8_pqisq"]
-[ext_resource type="Script" path="res://CustomerManager.gd" id="8_xv5vf"]
 [ext_resource type="PackedScene" uid="uid://cbx4lglyxnq2" path="res://kunde.tscn" id="9_7rkjk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g0p8o"]
@@ -242,7 +242,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.299078, 1, 3.40022)
 
 [node name="Kunder" type="Path3D" parent="."]
 curve = SubResource("Curve3D_mba5a")
-script = ExtResource("8_xv5vf")
+script = ExtResource("8_7ecmo")
 prefab = ExtResource("9_7rkjk")
 
 [node name="Spegepølse" parent="." instance=ExtResource("5_yxbex")]
