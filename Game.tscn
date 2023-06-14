@@ -1,7 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://su7gr0kg3pwy"]
+[gd_scene load_steps=32 format=3 uid="uid://su7gr0kg3pwy"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_66jnj"]
 [ext_resource type="Script" path="res://scripts/stations/CutStation.gd" id="1_i5i0c"]
+[ext_resource type="Script" path="res://scripts/stations/PackStation.gd" id="2_7upu7"]
 [ext_resource type="Script" path="res://scripts/stations/GrindStation.gd" id="2_bwmfc"]
 [ext_resource type="Script" path="res://scripts/player/Interact.gd" id="2_gl7je"]
 [ext_resource type="PackedScene" uid="uid://fahal60i11ri" path="res://Meats/flæsk.tscn" id="3_imjn6"]
@@ -92,10 +93,11 @@ visible = false
 material_override = SubResource("StandardMaterial3D_ri566")
 mesh = SubResource("BoxMesh_ml6kj")
 
-[node name="CutStation" type="StaticBody3D" parent="." node_paths=PackedStringArray("place_point") groups=["usable"]]
+[node name="CutStation" type="StaticBody3D" parent="." node_paths=PackedStringArray("place_point", "spawn_point") groups=["usable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.42508, 0.730036, 6.89926)
 script = ExtResource("1_i5i0c")
 place_point = NodePath("PlacePoint")
+spawn_point = NodePath("PlacePoint")
 
 [node name="PlacePoint" type="Node3D" parent="CutStation"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
@@ -113,11 +115,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 [node name="Collider" type="CollisionShape3D" parent="CutStation/Trigger"]
 shape = SubResource("BoxShape3D_y561p")
 
-[node name="GrindStation" type="StaticBody3D" parent="." node_paths=PackedStringArray("spawn_point", "place_point") groups=["usable"]]
+[node name="PackStation" type="StaticBody3D" parent="." node_paths=PackedStringArray("place_point", "spawn_point") groups=["usable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.653628, 0.730036, 4.36594)
+script = ExtResource("2_7upu7")
+place_point = NodePath("PlacePoint")
+spawn_point = NodePath("PlacePoint")
+
+[node name="PlacePoint" type="Node3D" parent="PackStation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="PackStation"]
+mesh = SubResource("BoxMesh_5kqag")
+surface_material_override/0 = SubResource("StandardMaterial3D_ss56x")
+
+[node name="Collision" type="CollisionShape3D" parent="PackStation"]
+shape = SubResource("BoxShape3D_y561p")
+
+[node name="Trigger" type="Area3D" parent="PackStation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Collider" type="CollisionShape3D" parent="PackStation/Trigger"]
+shape = SubResource("BoxShape3D_y561p")
+
+[node name="GrindStation" type="StaticBody3D" parent="." node_paths=PackedStringArray("place_point", "spawn_point") groups=["usable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.543767, 0.730036, 6.89926)
 script = ExtResource("2_bwmfc")
-spawn_point = NodePath("SpawnPoint")
 place_point = NodePath("PlacePoint")
+spawn_point = NodePath("SpawnPoint")
 
 [node name="PlacePoint" type="Node3D" parent="GrindStation"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48703, -0.271808)

@@ -2,6 +2,7 @@ class_name Station
 extends StaticBody3D
 
 @export var place_point : Node3D
+@export var spawn_point : Node3D
 @export var prompt_offset : Vector3
 
 var prompt : Prompt = preload("res://prompt.tscn").instantiate()
@@ -47,3 +48,13 @@ func has_occupant():
 
 func can_use_item(item):
 	return false
+	
+func can_use():
+	return has_occupant() && can_use_item(occupant)
+	
+func spawn(prefab):
+	print("spawn")
+	var obj = prefab.instantiate()
+	obj.global_position = spawn_point.global_position
+	get_tree().get_root().add_child(obj)
+	occupant.free()
