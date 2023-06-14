@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://su7gr0kg3pwy"]
+[gd_scene load_steps=38 format=3 uid="uid://su7gr0kg3pwy"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_66jnj"]
 [ext_resource type="Script" path="res://scripts/stations/CutStation.gd" id="1_i5i0c"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://scripts/CustomerManager.gd" id="8_7ecmo"]
 [ext_resource type="PackedScene" uid="uid://bh5iio6ew0317" path="res://Assets/SlagterEnv/SlagterEnv.blend" id="8_pqisq"]
 [ext_resource type="PackedScene" uid="uid://cbx4lglyxnq2" path="res://kunde.tscn" id="9_7rkjk"]
+[ext_resource type="Script" path="res://CamTrigger.gd" id="14_sqa7d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g0p8o"]
 size = Vector3(60, 2, 60)
@@ -88,6 +89,9 @@ size = Vector3(25.2673, 11.64, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_omv3x"]
 size = Vector3(3.679, 11.415, 7.948)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_51qds"]
+size = Vector3(16.0706, 12.9963, 11.5721)
 
 [node name="root" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00629854, -1.19209e-07, 0.00031352)
@@ -334,5 +338,12 @@ shape = SubResource("BoxShape3D_omv3x")
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="temp_cols"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -16.8256, 0, -0.436524)
 shape = SubResource("BoxShape3D_omv3x")
+
+[node name="CamTrigger" type="Area3D" parent="."]
+script = ExtResource("14_sqa7d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CamTrigger"]
+transform = Transform3D(0.928174, 0, 0.372146, 0, 1, 0, -0.372146, 0, 0.928174, -4.40457, 0, -7.19823)
+shape = SubResource("BoxShape3D_51qds")
 
 [editable path="Environment/SlagterEnv"]
