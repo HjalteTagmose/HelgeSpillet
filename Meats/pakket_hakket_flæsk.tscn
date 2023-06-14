@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7ldr4lvbbjpq"]
+
+[ext_resource type="PackedScene" uid="uid://dgftqy74eco5t" path="res://Meats/meat.tscn" id="1_gm8jk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jpffi"]
+size = Vector3(0.514873, 1, 0.501765)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4v068"]
+size = Vector3(0.5, 1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3cvnx"]
+albedo_color = Color(0.890196, 0.529412, 0.517647, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uog2p"]
+transparency = 1
+depth_draw_mode = 1
+albedo_color = Color(1, 1, 0.72549, 0.435294)
+
+[sub_resource type="SphereMesh" id="SphereMesh_qgyrm"]
+radius = 0.2
+height = 0.3
+
+[node name="Pakket Svinekød" instance=ExtResource("1_gm8jk")]
+can_pack = true
+type = 7
+
+[node name="Collision" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.193682, 0)
+shape = SubResource("BoxShape3D_jpffi")
+
+[node name="Mesh" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -3.52176, 0, 1, -1.53941e-07, 0, 0.124064, 0)
+mesh = SubResource("BoxMesh_4v068")
+surface_material_override/0 = SubResource("StandardMaterial3D_3cvnx")
+
+[node name="pak" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(1.1942, 0, 0, 0, -4.90671e-08, -4.4205, 0, 1.12252, -1.93226e-07, 0, 0.195422, 3.11916e-09)
+mesh = SubResource("BoxMesh_4v068")
+surface_material_override/0 = SubResource("StandardMaterial3D_uog2p")
+
+[node name="Mesh2" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0874663, 0.237123, 4.94197e-09)
+mesh = SubResource("SphereMesh_qgyrm")
+surface_material_override/0 = SubResource("StandardMaterial3D_3cvnx")
+
+[node name="Mesh3" type="MeshInstance3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0666369, 0.237123, 0.106315)
+mesh = SubResource("SphereMesh_qgyrm")
+surface_material_override/0 = SubResource("StandardMaterial3D_3cvnx")
+
+[node name="Mesh4" type="MeshInstance3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0990671, 0.237123, 0.269451)
+mesh = SubResource("SphereMesh_qgyrm")
+surface_material_override/0 = SubResource("StandardMaterial3D_3cvnx")
+
+[node name="Mesh5" type="MeshInstance3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0648549, 0.237123, 0.308838)
+mesh = SubResource("SphereMesh_qgyrm")
+surface_material_override/0 = SubResource("StandardMaterial3D_3cvnx")
+
+[node name="Mesh6" type="MeshInstance3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0611044, 0.237123, -0.18799)
+mesh = SubResource("SphereMesh_qgyrm")
+surface_material_override/0 = SubResource("StandardMaterial3D_3cvnx")
+
+[node name="Mesh7" type="MeshInstance3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0765048, 0.237123, -0.283465)
+mesh = SubResource("SphereMesh_qgyrm")
+surface_material_override/0 = SubResource("StandardMaterial3D_3cvnx")
+
+[node name="Mesh8" type="MeshInstance3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0641007, 0.238889, -0.385316)
+mesh = SubResource("SphereMesh_qgyrm")
+surface_material_override/0 = SubResource("StandardMaterial3D_3cvnx")

@@ -13,7 +13,7 @@ func _ready():
 	trigger.body_entered.connect(on_body_entered)
 	prompt.text = "Z"
 	add_child(prompt)
-	
+
 func _process(delta):
 	if !has_occupant():
 		prompt.hide()
@@ -26,11 +26,11 @@ func _process(delta):
 		
 	prompt.set_pos(global_position, prompt_offset)
 	prompt.show()
-		
+
 func on_body_entered(body):
 	if has_occupant():
 		return
-	
+
 	if body.is_in_group("interactable") && !body.is_held && can_use_item(body):
 		body.pickup(place_point)
 		body.is_held = false
@@ -40,7 +40,7 @@ func on_body_entered(body):
 
 func use():
 	print("using station: ", self)
-		
+	
 func has_occupant():
 #	print("occupant: ", occupant)
 	return occupant != null
