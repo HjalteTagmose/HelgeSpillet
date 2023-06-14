@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cbw6rhticu3sx"]
 
-[ext_resource type="PackedScene" uid="uid://dgftqy74eco5t" path="res://Meats/meat.tscn" id="1_ogw1o"]
+[ext_resource type="PackedScene" uid="uid://dgftqy74eco5t" path="res://Prefabs/Meats/meat.tscn" id="1_ogw1o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jpffi"]
 size = Vector3(0.514873, 1, 0.501765)

@@ -8,7 +8,7 @@ const JUMP_VELOCITY = 4.5
 const ANGULAR_ACCELERATION = 10
 
 var rot = 0.0
-var target_rot = 0.0
+var target_rot = 180.0
 var target_speed_x = 0.0
 var target_speed_z = 0.0
 var push_force = .2;

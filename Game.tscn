@@ -5,14 +5,14 @@
 [ext_resource type="Script" path="res://scripts/stations/PackStation.gd" id="2_7upu7"]
 [ext_resource type="Script" path="res://scripts/stations/GrindStation.gd" id="2_bwmfc"]
 [ext_resource type="Script" path="res://scripts/player/Interact.gd" id="2_gl7je"]
-[ext_resource type="PackedScene" uid="uid://fahal60i11ri" path="res://Meats/flæsk.tscn" id="3_imjn6"]
-[ext_resource type="PackedScene" uid="uid://d3jcpqhotb6ej" path="res://Meats/mørbrad.tscn" id="4_ogele"]
-[ext_resource type="PackedScene" uid="uid://bijcc8oxg6pde" path="res://Meats/spegepølse.tscn" id="5_yxbex"]
+[ext_resource type="PackedScene" uid="uid://fahal60i11ri" path="res://Prefabs/Meats/flæsk.tscn" id="3_imjn6"]
+[ext_resource type="PackedScene" uid="uid://d3jcpqhotb6ej" path="res://Prefabs/Meats/mørbrad.tscn" id="4_ogele"]
+[ext_resource type="PackedScene" uid="uid://bijcc8oxg6pde" path="res://Prefabs/Meats/spegepølse.tscn" id="5_yxbex"]
 [ext_resource type="PackedScene" uid="uid://bvthbv83f1wu" path="res://Assets/Figurer/SM_HelgeFigur.obj" id="6_enwq1"]
 [ext_resource type="Material" uid="uid://d0wi6lghk43v2" path="res://Assets/M_Black.tres" id="7_jjmhe"]
 [ext_resource type="Script" path="res://scripts/CustomerManager.gd" id="8_7ecmo"]
 [ext_resource type="PackedScene" uid="uid://bh5iio6ew0317" path="res://Assets/SlagterEnv/SlagterEnv.blend" id="8_pqisq"]
-[ext_resource type="PackedScene" uid="uid://cbx4lglyxnq2" path="res://kunde.tscn" id="9_7rkjk"]
+[ext_resource type="PackedScene" uid="uid://cbx4lglyxnq2" path="res://Prefabs/kunde.tscn" id="10_1132k"]
 [ext_resource type="Script" path="res://CamTrigger.gd" id="14_sqa7d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g0p8o"]
@@ -226,6 +226,7 @@ mesh = SubResource("CapsuleMesh_6i5hc")
 skeleton = NodePath("../../../Ground")
 
 [node name="Mesh" type="Node3D" parent="Player"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="SM_HelgeFigur" parent="Player/Mesh" instance=ExtResource("6_enwq1")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.760509, 0)
@@ -254,7 +255,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.299078, 1, 3.40022)
 [node name="Kunder" type="Path3D" parent="."]
 curve = SubResource("Curve3D_mba5a")
 script = ExtResource("8_7ecmo")
-prefab = ExtResource("9_7rkjk")
+prefab = ExtResource("10_1132k")
 
 [node name="Spegepølse" parent="." instance=ExtResource("5_yxbex")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.82179, 1, 1.50831)

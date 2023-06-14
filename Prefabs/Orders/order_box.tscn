@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdecrlwxfxnli"]
+
+[ext_resource type="Script" path="res://scripts/prompt.gd" id="1_fuggp"]
+
+[node name="Prompt" type="Label"]
+offset_right = 40.0
+offset_bottom = 26.0
+text = "iwantsomethin'"
+script = ExtResource("1_fuggp")

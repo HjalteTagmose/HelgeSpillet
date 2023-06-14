@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d3jcpqhotb6ej"]
 
-[ext_resource type="PackedScene" uid="uid://dgftqy74eco5t" path="res://Meats/meat.tscn" id="1_g7qf6"]
+[ext_resource type="PackedScene" uid="uid://dgftqy74eco5t" path="res://Prefabs/Meats/meat.tscn" id="1_g7qf6"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_y5163"]
 height = 0.3
