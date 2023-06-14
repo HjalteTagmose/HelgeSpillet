@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgftqy74eco5t"]
+
+[ext_resource type="Script" path="res://scripts/Meat.gd" id="1_vr1o0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qeuab"]
+friction = 0.6
+bounce = 0.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6gj7f"]
+
+[node name="Meat" type="RigidBody3D" groups=["interactable"]]
+physics_material_override = SubResource("PhysicsMaterial_qeuab")
+freeze_mode = 1
+script = ExtResource("1_vr1o0")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_6gj7f")
