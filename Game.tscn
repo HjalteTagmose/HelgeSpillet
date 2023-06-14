@@ -113,7 +113,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.42508, 0.730036, 6.89926)
 script = ExtResource("1_i5i0c")
 place_point = NodePath("PlacePoint")
 spawn_point = NodePath("PlacePoint")
-prompt_offset = null
 
 [node name="PlacePoint" type="Node3D" parent="CutStation"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
@@ -136,7 +135,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.653628, 0.730036, 4.36594)
 script = ExtResource("2_7upu7")
 place_point = NodePath("PlacePoint")
 spawn_point = NodePath("PlacePoint")
-prompt_offset = null
 
 [node name="PlacePoint" type="Node3D" parent="PackStation"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
