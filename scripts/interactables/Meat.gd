@@ -7,7 +7,7 @@ extends Pickupable
 @export var type : Type 
 
 enum Type
-{	
+{
 	SPEGEPØLSE,
 	MØRBRAD,
 	FLÆSK,

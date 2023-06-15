@@ -13,14 +13,16 @@ func _ready():
 func interact(point):
 	hide_prompt()
 
-func show_prompt():	
+func show_prompt():
 	prompt.set_pos(global_position, offset)
 	prompt.show() 
 
 func hide_prompt():
 	prompt.hide()
 	
-func setup_prompt():
+func setup_prompt(text = null):
+	if text == null:
+		text = prompt_text
 	await get_tree().create_timer(0.1).timeout
 	prompt.set_interact()
 	prompt.set_button_text(prompt_text)

@@ -3,9 +3,8 @@ extends Interactable
 
 var is_held = false
 
-func setup_prompt():
-	await super.setup_prompt()
-	prompt.set_button_text("Saml op")
+func setup_prompt(text):
+	await super.setup_prompt("Saml op")
 
 func pickup(point):
 	super.interact(point)
