@@ -15,11 +15,12 @@ func _ready():
 	spawn(prefab)
 	spawn(prefab)
 
-func spawn(customer_prefab):
+func spawn(customer_prefab, meat_type = Meat.Type.SPEGEPØLSE, time = 60):
 	var customer = customer_prefab.instantiate()
 	customers.append(customer)
 	add_child(customer)
 	
+	customer.setup(meat_type, time)
 	customer.goal = length - customers.size() * spacing
 	customer.num = total
 	customer.on_leave.connect(update_queue)

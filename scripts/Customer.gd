@@ -18,22 +18,26 @@ var num = 0
 var timer = Timer.new()
 
 func _ready():
+	var ui = get_tree().get_root().get_node("root").get_node("UI")
+	ui.add_child(prompt)
+	ui.add_child(orderbox)
+	speed += randf_range(-0.1 * speed, 0.1 * speed)
+	prompt.hide()
+	await get_tree().create_timer(0.1).timeout
+	prompt.set_interact()
+	prompt.set_button_text("Giv")
+
+func setup(my_order, my_time):
+	start_time = my_time
+	order = my_order
+	# create timer
 	timer.connect("timeout", time_out)
 	timer.wait_time = start_time
 	timer.one_shot = false
 	add_child(timer)
 	timer.start()
-	
-	var ui = get_tree().get_root().get_node("root").get_node("UI")
-	ui.add_child(prompt)
-	ui.add_child(orderbox)
-	
-	speed += randf_range(-0.1 * speed, 0.1 * speed)
+	# update order
 	orderbox.set_meat_type(order)
-	prompt.hide()
-	await get_tree().create_timer(0.1).timeout
-	prompt.set_interact()
-	prompt.set_button_text("Giv")
 
 func _process(delta):
 	move(delta)
