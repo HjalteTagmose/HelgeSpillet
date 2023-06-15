@@ -6,7 +6,7 @@ var camera
 
 func _ready():
 	camera = get_viewport().get_camera_3d()
-	label = get_node("Text")
+	label = get_node("Panel2").get_node("Text")
 
 func set_text(msg):
 	label.text = msg

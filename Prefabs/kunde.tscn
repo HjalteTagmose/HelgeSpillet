@@ -26,6 +26,8 @@ material = SubResource("StandardMaterial3D_murst")
 transform = Transform3D(0.999268, 0, -0.0380671, 0, 1, 0, 0.0380671, 0, 0.999268, 3.25556, 1.19209e-07, -3.47191)
 script = ExtResource("1_8iwwa")
 order = 5
+prompt_offset = Vector3(0, 2, 0)
+order_offset = Vector3(0, 2, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." groups=["customer"]]
 
