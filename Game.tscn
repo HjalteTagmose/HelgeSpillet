@@ -377,7 +377,7 @@ shape = SubResource("BoxShape3D_fan68")
 
 [node name="CamTrigger" type="Area3D" parent="."]
 script = ExtResource("14_sqa7d")
-sec_pos = Vector3(-8.35, 9.75, -7)
+sec_pos = Vector3(-6.5, 12, -8)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CamTrigger"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.66367, 0, -2.90377)
