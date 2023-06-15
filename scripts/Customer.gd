@@ -67,7 +67,7 @@ func give(meat):
 #	print(timer.get_time_left())
 
 func time_out():
-	point_system.adjust_points(-30)
+	point_system.adjust_points(-150)
 	leave()
 
 func leave():

@@ -10,10 +10,6 @@ var total = 0
 
 func _ready():
 	length = get_curve().get_baked_length()-.1
-	spawn(prefab)
-	spawn(prefab)
-	spawn(prefab)
-	spawn(prefab)
 
 func spawn(customer_prefab, meat_type = Meat.Type.SPEGEPØLSE, time = 60):
 	var customer = customer_prefab.instantiate()
