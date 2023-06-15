@@ -10,6 +10,7 @@ func pickup(point):
 	global_position = point.global_position
 	freeze = true
 	collision_layer = 0
+	return self
 
 func drop():
 	is_held = false

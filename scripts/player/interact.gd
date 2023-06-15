@@ -52,10 +52,10 @@ func interact(interactable):
 	if holding_object():
 		return
 	
-	print("pickup: ", interactable)
-	interactable.pickup(pickup_point)
+	var obj = interactable.pickup(pickup_point)
 	picked_up_meat.emit(interactable)
-	held_obj = interactable
+	held_obj = obj
+	print("pickup: ", obj)
 
 func drop():
 	print("drop: ", held_obj)
