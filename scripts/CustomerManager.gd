@@ -29,5 +29,7 @@ func spawn(customer_prefab):
 func update_queue(n):
 	print("update_queue")
 	for customer in customers:
+		if customer == null:
+			continue
 		if customer.num > n:
 			customer.goal += spacing

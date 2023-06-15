@@ -28,7 +28,7 @@ func _process(_delta):
 	var usable = get_first_overlap_in_group("usable")
 	
 	# Hide prompt
-	if last_interactable != customer && last_interactable != interactable:
+	if last_interactable != null && last_interactable != customer && last_interactable != interactable:
 		last_interactable.hide_prompt()
 	
 	# Interactable prompts
