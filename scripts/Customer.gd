@@ -55,3 +55,6 @@ func update_prompt(meat):
 		prompt.show()
 	else:
 		prompt.hide()
+
+func hide_prompt():
+	prompt.hide()

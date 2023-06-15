@@ -8,6 +8,7 @@ func pickup(point):
 	is_held = true
 	reparent(point)
 	global_position = point.global_position
+	global_rotation = point.global_rotation
 	freeze = true
 	collision_layer = 0
 	return self
