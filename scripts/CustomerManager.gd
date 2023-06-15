@@ -28,7 +28,7 @@ func update_queue(n):
 	print("update_queue")
 	var rm = -1
 	for customer in customers:
-		if customer == null:
+		if customer.num == n:
 			rm = customers.find(customer, 0)
 			continue
 		if customer.num > n:
