@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://su7gr0kg3pwy"]
+[gd_scene load_steps=44 format=3 uid="uid://su7gr0kg3pwy"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_66jnj"]
 [ext_resource type="Script" path="res://scripts/stations/CutStation.gd" id="1_i5i0c"]
@@ -97,8 +97,11 @@ size = Vector3(2.71329, 3.67636, 1.7962)
 [sub_resource type="BoxShape3D" id="BoxShape3D_fan68"]
 size = Vector3(1.27187, 1, 4.3994)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_51qds"]
-size = Vector3(30.8476, 12.9963, 11.5721)
+[sub_resource type="BoxShape3D" id="BoxShape3D_hotk4"]
+size = Vector3(21.0831, 1, 5.84609)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ltvfy"]
+size = Vector3(15.4153, 1, 15.2086)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7137u"]
 size = Vector3(1.50419, 1.84507, 3.09081)
@@ -377,8 +380,12 @@ script = ExtResource("14_sqa7d")
 sec_pos = Vector3(-8.35, 9.75, -7)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CamTrigger"]
-transform = Transform3D(0.676529, 0, 0.736416, 0, 1, 0, -0.736416, 0, 0.676529, -10.0419, 0, -4.51403)
-shape = SubResource("BoxShape3D_51qds")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.66367, 0, -2.90377)
+shape = SubResource("BoxShape3D_hotk4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CamTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8089, 0, -0.679319)
+shape = SubResource("BoxShape3D_ltvfy")
 
 [node name="SpegepølsSpawner" type="RigidBody3D" parent="." groups=["interactable"]]
 transform = Transform3D(7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, -0.961079, 0.483397, 1.40249)
