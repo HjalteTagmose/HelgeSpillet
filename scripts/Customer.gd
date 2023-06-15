@@ -31,6 +31,8 @@ func _ready():
 	speed += randf_range(-0.1 * speed, 0.1 * speed)
 	orderbox.set_meat_type(order)
 	prompt.hide()
+	await get_tree().create_timer(0.1).timeout
+	prompt.set_interact()
 
 func _process(delta):
 	move(delta)

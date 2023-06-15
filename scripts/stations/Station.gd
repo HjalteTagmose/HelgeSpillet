@@ -14,6 +14,9 @@ func _ready():
 	trigger.body_entered.connect(on_body_entered)
 	prompt.text = "Z"
 	add_child(prompt)
+	await get_tree().create_timer(0.1).timeout
+	print("Stationjdaoisjdaoi")
+	prompt.set_use()
 
 func _process(_delta):
 	if !has_occupant():

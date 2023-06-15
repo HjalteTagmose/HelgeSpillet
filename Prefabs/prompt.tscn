@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://3shcinr627re"]
+[gd_scene load_steps=5 format=3 uid="uid://3shcinr627re"]
 
 [ext_resource type="Script" path="res://scripts/ui/prompt.gd" id="1_7wb64"]
 [ext_resource type="Texture2D" uid="uid://dbcgib8274erj" path="res://t_ButtonPromptSheet.png" id="2_ck75o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udisa"]
+atlas = ExtResource("2_ck75o")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c7rqt"]
 atlas = ExtResource("2_ck75o")
@@ -18,7 +22,7 @@ custom_minimum_size = Vector2(10, 10)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = SubResource("AtlasTexture_c7rqt")
+texture = SubResource("AtlasTexture_udisa")
 
 [node name="X" type="TextureRect" parent="."]
 texture_filter = 1
