@@ -15,9 +15,11 @@ var goal = 0
 var speed = 3
 var num = 0
 
+var point_system
 var timer = Timer.new()
 
 func _ready():
+	point_system = get_node("/root/PointSystem")
 	var ui = get_tree().get_root().get_node("root").get_node("UI")
 	ui.add_child(prompt)
 	ui.add_child(orderbox)
@@ -55,7 +57,8 @@ func wants(meat):
 	return meat.type == order
 
 func give(meat):
-	get_node("/root/PointSystem").adjust_points(+20)
+	var points = point_system.get_points(order)
+	point_system.adjust_points(points)
 	print("got meat")
 	meat.free()
 	leave()
@@ -64,7 +67,7 @@ func give(meat):
 #	print(timer.get_time_left())
 
 func time_out():
-	get_node("/root/PointSystem").adjust_points(-30)
+	point_system.adjust_points(-30)
 	leave()
 
 func leave():
