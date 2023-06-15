@@ -20,6 +20,10 @@ func set_interact():
 	x.visible = false
 	pass
 
+func set_button_text(msg):
+	a.get_node("Label").set_text(msg)
+	x.get_node("Label").set_text(msg)
+
 func set_pos(world_pos, offset = Vector3.ZERO):
 	var world_position = world_pos + offset
 	var screen_position = camera.unproject_position(world_position)

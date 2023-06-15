@@ -11,7 +11,7 @@ var rot = 0.0
 var target_rot = 180.0
 var target_speed_x = 0.0
 var target_speed_z = 0.0
-var push_force = .2;
+var push_force = .5;
 
 var mesh
 var interact

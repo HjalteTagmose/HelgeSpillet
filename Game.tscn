@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://su7gr0kg3pwy"]
+[gd_scene load_steps=43 format=3 uid="uid://su7gr0kg3pwy"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_66jnj"]
 [ext_resource type="Script" path="res://scripts/stations/CutStation.gd" id="1_i5i0c"]
@@ -101,14 +101,10 @@ size = Vector3(1.27187, 1, 4.3994)
 size = Vector3(30.8476, 12.9963, 11.5721)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7137u"]
-size = Vector3(1, 5, 1)
+size = Vector3(1.50419, 1.84507, 3.09081)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_itffv"]
-albedo_color = Color(0.94902, 0.419608, 0.454902, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ra1jr"]
-material = SubResource("StandardMaterial3D_itffv")
-size = Vector3(1, 5, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_rh34m"]
+size = Vector3(4.84381, 6.4502, 1.12065)
 
 [node name="root" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00629854, -1.19209e-07, 0.00031352)
@@ -128,6 +124,7 @@ mesh = SubResource("BoxMesh_ml6kj")
 [node name="CutStation" type="StaticBody3D" parent="." node_paths=PackedStringArray("place_point", "spawn_point") groups=["usable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.42508, 0.730036, 6.89926)
 script = ExtResource("1_i5i0c")
+prompt_text = "Skær"
 place_point = NodePath("PlacePoint")
 spawn_point = NodePath("PlacePoint")
 
@@ -151,6 +148,7 @@ shape = SubResource("BoxShape3D_y561p")
 [node name="PackStation" type="StaticBody3D" parent="." node_paths=PackedStringArray("place_point", "spawn_point") groups=["usable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.653628, 0.730036, 4.36594)
 script = ExtResource("2_7upu7")
+prompt_text = "Pak"
 place_point = NodePath("PlacePoint")
 spawn_point = NodePath("PlacePoint")
 
@@ -174,6 +172,7 @@ shape = SubResource("BoxShape3D_y561p")
 [node name="GrindStation" type="StaticBody3D" parent="." node_paths=PackedStringArray("place_point", "spawn_point") groups=["usable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.543767, 0.730036, 6.89926)
 script = ExtResource("2_bwmfc")
+prompt_text = "Hak"
 place_point = NodePath("PlacePoint")
 spawn_point = NodePath("SpawnPoint")
 
@@ -362,6 +361,7 @@ shape = SubResource("BoxShape3D_omv3x")
 
 [node name="display" type="CollisionShape3D" parent="temp_cols"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12134, 0, 0.998255)
+visible = false
 shape = SubResource("BoxShape3D_v11fx")
 
 [node name="table" type="CollisionShape3D" parent="temp_cols"]
@@ -380,17 +380,27 @@ sec_pos = Vector3(-8.35, 9.75, -7)
 transform = Transform3D(0.676529, 0, 0.736416, 0, 1, 0, -0.736416, 0, 0.676529, -10.0419, 0, -4.51403)
 shape = SubResource("BoxShape3D_51qds")
 
-[node name="MeatSpawner" type="RigidBody3D" parent="." groups=["interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.22878, 0.929814, 2.60675)
+[node name="SpegepølsSpawner" type="RigidBody3D" parent="." groups=["interactable"]]
+transform = Transform3D(7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, -0.961079, 0.483397, 1.40249)
 lock_rotation = true
 freeze = true
 script = ExtResource("15_j2r0l")
+prompt_text = "spegepøls"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeatSpawner"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpegepølsSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.285796, 0, -1.19209e-07)
 shape = SubResource("BoxShape3D_7137u")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeatSpawner"]
-mesh = SubResource("BoxMesh_ra1jr")
-skeleton = NodePath("")
+[node name="FlæskSpawner" type="RigidBody3D" parent="." groups=["interactable"]]
+transform = Transform3D(7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, -13.321, 0.483397, 3.57306)
+lock_rotation = true
+freeze = true
+script = ExtResource("15_j2r0l")
+spawnType = 2
+prompt_text = "Flæsk"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FlæskSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.897145, 0, 0.533891)
+shape = SubResource("BoxShape3D_rh34m")
 
 [editable path="Environment/SlagterEnv"]

@@ -33,6 +33,7 @@ func _ready():
 	prompt.hide()
 	await get_tree().create_timer(0.1).timeout
 	prompt.set_interact()
+	prompt.set_button_text("Giv")
 
 func _process(delta):
 	move(delta)

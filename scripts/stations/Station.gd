@@ -1,6 +1,7 @@
 class_name Station
 extends StaticBody3D
 
+@export var prompt_text = "interact"
 @export var place_point : Node3D
 @export var spawn_point : Node3D
 @export var prompt_offset : Vector3
@@ -14,9 +15,12 @@ func _ready():
 	trigger.body_entered.connect(on_body_entered)
 	prompt.text = "Z"
 	add_child(prompt)
+	setup_prompt()
+	
+func setup_prompt():
 	await get_tree().create_timer(0.1).timeout
-	print("Stationjdaoisjdaoi")
 	prompt.set_use()
+	prompt.set_button_text(prompt_text)
 
 func _process(_delta):
 	if !has_occupant():

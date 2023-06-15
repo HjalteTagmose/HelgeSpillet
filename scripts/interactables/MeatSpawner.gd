@@ -2,8 +2,8 @@ extends Interactable
 
 @export var spawnType : Meat.Type
 var flæsk_prefab = preload("res://Prefabs/Meats/flæsk.tscn")
-var mørbrad_prefab = preload("res://Prefabs/Meats/flæsk.tscn")
-var spegepøls_prefab = preload("res://Prefabs/Meats/flæsk.tscn")
+var mørbrad_prefab = preload("res://Prefabs/Meats/mørbrad.tscn")
+var spegepøls_prefab = preload("res://Prefabs/Meats/spegepølse.tscn")
 
 func pickup(point):
 	return spawn(point)
