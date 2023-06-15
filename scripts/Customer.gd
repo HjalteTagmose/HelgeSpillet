@@ -18,7 +18,7 @@ var num = 0
 var timer = Timer.new()
 
 func _ready():
-	timer.connect("timeout", leave)
+	timer.connect("timeout", time_out)
 	timer.wait_time = start_time
 	timer.one_shot = false
 	add_child(timer)
@@ -48,12 +48,17 @@ func wants(meat):
 	return meat.type == order
 
 func give(meat):
+	get_node("/root/PointSystem").adjust_points(+20)
 	print("got meat")
 	meat.free()
 	leave()
 #	timer.stop()
 #	timer.start(100)
 #	print(timer.get_time_left())
+
+func time_out():
+	get_node("/root/PointSystem").adjust_points(-30)
+	leave()
 
 func leave():
 	on_leave.emit(num)
