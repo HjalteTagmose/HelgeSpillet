@@ -29,7 +29,7 @@ func _ready():
 	ui.add_child(orderbox)
 	
 	speed += randf_range(-0.1 * speed, 0.1 * speed)
-	orderbox.set_text(Meat.Type.keys()[order])
+	orderbox.set_meat_type(order)
 	prompt.hide()
 
 func _process(delta):
