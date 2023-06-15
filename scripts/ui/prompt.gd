@@ -12,6 +12,7 @@ func _ready():
 	a = get_node("A")
 	x = get_node("X")
 	camera = get_viewport().get_camera_3d()
+	set_pos(Vector3.ONE*1000)
 
 func set_use():
 	a.visible = false

@@ -177,10 +177,10 @@ ssao_enabled = true
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_pybv3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kts4t"]
-size = Vector3(1, 8.73306, 15.3295)
+size = Vector3(3.57268, 8.73306, 15.3295)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a8w2y"]
-size = Vector3(25.2673, 11.64, 1)
+size = Vector3(25.2673, 11.64, 3.29174)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_omv3x"]
 size = Vector3(3.679, 11.415, 7.948)
@@ -432,15 +432,15 @@ visible = false
 [node name="temp_cols" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="temp_cols"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.74607, 0, 1.82544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.97737, 0, 1.82544)
 shape = SubResource("BoxShape3D_kts4t")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="temp_cols"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.92075, 0, -4.24613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.92075, 0, -5.31587)
 shape = SubResource("BoxShape3D_a8w2y")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="temp_cols"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.92075, 0, 8.01606)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.92075, 0, 9.13903)
 shape = SubResource("BoxShape3D_a8w2y")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="temp_cols"]

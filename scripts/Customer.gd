@@ -46,8 +46,8 @@ func _process(delta):
 	prompt.set_pos(global_position + prompt_offset)
 	orderbox.set_pos(global_position+ order_offset)
 
-	var progress = timer.get_time_left() / start_time * 100
-	orderbox.set_progress(progress)
+	var pct = timer.get_time_left() / start_time * 100
+	orderbox.set_progress(pct)
 
 func move(delta):
 	if goal > progress:
@@ -57,8 +57,7 @@ func wants(meat):
 	return meat.type == order
 
 func give(meat):
-	var points = point_system.get_points(order)
-	point_system.adjust_points(points)
+	point_system.add_points(meat.type)
 	print("got meat")
 	meat.free()
 	leave()

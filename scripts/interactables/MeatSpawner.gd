@@ -1,5 +1,7 @@
 extends Interactable
 
+signal spawned_meat
+
 @export var spawnType : Meat.Type
 var flæsk_prefab = preload("res://Prefabs/Meats/flæsk.tscn")
 var mørbrad_prefab = preload("res://Prefabs/Meats/mørbrad.tscn")
@@ -24,4 +26,5 @@ func spawn(point):
 	var obj = prefab.instantiate()
 	point.add_child(obj)
 	obj.pickup(point)
+	spawned_meat.emit()
 	return obj

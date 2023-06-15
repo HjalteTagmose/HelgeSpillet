@@ -18,10 +18,17 @@ func _ready():
 		customer = customer_manager.spawn()
 		await randomized_time(2)
 	
-	# mørbrad play
+	# mørbrad tutorial
 	customer = customer_manager.spawn(Meat.Type.PAKKET_MØRBRAD, 55)
 	customer.on_leave.connect(continue_game)
+
+#	var mørbrad_spawn = get_node("MørbradSpawner")
+#	mørbrad_spawn.tutorial.visible = true
+#	mørbrad_spawn.spawned_meat.connect(func: mørbrad_spawn.tutorial.visible = false)
+
 	await wait_until_continue()
+	
+	
 	
 	# finish game
 	print("FINISH!")
