@@ -28,8 +28,6 @@ albedo_color = Color(0.890196, 0.529412, 0.517647, 1)
 albedo_color = Color(0.780392, 0.411765, 0.427451, 1)
 
 [node name="Pakket Flæskesteg" instance=ExtResource("1_e2qik")]
-can_pack = true
-can_grind = true
 type = 6
 
 [node name="Collision" parent="." index="0"]

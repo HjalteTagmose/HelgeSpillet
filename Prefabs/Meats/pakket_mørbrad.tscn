@@ -20,8 +20,6 @@ height = 0.3
 albedo_color = Color(0.647059, 0.321569, 0.313726, 1)
 
 [node name="Pakket_Mørbrad" instance=ExtResource("1_bqvvj")]
-can_pack = true
-can_grind = true
 type = 5
 
 [node name="Collision" parent="." index="0"]

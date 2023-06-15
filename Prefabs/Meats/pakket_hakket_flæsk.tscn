@@ -21,7 +21,6 @@ radius = 0.2
 height = 0.3
 
 [node name="Pakket Svinekød" instance=ExtResource("1_gm8jk")]
-can_pack = true
 type = 7
 
 [node name="Collision" parent="." index="0"]

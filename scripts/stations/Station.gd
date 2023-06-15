@@ -41,6 +41,7 @@ func on_body_entered(body):
 
 func use():
 	print("using station: ", self)
+	prompt.hide()
 	
 func has_occupant():
 #	print("occupant: ", occupant)
@@ -58,3 +59,4 @@ func spawn(prefab):
 	get_tree().get_root().add_child(obj)
 	obj.global_position = spawn_point.global_position
 	occupant.free()
+	occupant = null

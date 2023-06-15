@@ -4,9 +4,9 @@ extends Station
 var flæskesteg_prefab = preload("res://Prefabs/Meats/flæskesteg.tscn")
 
 func use():
-	super.use()
 	if !can_use():
 		return
+	super.use()
 	spawn(flæskesteg_prefab)
 	
 func can_use_item(item):

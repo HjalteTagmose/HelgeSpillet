@@ -6,10 +6,10 @@ var pakket_svinekød_prefab = preload("res://Prefabs/Meats/pakket_hakket_flæsk.
 var pakket_mørbrad_prefab = preload("res://Prefabs/Meats/pakket_mørbrad.tscn")
 
 func use():
-	super.use()
 	if !can_use():
 		return
 
+	super.use()
 	print("packing: ", occupant.type)
 	match occupant.type:
 		Meat.Type.MØRBRAD:
