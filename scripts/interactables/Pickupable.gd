@@ -3,7 +3,7 @@ extends Interactable
 
 var is_held = false
 
-func setup_prompt(text):
+func setup_prompt(text = null):
 	await super.setup_prompt("Saml op")
 
 func pickup(point):
