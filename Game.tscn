@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://su7gr0kg3pwy"]
+[gd_scene load_steps=44 format=3 uid="uid://su7gr0kg3pwy"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_66jnj"]
 [ext_resource type="Script" path="res://scripts/stations/CutStation.gd" id="1_i5i0c"]
@@ -91,6 +91,12 @@ size = Vector3(25.2673, 11.64, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_omv3x"]
 size = Vector3(3.679, 11.415, 7.948)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_v11fx"]
+size = Vector3(2.71329, 3.67636, 1.7962)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fan68"]
+size = Vector3(1.27187, 1, 4.3994)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_51qds"]
 size = Vector3(30.8476, 12.9963, 11.5721)
 
@@ -129,6 +135,7 @@ spawn_point = NodePath("PlacePoint")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 
 [node name="Mesh" type="MeshInstance3D" parent="CutStation"]
+visible = false
 mesh = SubResource("BoxMesh_5kqag")
 surface_material_override/0 = SubResource("StandardMaterial3D_ss56x")
 
@@ -151,6 +158,7 @@ spawn_point = NodePath("PlacePoint")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 
 [node name="Mesh" type="MeshInstance3D" parent="PackStation"]
+visible = false
 mesh = SubResource("BoxMesh_5kqag")
 surface_material_override/0 = SubResource("StandardMaterial3D_ss56x")
 
@@ -176,6 +184,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48703, -0.271808)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.624569, -1.28102)
 
 [node name="Mesh" type="MeshInstance3D" parent="GrindStation"]
+visible = false
 mesh = SubResource("BoxMesh_5kqag")
 surface_material_override/0 = SubResource("StandardMaterial3D_ss56x")
 
@@ -350,6 +359,18 @@ shape = SubResource("BoxShape3D_omv3x")
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="temp_cols"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -16.8256, 0, -0.436524)
 shape = SubResource("BoxShape3D_omv3x")
+
+[node name="display" type="CollisionShape3D" parent="temp_cols"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12134, 0, 0.998255)
+shape = SubResource("BoxShape3D_v11fx")
+
+[node name="table" type="CollisionShape3D" parent="temp_cols"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.631193, 0, 4.72077)
+shape = SubResource("BoxShape3D_fan68")
+
+[node name="table2" type="CollisionShape3D" parent="temp_cols"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.79045, 0, 6.88913)
+shape = SubResource("BoxShape3D_fan68")
 
 [node name="CamTrigger" type="Area3D" parent="."]
 script = ExtResource("14_sqa7d")
