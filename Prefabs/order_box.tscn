@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdecrlwxfxnli"]
+[gd_scene load_steps=5 format=3 uid="uid://bdecrlwxfxnli"]
 
 [ext_resource type="Script" path="res://scripts/ui/order.gd" id="1_1sf7k"]
 [ext_resource type="Texture2D" uid="uid://d1ntl5824xivu" path="res://icon.svg" id="2_q7qkb"]
+[ext_resource type="Texture2D" uid="uid://blikdbe2bkb67" path="res://progressbar.png" id="3_ppxjg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dekjn"]
 
@@ -14,6 +15,9 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1sf7k")
+timer_color_ok = Color(0.235294, 0.870588, 0.490196, 1)
+timer_color_warning = Color(0.913725, 0.894118, 0.180392, 1)
+timer_color_danger = Color(0.960784, 0.2, 0.290196, 1)
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -70,6 +74,7 @@ horizontal_alignment = 3
 vertical_alignment = 3
 
 [node name="TimerBar" type="TextureProgressBar" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -77,15 +82,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -64.0
-offset_top = -30.0
+offset_top = -32.0
 offset_right = 64.0
-offset_bottom = 98.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1, 0.2)
+pivot_offset = Vector2(64, 64)
 value = 60.0
-texture_under = ExtResource("2_q7qkb")
-texture_progress = ExtResource("2_q7qkb")
-tint_under = Color(0, 1, 1, 1)
+texture_under = ExtResource("3_ppxjg")
+texture_progress = ExtResource("3_ppxjg")
 tint_over = Color(1, 1, 0, 1)
-tint_progress = Color(1, 0, 1, 1)
+tint_progress = Color(0.368627, 1, 0.462745, 1)

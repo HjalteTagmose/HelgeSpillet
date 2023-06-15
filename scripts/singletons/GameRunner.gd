@@ -19,7 +19,7 @@ func _ready():
 		await randomized_time(2)
 	
 	# mørbrad tutorial
-	customer = customer_manager.spawn(Meat.Type.PAKKET_MØRBRAD, 55)
+	customer = customer_manager.spawn(Meat.Type.PAKKET_MØRBRAD, 65)
 	customer.on_leave.connect(continue_game)
 
 #	var mørbrad_spawn = get_node("MørbradSpawner")
