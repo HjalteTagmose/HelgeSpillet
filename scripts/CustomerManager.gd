@@ -11,8 +11,8 @@ var total = 0
 func _ready():
 	length = get_curve().get_baked_length()-.1
 
-func spawn(customer_prefab, meat_type = Meat.Type.SPEGEPØLSE, time = 60):
-	var customer = customer_prefab.instantiate()
+func spawn(meat_type = Meat.Type.SPEGEPØLSE, time = 30):
+	var customer = prefab.instantiate()
 	customers.append(customer)
 	add_child(customer)
 	
@@ -22,11 +22,17 @@ func spawn(customer_prefab, meat_type = Meat.Type.SPEGEPØLSE, time = 60):
 	customer.on_leave.connect(update_queue)
 	
 	total += 1
+	return customer
 
 func update_queue(n):
 	print("update_queue")
+	var rm = -1
 	for customer in customers:
 		if customer == null:
+			rm = customers.find(customer, 0)
 			continue
 		if customer.num > n:
 			customer.goal += spacing
+
+	if rm >= 0:
+		customers.remove_at(rm)

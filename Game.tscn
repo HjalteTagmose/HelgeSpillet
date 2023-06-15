@@ -1,5 +1,6 @@
-[gd_scene load_steps=49 format=3 uid="uid://su7gr0kg3pwy"]
+[gd_scene load_steps=50 format=3 uid="uid://su7gr0kg3pwy"]
 
+[ext_resource type="Script" path="res://scripts/singletons/GameRunner.gd" id="1_2myta"]
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_66jnj"]
 [ext_resource type="Script" path="res://scripts/stations/CutStation.gd" id="1_i5i0c"]
 [ext_resource type="Script" path="res://scripts/stations/PackStation.gd" id="2_7upu7"]
@@ -204,6 +205,7 @@ size = Vector3(4.84381, 6.4502, 1.12065)
 
 [node name="root" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00629854, -1.19209e-07, 0.00031352)
+script = ExtResource("1_2myta")
 
 [node name="Ground" type="StaticBody3D" parent="."]
 
