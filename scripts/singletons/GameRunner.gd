@@ -99,7 +99,6 @@ func _ready():
 	# Gameplay!
 
 	# Inspector! :o
-	
 
 	# finish game
 	print("FINISH!")

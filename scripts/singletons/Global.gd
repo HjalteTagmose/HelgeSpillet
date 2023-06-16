@@ -25,6 +25,7 @@ func translate(txt):
 		"Mørbrad": 		return "Tenderloin"
 		"Giv": 			return "Give"
 		"Saml op": 		return "Pick up"
+		"Smid ud": 		return "Throw out"
 
 	print("Couldn't translate: ", txt)
 	return txt

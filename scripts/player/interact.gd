@@ -27,6 +27,10 @@ func _process(_delta):
 	var interactable = get_first_overlap_in_group("interactable")
 	var usable = get_first_overlap_in_group("usable")
 	
+	# Trashcan prompt fix
+	if !holding_object() && interactable is Trashcan:
+		interactable = null
+	
 	# Hide prompt
 	if last_interactable != null && last_interactable != customer && last_interactable != interactable:
 		last_interactable.hide_prompt()
@@ -36,16 +40,27 @@ func _process(_delta):
 		customer = customer.get_parent()
 		customer.update_prompt(held_obj)
 		last_interactable = customer
-	elif interactable != null && !holding_object():
+	elif interactable != null && holding_object() && interactable is Trashcan:
 		interactable.show_prompt()
 		last_interactable = interactable
-	
+	elif interactable != null && !holding_object():
+		if interactable is Trashcan:
+			return
+		interactable.show_prompt()
+		last_interactable = interactable
+
 	if Input.is_action_just_pressed("interact"):
 		if holding_object():
 			if customer != null:
 				if customer.wants(held_obj):
 					customer.give(held_obj)
 					print("give to:", customer)
+			if interactable != null:
+				if interactable is Trashcan:
+					print("put in trash")
+					held_obj.queue_free()
+					held_obj = null
+					return
 			drop()
 		else:
 			if interactable != null:
@@ -61,9 +76,9 @@ func _process(_delta):
 			print("use:", usable)
 
 func interact(interactable):
-	if holding_object():
+	if holding_object() or interactable is Trashcan:
 		return
-	
+
 	var obj = interactable.pickup(pickup_point)
 	picked_up_meat.emit(interactable)
 	held_obj = obj

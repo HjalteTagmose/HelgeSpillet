@@ -1,0 +1,2 @@
+class_name Trashcan
+extends Interactable

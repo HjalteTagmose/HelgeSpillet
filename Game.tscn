@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://su7gr0kg3pwy"]
+[gd_scene load_steps=54 format=3 uid="uid://su7gr0kg3pwy"]
 
 [ext_resource type="Script" path="res://scripts/singletons/GameRunner.gd" id="1_2myta"]
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_66jnj"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bh5iio6ew0317" path="res://Assets/SlagterEnv/SlagterEnv.blend" id="8_pqisq"]
 [ext_resource type="PackedScene" uid="uid://cbx4lglyxnq2" path="res://Prefabs/kunde.tscn" id="10_1132k"]
 [ext_resource type="Script" path="res://CamTrigger.gd" id="14_sqa7d"]
+[ext_resource type="Script" path="res://scripts/Trashcan.gd" id="14_wwowi"]
 [ext_resource type="Script" path="res://scripts/interactables/MeatSpawner.gd" id="15_j2r0l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g0p8o"]
@@ -202,6 +203,14 @@ size = Vector3(1.50419, 1.84507, 3.09081)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rh34m"]
 size = Vector3(4.84381, 6.4502, 1.12065)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqywc"]
+albedo_color = Color(0.313726, 0.313726, 0.313726, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6mtnb"]
+material = SubResource("StandardMaterial3D_hqywc")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tacps"]
 
 [node name="root" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00629854, -1.19209e-07, 0.00031352)
@@ -521,5 +530,17 @@ prompt_text = "Mørbrad"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MørbradSpawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.897145, 0, 0.533891)
 shape = SubResource("BoxShape3D_rh34m")
+
+[node name="Trashcan" type="RigidBody3D" parent="." groups=["interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.59825, 0.501658, 6.8015)
+freeze = true
+script = ExtResource("14_wwowi")
+prompt_text = "Smid ud"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Trashcan"]
+mesh = SubResource("BoxMesh_6mtnb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trashcan"]
+shape = SubResource("BoxShape3D_tacps")
 
 [editable path="Environment/SlagterEnv"]
