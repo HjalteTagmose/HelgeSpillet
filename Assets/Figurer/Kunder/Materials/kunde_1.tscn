@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cokdmhv3l4teh"]
+
+[ext_resource type="PackedScene" uid="uid://uwx0fahq676q" path="res://Assets/Figurer/Kunder/SM_Kunde.fbx" id="1_xs7r4"]
+[ext_resource type="Material" uid="uid://c5i1536qmg5td" path="res://Assets/Figurer/Kunder/Materials/M_Kunde_1.tres" id="2_s0vyb"]
+[ext_resource type="Material" uid="uid://dl8rv68tgjghe" path="res://Assets/Figurer/Kunder/Materials/M_KundeTilbehør_1.tres" id="3_rm8c4"]
+
+[node name="SM_Kunde" instance=ExtResource("1_xs7r4")]
+
+[node name="HøjreHånd" parent="RootNode" index="0"]
+surface_material_override/0 = ExtResource("2_s0vyb")
+
+[node name="VenstreHånd" parent="RootNode" index="1"]
+surface_material_override/0 = ExtResource("2_s0vyb")
+
+[node name="Halstørklæde" parent="RootNode" index="2"]
+surface_material_override/0 = ExtResource("3_rm8c4")
+
+[node name="Hue" parent="RootNode" index="3"]
+surface_material_override/0 = ExtResource("3_rm8c4")
+
+[node name="Brilleglas" parent="RootNode" index="4"]
+surface_material_override/0 = ExtResource("3_rm8c4")
+
+[node name="Hoved" parent="RootNode" index="5"]
+surface_material_override/0 = ExtResource("2_s0vyb")
+
+[node name="Krop" parent="RootNode" index="6"]
+surface_material_override/0 = ExtResource("2_s0vyb")

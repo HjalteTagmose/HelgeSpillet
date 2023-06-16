@@ -20,6 +20,7 @@ var point_system
 var timer = Timer.new()
 
 func _ready():
+	setup_mesh()
 	point_system = get_node("/root/PointSystem")
 	var ui = get_tree().get_root().get_node("root").get_node("UI")
 	ui.add_child(orderbox)
@@ -93,3 +94,53 @@ func hide_prompt():
 func bark_hurry():
 	print("bark")
 	LineManager.speak(subtitle, LineManager.Line.HVORDAN_MED_MØRBRAD)
+
+
+# VISUALS
+@export var kunde_mat_1 : Material
+@export var kunde_mat_2 : Material
+@export var kunde_mat_3 : Material
+@export var kunde_mat_4 : Material
+@export var tilbehør_mat_1 : Material
+@export var tilbehør_mat_2 : Material
+@export var tilbehør_mat_3 : Material
+@export var tilbehør_mat_4 : Material
+
+func setup_mesh():
+	var Krop 		= get_node("Mesh/RootNode/Krop")
+	var Hoved 		= get_node("Mesh/RootNode/Hoved")
+	var HøjreHånd 	= get_node("Mesh/RootNode/HøjreHånd")
+	var VenstreHånd = get_node("Mesh/RootNode/VenstreHånd")
+	var Brilleglas 	= get_node("Mesh/RootNode/Brilleglas")
+	var Halstørklæde= get_node("Mesh/RootNode/Halstørklæde")
+	var Hue 		= get_node("Mesh/RootNode/Hue")
+
+	Krop.set_surface_override_material(0, get_random_kunde_mat())
+	Hoved.set_surface_override_material(0, get_random_kunde_mat())
+	HøjreHånd.set_surface_override_material(0, get_random_kunde_mat())
+	VenstreHånd.set_surface_override_material(0, get_random_kunde_mat())
+	Brilleglas.set_surface_override_material(0, get_random_tilbehør_mat())
+	Halstørklæde.set_surface_override_material(0, get_random_tilbehør_mat())
+	Hue.set_surface_override_material(0, get_random_tilbehør_mat())
+
+func get_random_kunde_mat():
+	var m = randf()
+	if m < .25:
+		return kunde_mat_1
+	elif m < .5:
+		return kunde_mat_2
+	elif m < .75:
+		return kunde_mat_3
+	else:
+		return kunde_mat_4
+
+func get_random_tilbehør_mat():
+	var m = randf()
+	if m < .25:
+		return tilbehør_mat_1
+	elif m < .5:
+		return tilbehør_mat_2
+	elif m < .75:
+		return tilbehør_mat_3
+	else:
+		return tilbehør_mat_4

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bbec31wy7jhsa"]
+
+[ext_resource type="Texture2D" uid="uid://byef4l34gvll8" path="res://Assets/Figurer/Kunder/Textures/t_Kunde4Tilbehør.png" id="1_ksno6"]
+
+[resource]
+albedo_texture = ExtResource("1_ksno6")
+metallic_specular = 0.0
+texture_filter = 0
+texture_repeat = false
