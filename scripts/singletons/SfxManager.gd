@@ -6,6 +6,7 @@ var sfx_kødhakker	= preload("res://Audio/sfx/kødhakker.wav")
 var sfx_slam 		= preload("res://Audio/sfx/slam-metal.wav")
 
 func play_sfx(sfx):
+	pitch_scale = 1 + randf_range(-0.1, 0.1)
 	print("play", sfx)
 	match sfx:
 		SFX.KNIV_HAK:
