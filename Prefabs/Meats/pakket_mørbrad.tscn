@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cpt8vw6jhdiyw" path="res://Assets/Ting/SM_Mørbrad.fbx" id="2_xb6se"]
 [ext_resource type="PackedScene" uid="uid://hksiyjde2na4" path="res://Assets/Ting/SM_PakketKød.fbx" id="3_j3e0g"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_y5163"]
-height = 0.3
+[sub_resource type="BoxShape3D" id="BoxShape3D_4dpg2"]
+size = Vector3(0.468773, 0.327018, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_prsy2"]
 size = Vector3(0.5, 1, 0.1)
@@ -31,8 +31,8 @@ transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.667, 0, 0.135049, 0)
 transform = Transform3D(1.2, 0, 0, 0, 1.5, 0, 0, 0, 1.2, 0, 0, 0)
 
 [node name="Collision" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.150086, 0)
-shape = SubResource("CylinderShape3D_y5163")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.183807, 0)
+shape = SubResource("BoxShape3D_4dpg2")
 
 [node name="pak" type="MeshInstance3D" parent="." index="3"]
 transform = Transform3D(1.1942, 0, 0, 0, -4.90671e-08, -4.4205, 0, 1.12252, -1.93226e-07, 0, 0.182152, -4.02136e-09)
