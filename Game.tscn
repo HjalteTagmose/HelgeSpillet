@@ -547,6 +547,7 @@ script = ExtResource("14_wwowi")
 prompt_text = "Smid ud"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Trashcan"]
+visible = false
 mesh = SubResource("BoxMesh_6mtnb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Trashcan"]
