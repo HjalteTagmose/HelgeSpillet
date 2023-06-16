@@ -32,7 +32,7 @@ _subresources={
 "materials": {
 "M_Ting": {
 "use_external/enabled": true,
-"use_external/path": "res://Assets/Ting/M_KødHakker/M_Flæsk.tres"
+"use_external/path": "res://Assets/Ting/Materials/M_Flæsk.tres"
 }
 }
 }

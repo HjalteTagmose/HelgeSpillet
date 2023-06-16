@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://su7gr0kg3pwy"]
+[gd_scene load_steps=56 format=3 uid="uid://su7gr0kg3pwy"]
 
 [ext_resource type="Script" path="res://scripts/singletons/GameRunner.gd" id="1_2myta"]
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_66jnj"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dmcxpvrlsjm6e" path="res://Prefabs/subtitle.tscn" id="8_7o8dy"]
 [ext_resource type="PackedScene" uid="uid://bh5iio6ew0317" path="res://Assets/SlagterEnv/SlagterEnv.blend" id="8_pqisq"]
 [ext_resource type="PackedScene" uid="uid://cbx4lglyxnq2" path="res://Prefabs/kunde.tscn" id="10_1132k"]
+[ext_resource type="PackedScene" uid="uid://dnwetn36o4ein" path="res://Scenes/Environment.tscn" id="14_et0hk"]
 [ext_resource type="Script" path="res://CamTrigger.gd" id="14_sqa7d"]
 [ext_resource type="Script" path="res://scripts/Trashcan.gd" id="14_wwowi"]
 [ext_resource type="Script" path="res://scripts/interactables/MeatSpawner.gd" id="15_j2r0l"]
@@ -395,6 +396,7 @@ prefab = ExtResource("10_1132k")
 
 [node name="Environment" type="Node3D" parent="."]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(102.576, 0, 0, 0, -4.48373e-06, 102.576, 0, -102.576, -4.48373e-06, -4.3689, -0.393754, 4.35624)
@@ -445,6 +447,9 @@ visible = false
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(-4.37114e-08, -0.405094, 0.914275, 0, 0.914275, 0.405094, -1, 1.77072e-08, -3.99642e-08, 2.79373, 2.32947, 0.441298)
 visible = false
+
+[node name="Environment2" parent="." instance=ExtResource("14_et0hk")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 
 [node name="temp_cols" type="StaticBody3D" parent="."]
 

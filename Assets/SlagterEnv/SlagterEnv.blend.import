@@ -42,11 +42,6 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://Assets/SlagterEnv/Materials/M_HelgeAtlas.tres"
 }
-},
-"nodes": {
-"PATH:shadow": {
-"import/skip_import": true
-}
 }
 }
 gltf/embedded_image_handling=1

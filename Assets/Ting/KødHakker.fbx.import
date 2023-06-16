@@ -32,7 +32,7 @@ _subresources={
 "materials": {
 "M_HelgeAtlas": {
 "use_external/enabled": true,
-"use_external/path": "res://Assets/Ting/Materials/M_Spegepøls.tres"
+"use_external/path": "res://Assets/Ting/Materials/M_Kødhakker.tres"
 }
 }
 }

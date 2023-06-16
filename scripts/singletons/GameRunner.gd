@@ -108,13 +108,13 @@ func _ready():
 
 	# INSPECTOR SPAWN
 	print("INSPECTOR SPAWN!")
-	
+
 	for i in 20:
 		await spawn_random()
 
 	# finish game
 	print("FINISH!")
-	
+
 func spawn_random():
 	var rnd = randf() * 4
 	if rnd < 1:
@@ -129,7 +129,7 @@ func spawn_random():
 	elif rnd < 4:
 		customer_manager.spawn(Meat.Type.PAKKET_FLÆSKESTEG, 60)
 		await randomized_time(8)
-	
+
 func wait_until_continue():
 	while !cont:
 		await get_tree().create_timer(0.01).timeout
@@ -138,6 +138,6 @@ func wait_until_continue():
 func randomized_time(t):
 	t = t + t * randf_range(-.1, .1)
 	await get_tree().create_timer(t).timeout
-	
+
 func continue_game(n):
 	cont = true
