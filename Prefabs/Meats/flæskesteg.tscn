@@ -26,14 +26,14 @@ can_grind = true
 type = 4
 
 [node name="Collision" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.193682, 0)
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0, 0.193682, 0)
 shape = SubResource("BoxShape3D_jpffi")
 
 [node name="SM_Flæskesteg" parent="." index="1" instance=ExtResource("2_cikqb")]
-transform = Transform3D(1, 0, 0, 0, 0.999958, 0.00921521, 0, -0.00921521, 0.999958, 0, 0.215776, 0)
+transform = Transform3D(-4.37114e-08, 0.00921521, -0.999958, 0, 0.999958, 0.00921521, 1, 4.0281e-10, -4.37096e-08, 0, 0.215776, 0)
 
 [node name="temp" type="MeshInstance3D" parent="." index="2"]
-transform = Transform3D(0.500218, 0, 0, 0, -4.37114e-08, -0.38586, 0, 1, -1.68665e-08, 0, 0.193682, 0)
+transform = Transform3D(-2.18652e-08, -1, 1.68665e-08, 0, -4.37114e-08, -0.38586, 0.500218, -4.37114e-08, -2.00444e-15, 0, 0.193682, 0)
 visible = false
 mesh = SubResource("BoxMesh_e4tjj")
 surface_material_override/0 = SubResource("StandardMaterial3D_jkfqn")
