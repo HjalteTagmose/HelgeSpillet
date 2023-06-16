@@ -23,7 +23,7 @@ func set_progress(p):
 	elif progress.value < 65:
 		progress.tint_progress = timer_color_warning
 	else:
-		progress.tint_progress = timer_color	_ok
+		progress.tint_progress = timer_color_ok
 
 func set_meat_type(meat_type: Meat.Type):
 	label.text = Meat.Type.keys()[meat_type]
