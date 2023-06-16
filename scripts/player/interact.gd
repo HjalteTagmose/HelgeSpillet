@@ -26,15 +26,15 @@ func _process(_delta):
 	var customer = get_first_overlap_in_group("customer")
 	var interactable = get_first_overlap_in_group("interactable")
 	var usable = get_first_overlap_in_group("usable")
-	
+
 	# Trashcan prompt fix
 	if !holding_object() && interactable is Trashcan:
 		interactable = null
-	
+
 	# Hide prompt
 	if last_interactable != null && last_interactable != customer && last_interactable != interactable:
 		last_interactable.hide_prompt()
-	
+
 	# Interactable prompts
 	if customer != null && holding_object():
 		customer = customer.get_parent()

@@ -15,14 +15,18 @@ var push_force = .5;
 
 var mesh
 var interact
+var subtitle
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	mesh = get_node("Mesh")
 	interact = get_node("Interaction")
+	subtitle = get_node("Subtitle")
+	spit_fire()
 
 func _physics_process(delta):
+	subtitle.set_pos(global_position + Vector3.UP*2)
 	move(delta)
 	process_collisions()
 
@@ -66,3 +70,6 @@ func move(delta):
 	interact.rotation.y = rot
 	
 	move_and_slide()	
+
+func spit_fire():
+	subtitle.update("Ja, gu' det da rigtigt")

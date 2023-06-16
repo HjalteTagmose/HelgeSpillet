@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://su7gr0kg3pwy"]
+[gd_scene load_steps=55 format=3 uid="uid://su7gr0kg3pwy"]
 
 [ext_resource type="Script" path="res://scripts/singletons/GameRunner.gd" id="1_2myta"]
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_66jnj"]
@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://dof2vlln7ifjl" path="res://Assets/Figurer/Materials/M_HelgeFigur.tres" id="6_f6vxa"]
 [ext_resource type="Material" uid="uid://d0wi6lghk43v2" path="res://Assets/M_Black.tres" id="7_jjmhe"]
 [ext_resource type="Script" path="res://scripts/CustomerManager.gd" id="8_7ecmo"]
+[ext_resource type="PackedScene" uid="uid://dmcxpvrlsjm6e" path="res://Prefabs/subtitle.tscn" id="8_7o8dy"]
 [ext_resource type="PackedScene" uid="uid://bh5iio6ew0317" path="res://Assets/SlagterEnv/SlagterEnv.blend" id="8_pqisq"]
 [ext_resource type="PackedScene" uid="uid://cbx4lglyxnq2" path="res://Prefabs/kunde.tscn" id="10_1132k"]
 [ext_resource type="Script" path="res://CamTrigger.gd" id="14_sqa7d"]
@@ -172,7 +173,7 @@ point_count = 5
 [sub_resource type="Environment" id="Environment_yh588"]
 ambient_light_source = 2
 ambient_light_color = Color(0.87451, 0.87451, 0.87451, 1)
-ambient_light_energy = 1.21
+ambient_light_energy = 2.0
 ssao_enabled = true
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_pybv3"]
@@ -368,6 +369,8 @@ skeleton = NodePath("")
 mesh = SubResource("ArrayMesh_84ifk")
 skeleton = NodePath("")
 
+[node name="Subtitle" parent="Player" instance=ExtResource("8_7o8dy")]
+
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(-1, -6.65758e-08, 5.66605e-08, 0, 0.64812, 0.761539, -8.74228e-08, 0.761538, -0.64812, -1.683, 9.731, -4.896)
 fov = 47.0
@@ -375,6 +378,7 @@ size = 10.0
 
 [node name="Light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.222219, -0.879202, 0.421453, 0.488753, 0.474478, 0.732115, -0.843647, 0.0432965, 0.53515, 0, 4.24264, -4.24264)
+visible = false
 sky_mode = 1
 
 [node name="UI" type="Control" parent="."]

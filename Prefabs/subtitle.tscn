@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmcxpvrlsjm6e"]
+
+[ext_resource type="Script" path="res://scripts/ui/subtitle.gd" id="1_rdu7n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pot7x"]
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Subtitle" type="Label"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_right = -405.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Ja, gu' det da rigtigt"
+label_settings = SubResource("LabelSettings_pot7x")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+script = ExtResource("1_rdu7n")

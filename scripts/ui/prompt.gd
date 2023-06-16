@@ -29,7 +29,6 @@ func set_button_text(msg):
 	if orig_text == null:
 		orig_text = msg
 		on_switch_language(Global.language)
-		
 
 func set_pos(world_pos, offset = Vector3.ZERO):
 	var world_position = world_pos + offset
