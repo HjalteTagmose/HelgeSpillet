@@ -69,7 +69,7 @@ func _ready():
 	customer_manager.spawn(Meat.Type.PAKKET_SVINEKØD, 55)
 	await randomized_time(2)
 	customer_manager.spawn(Meat.Type.SPEGEPØLSE, 35)
-	await randomized_time(10)
+	await randomized_time(15)
 
 	# flæskesteg tutorial
 	customer = customer_manager.spawn(Meat.Type.PAKKET_FLÆSKESTEG, 75)
