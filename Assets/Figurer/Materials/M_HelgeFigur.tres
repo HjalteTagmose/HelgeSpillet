@@ -3,5 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://3e5abyhtnt1s" path="res://Assets/Figurer/Textures/t_HelgeFigur.png" id="1_jxspy"]
 
 [resource]
+albedo_color = Color(0.862745, 0.862745, 0.862745, 1)
 albedo_texture = ExtResource("1_jxspy")
+metallic_specular = 0.0
+roughness = 0.0
 texture_filter = 0

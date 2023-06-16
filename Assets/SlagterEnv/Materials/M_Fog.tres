@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://chkang0knxnni"]
+
+[ext_resource type="Texture2D" uid="uid://c421uptem6nsd" path="res://Assets/SlagterEnv/Textures/t_SlagterAtlas.png" id="1_g3oss"]
+
+[resource]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("1_g3oss")
+metallic_specular = 0.0
+rim_enabled = true
+rim = 0.0
+ao_enabled = true
+ao_light_affect = 0.39
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+refraction_enabled = true
+refraction_scale = 0.67
+texture_filter = 0
+grow = true

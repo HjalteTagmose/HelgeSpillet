@@ -3,10 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://c421uptem6nsd" path="res://Assets/SlagterEnv/Textures/t_SlagterAtlas.png" id="1_wgb0v"]
 
 [resource]
+albedo_color = Color(0.891028, 0.804232, 0.835744, 1)
 albedo_texture = ExtResource("1_wgb0v")
-metallic = 0.53
-metallic_specular = 1.0
-roughness = 0.43
+metallic = 0.48
+metallic_specular = 0.0
+roughness = 0.0
 ao_enabled = true
 ao_light_affect = 0.39
 texture_filter = 0

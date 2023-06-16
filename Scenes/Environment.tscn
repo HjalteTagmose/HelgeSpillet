@@ -1,17 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnwetn36o4ein"]
+[gd_scene load_steps=13 format=3 uid="uid://dnwetn36o4ein"]
 
-[ext_resource type="PackedScene" uid="uid://bh5iio6ew0317" path="res://Assets/SlagterEnv/SlagterEnv.blend" id="1_yywbi"]
+[ext_resource type="PackedScene" uid="uid://ln6o3aypdy37" path="res://Assets/SlagterEnv/SlagterEnv.fbx" id="1_yk0q0"]
+[ext_resource type="PackedScene" uid="uid://bdfxcoav3rqw2" path="res://Assets/Ting/SM_Flæsk.fbx" id="3_nelow"]
 [ext_resource type="PackedScene" uid="uid://bvthbv83f1wu" path="res://Assets/Figurer/SM_HelgeFigur.obj" id="3_x5bix"]
+[ext_resource type="PackedScene" uid="uid://bpaik3tlifuf5" path="res://Assets/Ting/SM_Krog.fbx" id="5_wj8xd"]
+[ext_resource type="PackedScene" uid="uid://df58hc2uxeep7" path="res://Assets/Ting/SM_Kniv.fbx" id="5_y0b85"]
+[ext_resource type="PackedScene" uid="uid://cd3d81wv6yqoa" path="res://Assets/Ting/SM_Spegepøls.fbx" id="6_h3mtq"]
+[ext_resource type="PackedScene" uid="uid://cpt8vw6jhdiyw" path="res://Assets/Ting/SM_Mørbrad.fbx" id="6_w7lcn"]
+[ext_resource type="PackedScene" uid="uid://wifurwb3pipa" path="res://Assets/Ting/SM_Flæskesteg.fbx" id="8_gef0q"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k4c7j"]
+sky_top_color = Color(0.317647, 0.466667, 0.568627, 1)
+sky_horizon_color = Color(0.388235, 0.670588, 0.972549, 1)
+sky_curve = 0.0416088
+sky_energy_multiplier = 0.36
+
+[sub_resource type="Sky" id="Sky_jg7rr"]
+sky_material = SubResource("ProceduralSkyMaterial_k4c7j")
 
 [sub_resource type="Environment" id="Environment_yh588"]
 background_mode = 1
-background_color = Color(0.364706, 0.6, 0.721569, 1)
-background_energy_multiplier = 0.66
+background_energy_multiplier = 2.04
+sky = SubResource("Sky_jg7rr")
+sky_custom_fov = 171.2
 ambient_light_source = 2
 ambient_light_color = Color(0.882353, 0.941176, 1, 1)
-reflected_light_source = 1
+reflected_light_source = 2
 tonemap_mode = 2
-tonemap_white = 0.79
+ssr_enabled = true
+ssr_max_steps = 512
+ssr_fade_in = 0.310579
+ssr_fade_out = 8.57419
+ssr_depth_tolerance = 33.11
 ssao_enabled = true
 ssao_intensity = 3.01
 glow_bloom = 0.12
@@ -27,18 +47,9 @@ fog_height_density = -0.0118
 
 [node name="Environment" type="Node3D"]
 
-[node name="SlagterEnv" parent="." instance=ExtResource("1_yywbi")]
-
-[node name="Cylinder010" parent="SlagterEnv" index="23"]
-visible = false
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yh588")
 camera_attributes = SubResource("CameraAttributesPractical_pybv3")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.68962, 0.343811, -0.637353, 0, 0.880113, 0.474764, 0.724172, 0.327407, -0.606943, -12.4752, 9.32675, -6.97557)
-fov = 38.2
 
 [node name="Camera3D2" type="Camera3D" parent="."]
 transform = Transform3D(-1, 4.64977e-08, -7.40318e-08, 0, 0.846825, 0.531872, 8.74228e-08, 0.531872, -0.846825, -2.47011, 6.92597, -7.48968)
@@ -46,9 +57,127 @@ fov = 38.2
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-4.37114e-08, -0.405094, 0.914275, 0, 0.914275, 0.405094, -1, 1.77072e-08, -3.99642e-08, 2.79373, 2.32947, 0.441298)
-visible = false
+light_color = Color(0.647059, 0.65098, 0.647059, 1)
+light_energy = 2.466
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 3.414
+shadow_transmittance_bias = -1.889
+shadow_blur = 10.0
+
+[node name="SlagterEnv" parent="." instance=ExtResource("1_yk0q0")]
 
 [node name="SM_HelgeFigur" parent="." instance=ExtResource("3_x5bix")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70406, 0, 2.70353)
 
-[editable path="SlagterEnv"]
+[node name="SM_Flæsk4" parent="." instance=ExtResource("3_nelow")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -10.375, 1.22493, 3.27518)
+
+[node name="SM_Flæsk10" parent="." instance=ExtResource("3_nelow")]
+transform = Transform3D(0.999149, -0.00355052, 0.0410948, -0.0412479, -0.0860045, 0.995441, 1.79631e-09, -0.996288, -0.0860777, -9.34412, 1.15818, 3.25184)
+
+[node name="SM_Flæsk5" parent="." instance=ExtResource("3_nelow")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.37504, 1.22493, 3.27518)
+
+[node name="SM_Flæsk6" parent="." instance=ExtResource("3_nelow")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.37504, 1.22493, 2.33794)
+
+[node name="SM_Flæsk7" parent="." instance=ExtResource("3_nelow")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -10.2778, 1.22493, 2.33794)
+
+[node name="SM_Flæsk8" parent="." instance=ExtResource("3_nelow")]
+transform = Transform3D(0.997172, 0, 0.0751528, -0.0751528, -4.37114e-08, 0.997172, 3.28503e-09, -1, -4.35878e-08, -10.2778, 1.22493, 1.15021)
+
+[node name="SM_Flæsk9" parent="." instance=ExtResource("3_nelow")]
+transform = Transform3D(0.993449, 0, -0.114278, 0.114278, -4.37114e-08, 0.993449, -4.99526e-09, -1, -4.3425e-08, -8.45463, 1.22493, 1.15021)
+
+[node name="SM_Kniv" parent="." instance=ExtResource("5_y0b85")]
+transform = Transform3D(8.74228e-08, 0.654279, 0.756253, 1, -2.4142e-08, -9.47132e-08, -4.37114e-08, 0.756253, -0.654279, -1.19827, 0.765025, 5.06329)
+
+[node name="SM_Krog" parent="." instance=ExtResource("5_wj8xd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.072, 2.47741, 1.22037)
+
+[node name="SM_Krog2" parent="." instance=ExtResource("5_wj8xd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2118, 2.47741, 2.40029)
+
+[node name="SM_Krog3" parent="." instance=ExtResource("5_wj8xd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3156, 2.47741, 3.26023)
+
+[node name="SM_Krog5" parent="." instance=ExtResource("5_wj8xd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25923, 2.47741, 3.1137)
+
+[node name="SM_Krog6" parent="." instance=ExtResource("5_wj8xd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.39508, 2.47741, 3.392)
+
+[node name="SM_Krog7" parent="." instance=ExtResource("5_wj8xd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.40105, 2.47741, 2.384)
+
+[node name="SM_Krog8" parent="." instance=ExtResource("5_wj8xd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.66735, 2.48443, 1.19768)
+
+[node name="SM_Krog4" parent="." instance=ExtResource("5_wj8xd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6647, 0, 6.3678)
+
+[node name="SM_Krog9" parent="." instance=ExtResource("5_wj8xd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.84661, 2.24127, 5.74597)
+
+[node name="SM_Krog11" parent="." instance=ExtResource("5_wj8xd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.56596, 2.24127, 5.74597)
+
+[node name="SM_Krog12" parent="." instance=ExtResource("5_wj8xd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.33679, 2.24127, 5.74597)
+
+[node name="SM_Krog13" parent="." instance=ExtResource("5_wj8xd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09419, 2.24127, 5.74597)
+
+[node name="SM_Krog14" parent="." instance=ExtResource("5_wj8xd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75761, 2.24127, 5.74597)
+
+[node name="SM_Krog15" parent="." instance=ExtResource("5_wj8xd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55563, 2.24127, 5.74597)
+
+[node name="SM_Krog16" parent="." instance=ExtResource("5_wj8xd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33885, 2.24127, 5.74597)
+
+[node name="SM_Spegepøls" parent="." instance=ExtResource("6_h3mtq")]
+transform = Transform3D(1, 0, 0, 0, -0.120449, 0.99272, 0, -0.99272, -0.120449, -1.87562, 0.833493, 0.548255)
+
+[node name="SM_Spegepøls2" parent="." instance=ExtResource("6_h3mtq")]
+transform = Transform3D(1, 0, 0, 0, -0.120449, 0.99272, 0, -0.99272, -0.120449, -1.601, 0.833493, 0.548255)
+
+[node name="SM_Spegepøls3" parent="." instance=ExtResource("6_h3mtq")]
+transform = Transform3D(1, 0, 0, 0, -0.120449, 0.99272, 0, -0.99272, -0.120449, -1.31744, 0.804281, 0.554022)
+
+[node name="SM_Mørbrad2" parent="." instance=ExtResource("6_w7lcn")]
+transform = Transform3D(1.59646, 0, 0, 0, 0.59704, 0, 0, 0, 0.59704, -0.567661, 0.898421, 0.545654)
+
+[node name="SM_Spegepøls4" parent="." instance=ExtResource("6_h3mtq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75858, 1.74829, 5.41581)
+
+[node name="SM_Spegepøls5" parent="." instance=ExtResource("6_h3mtq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53964, 1.74829, 5.41581)
+
+[node name="SM_Spegepøls6" parent="." instance=ExtResource("6_h3mtq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.30458, 1.74829, 5.41581)
+
+[node name="SM_Spegepøls7" parent="." instance=ExtResource("6_h3mtq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08115, 1.74829, 5.41581)
+
+[node name="SM_Spegepøls8" parent="." instance=ExtResource("6_h3mtq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81633, 1.74829, 5.41581)
+
+[node name="SM_Spegepøls9" parent="." instance=ExtResource("6_h3mtq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6246, 1.74829, 5.41581)
+
+[node name="SM_Spegepøls10" parent="." instance=ExtResource("6_h3mtq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48639, 1.74829, 5.41581)
+
+[node name="SM_Mørbrad" parent="." instance=ExtResource("6_w7lcn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.46687, 0.874906, 4.22618)
+
+[node name="SM_Flæskesteg" parent="." instance=ExtResource("8_gef0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.340253, 0.896817, 3.35931)
+
+[editable path="SM_Flæsk10"]

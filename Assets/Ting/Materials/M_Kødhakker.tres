@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://brxucv41wdl6f"]
+
+[ext_resource type="Texture2D" uid="uid://c421uptem6nsd" path="res://Assets/SlagterEnv/Textures/t_SlagterAtlas.png" id="1_lrxrm"]
+
+[resource]
+albedo_texture = ExtResource("1_lrxrm")
+metallic = 0.64
+metallic_specular = 0.0
+roughness = 0.43
+ao_enabled = true
+ao_light_affect = 0.39
+texture_filter = 0
