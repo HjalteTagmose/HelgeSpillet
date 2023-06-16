@@ -73,5 +73,3 @@ func move(delta):
 
 func spit_fire():
 	subtitle.update("Ja, gu' det da rigtigt")
-	await get_tree().create_timer(1).timeout
-	subtitle.update("Jeg var i krigshumør")

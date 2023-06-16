@@ -26,6 +26,9 @@ func translate(txt):
 		"Giv": 			return "Give"
 		"Saml op": 		return "Pick up"
 		"Smid ud": 		return "Throw out"
+	
+	match txt:
+		"Ja, gu' det da rigtigt":	return "God damn right"
 
 	print("Couldn't translate: ", txt)
 	return txt

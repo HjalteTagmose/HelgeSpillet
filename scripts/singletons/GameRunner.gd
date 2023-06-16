@@ -106,7 +106,7 @@ func _ready():
 func wait_until_continue():
 	while !cont:
 		await get_tree().create_timer(0.01).timeout
-	cont = false	
+	cont = false
 
 func randomized_time(t):
 	t = t + t * randf_range(-.1, .1)

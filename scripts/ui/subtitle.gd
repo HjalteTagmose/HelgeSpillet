@@ -1,6 +1,8 @@
 extends Label
 
+var translated= ""
 var orig_text = ""
+var goal_text = ""
 var temp_text = ""
 var camera
 
@@ -21,17 +23,27 @@ func set_pos(world_pos, offset = Vector3.ZERO):
 func _process(delta):
 	if timer >= time_pr_letter:
 		timer = 0
-		if temp_text.length() < orig_text.length():
-			temp_text += orig_text[temp_text.length()]
+		if temp_text.length() < goal_text.length():
+			temp_text += goal_text[temp_text.length()]
 			text = temp_text
 	else:
 		timer += delta
 
 func update(msg):
 	orig_text = msg
+	translated= Global.translate(msg)
 	temp_text = ""
 	text = ""
-	set_size(Vector2(0,26))
+	on_switch_language(Global.language)
 
-func on_switch_language():
-	pass
+func on_switch_language(language):
+	text = ""
+	set_size(Vector2(0,26))
+	
+	if language == Global.Language.Dansk:
+		goal_text = orig_text
+	else: 
+		goal_text = translated
+		
+	temp_text = goal_text.substr(0, temp_text.length())
+	text = temp_text
