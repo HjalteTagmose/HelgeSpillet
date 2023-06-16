@@ -74,7 +74,7 @@ func spit_fire():
 	LineManager.speak(subtitle, LineManager.Line.FLÆSK_PÅ_HYLDERNE)
 	
 	while(true):
-		await get_tree().create_timer(15.0 + randf() * 10.0).timeout
+		await get_tree().create_timer(20.0 + randf() * 10.0).timeout
 		if LineManager.playing:
 			continue
 		var bar = randi_range(0, bars.size()-1)
