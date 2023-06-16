@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://dnwetn36o4ein"]
+[gd_scene load_steps=13 format=3 uid="uid://dnwetn36o4ein"]
 
-[ext_resource type="PackedScene" uid="uid://ln6o3aypdy37" path="res://Assets/SlagterEnv/SlagterEnv.fbx" id="1_yk0q0"]
+[ext_resource type="PackedScene" uid="uid://dpw0ufq2ed4py" path="res://Assets/Ting/SM_KødHakker.fbx" id="1_ejjq1"]
+[ext_resource type="PackedScene" uid="uid://ln6o3aypdy37" path="res://Assets/SlagterEnv/SlagterEnv.fbx" id="1_tokn8"]
 [ext_resource type="PackedScene" uid="uid://bdfxcoav3rqw2" path="res://Assets/Ting/SM_Flæsk.fbx" id="3_nelow"]
 [ext_resource type="PackedScene" uid="uid://bpaik3tlifuf5" path="res://Assets/Ting/SM_Krog.fbx" id="5_wj8xd"]
 [ext_resource type="PackedScene" uid="uid://df58hc2uxeep7" path="res://Assets/Ting/SM_Kniv.fbx" id="5_y0b85"]
 [ext_resource type="PackedScene" uid="uid://cd3d81wv6yqoa" path="res://Assets/Ting/SM_Spegepøls.fbx" id="6_h3mtq"]
-[ext_resource type="PackedScene" uid="uid://hksiyjde2na4" path="res://Assets/Ting/SM_PakketKød.fbx" id="7_rkhov"]
+[ext_resource type="PackedScene" uid="uid://hksiyjde2na4" path="res://Assets/Ting/SM_PakketKød.fbx" id="6_w7lcn"]
+[ext_resource type="PackedScene" uid="uid://djn3qogihxvqc" path="res://kølerdisk.tscn" id="7_oejni"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k4c7j"]
 sky_top_color = Color(0.317647, 0.466667, 0.568627, 1)
@@ -49,6 +51,9 @@ fog_height_density = -0.0118
 environment = SubResource("Environment_yh588")
 camera_attributes = SubResource("CameraAttributesPractical_pybv3")
 
+[node name="SM_KødHakker" parent="." instance=ExtResource("1_ejjq1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.569642, 1.2508, 5.12276)
+
 [node name="Camera3D2" type="Camera3D" parent="."]
 transform = Transform3D(-1, 4.64977e-08, -7.40318e-08, 0, 0.846825, 0.531872, 8.74228e-08, 0.531872, -0.846825, -2.47011, 6.92597, -7.48968)
 fov = 38.2
@@ -65,7 +70,7 @@ shadow_normal_bias = 3.414
 shadow_transmittance_bias = -1.889
 shadow_blur = 10.0
 
-[node name="SlagterEnv" parent="." instance=ExtResource("1_yk0q0")]
+[node name="SlagterEnv2" parent="." instance=ExtResource("1_tokn8")]
 
 [node name="SM_Flæsk4" parent="." instance=ExtResource("3_nelow")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -10.375, 1.22493, 3.27518)
@@ -145,14 +150,17 @@ transform = Transform3D(1, 0, 0, 0, -0.120449, 0.99272, 0, -0.99272, -0.120449, 
 [node name="SM_Spegepøls3" parent="." instance=ExtResource("6_h3mtq")]
 transform = Transform3D(1, 0, 0, 0, -0.120449, 0.99272, 0, -0.99272, -0.120449, -1.31744, 0.804281, 0.554022)
 
-[node name="SM_Mørbrad2" parent="." instance=ExtResource("7_rkhov")]
+[node name="SM_Spegepøls11" parent="." instance=ExtResource("6_h3mtq")]
+transform = Transform3D(1, 0, 0, 0, -0.120449, 0.99272, 0, -0.99272, -0.120449, -1.01644, 0.804281, 0.554022)
+
+[node name="SM_Mørbrad2" parent="." instance=ExtResource("6_w7lcn")]
 transform = Transform3D(1.59646, 0, 0, 0, 0.59704, 0, 0, 0, 0.59704, -0.567661, 0.898421, 0.545654)
 
 [node name="SM_Mørbrad5" parent="." instance=ExtResource("6_w7lcn")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.74344, 2.02562, 2.03833)
 
 [node name="SM_Mørbrad6" parent="." instance=ExtResource("6_w7lcn")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.74344, 2.02562, 3.60943)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.74344, 2.02562, 3.0407)
 
 [node name="SM_Spegepøls4" parent="." instance=ExtResource("6_h3mtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75858, 1.74829, 5.41581)
@@ -174,5 +182,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6246, 1.74829, 5.41581)
 
 [node name="SM_Spegepøls10" parent="." instance=ExtResource("6_h3mtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48639, 1.74829, 5.41581)
+
+[node name="Kølerdisk" parent="." instance=ExtResource("7_oejni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01024, 1.00977, 0.685181)
 
 [editable path="SM_Flæsk10"]

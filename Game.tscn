@@ -1,11 +1,14 @@
-[gd_scene load_steps=55 format=3 uid="uid://su7gr0kg3pwy"]
+[gd_scene load_steps=58 format=3 uid="uid://su7gr0kg3pwy"]
 
 [ext_resource type="Script" path="res://scripts/singletons/GameRunner.gd" id="1_2myta"]
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_66jnj"]
 [ext_resource type="Script" path="res://scripts/stations/CutStation.gd" id="1_i5i0c"]
+[ext_resource type="Material" uid="uid://cn7lwtkwh0pwf" path="res://Assets/Ting/Materials/M_Kniv.tres" id="2_5axvq"]
 [ext_resource type="Script" path="res://scripts/stations/PackStation.gd" id="2_7upu7"]
 [ext_resource type="Script" path="res://scripts/stations/GrindStation.gd" id="2_bwmfc"]
 [ext_resource type="Script" path="res://scripts/player/Interact.gd" id="2_gl7je"]
+[ext_resource type="Material" uid="uid://brxucv41wdl6f" path="res://Assets/Ting/Materials/M_Kødhakker.tres" id="3_3bjri"]
+[ext_resource type="Material" uid="uid://bmxibxdbc38gm" path="res://M_køler-highlight.tres" id="3_cxdkd"]
 [ext_resource type="Material" uid="uid://dof2vlln7ifjl" path="res://Assets/Figurer/Materials/M_HelgeFigur.tres" id="6_f6vxa"]
 [ext_resource type="Script" path="res://scripts/CustomerManager.gd" id="8_7ecmo"]
 [ext_resource type="PackedScene" uid="uid://dmcxpvrlsjm6e" path="res://Prefabs/subtitle.tscn" id="8_7o8dy"]
@@ -226,7 +229,7 @@ size = Vector3(15.4153, 1, 15.2086)
 size = Vector3(1.50419, 1.84507, 3.09081)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rh34m"]
-size = Vector3(4.84381, 6.4502, 1.12065)
+size = Vector3(3.33191, 6.4502, 1.76513)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqywc"]
 albedo_color = Color(0.109804, 0.109804, 0.109804, 1)
@@ -239,7 +242,10 @@ material = SubResource("StandardMaterial3D_hqywc")
 [node name="root" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00629854, -1.19209e-07, 0.00031352)
 script = ExtResource("1_2myta")
+kniv_highlight_mat = ExtResource("2_5axvq")
 "mørbrad_highlight_mat" = ExtResource("13_i1lbk")
+"kødhakker_highlight_mat" = ExtResource("3_3bjri")
+"spegepøls_container_mat" = ExtResource("3_cxdkd")
 
 [node name="Ground" type="StaticBody3D" parent="."]
 
@@ -426,6 +432,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.483
 [node name="RootNode" type="Node3D" parent="Environment2/SM_Mørbrad7"]
 
 [node name="SM_Mørbrad" type="MeshInstance3D" parent="Environment2/SM_Mørbrad7/RootNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.301097)
 mesh = SubResource("ArrayMesh_8b4kx")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("13_i1lbk")
@@ -436,6 +443,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.483
 [node name="RootNode" type="Node3D" parent="Environment2/SM_Mørbrad8"]
 
 [node name="SM_Mørbrad" type="MeshInstance3D" parent="Environment2/SM_Mørbrad8/RootNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.301097)
 mesh = SubResource("ArrayMesh_8b4kx")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("13_i1lbk")
@@ -527,7 +535,7 @@ spawnType = 1
 prompt_text = "Mørbrad"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MørbradSpawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.897145, 0, 0.533891)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.566102, 0, 0.120307)
 shape = SubResource("BoxShape3D_rh34m")
 
 [node name="Trashcan" type="RigidBody3D" parent="." groups=["interactable"]]

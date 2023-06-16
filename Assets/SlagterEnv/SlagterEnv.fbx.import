@@ -34,10 +34,6 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://Assets/SlagterEnv/Materials/M_Fog.tres"
 },
-"M_Glas": {
-"use_external/enabled": true,
-"use_external/path": "res://Assets/SlagterEnv/Materials/M_Glass.tres"
-},
 "M_Gulv": {
 "use_external/enabled": true,
 "use_external/path": "res://Assets/SlagterEnv/Materials/M_Gulv.tres"
@@ -45,10 +41,6 @@ _subresources={
 "M_SlagterEnv": {
 "use_external/enabled": true,
 "use_external/path": "res://Assets/SlagterEnv/Materials/M_SlagterEnv.tres"
-},
-"M_SpilObjekt": {
-"use_external/enabled": true,
-"use_external/path": "res://Assets/Ting/Materials/M_Kødhakker.tres"
 }
 }
 }

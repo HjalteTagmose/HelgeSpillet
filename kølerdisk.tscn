@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://djn3qogihxvqc"]
+
+[ext_resource type="PackedScene" uid="uid://b4f0v5vqumlsr" path="res://Assets/Ting/SM_Kølerdisk.fbx" id="1_mkeo7"]
+
+[node name="Kølerdisk" instance=ExtResource("1_mkeo7")]
