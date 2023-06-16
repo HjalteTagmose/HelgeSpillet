@@ -18,6 +18,9 @@ func _ready():
 	player = get_node("/root/root/Player/Subtitle")
 
 func speak(subtitle: Subtitle, line: Line):
+	if playing:
+		return
+	
 	match line:
 		Line.FLÆSK_PÅ_HYLDERNE:
 			play_clip(flæsk_på_hylderne)
