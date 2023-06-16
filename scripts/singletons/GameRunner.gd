@@ -100,14 +100,18 @@ func _ready():
 	for i in 20:
 		await spawn_random()
 
-	print("inspector SOON!")
 	# INSPECTOR WARNING
+	print("INSPECTOR WARNING!")
 
 	for i in 20:
 		await spawn_random()
 
-	# Inspector! :o
+	# INSPECTOR SPAWN
+	print("INSPECTOR SPAWN!")
 	
+	for i in 20:
+		await spawn_random()
+
 	# finish game
 	print("FINISH!")
 	
