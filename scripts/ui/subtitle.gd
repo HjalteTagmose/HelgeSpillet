@@ -35,7 +35,7 @@ func _process(delta):
 	else:
 		timer += delta
 
-func update(dansk, english, speed = -1):
+func update(dansk, english, speed = -1.0):
 	timer = 0
 	time_pr_letter = speed if speed > 0 else .1
 	orig_text = dansk

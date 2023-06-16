@@ -31,7 +31,7 @@ func _process(_delta):
 		occupant = null
 		prompt.hide()
 		return
-		
+
 	prompt.set_pos(global_position, prompt_offset)
 	prompt.show()
 
@@ -45,6 +45,7 @@ func on_body_entered(body):
 		body.freeze = false
 		body.collision_layer = 1
 		occupant = body
+		SfxManager.play_sfx(SfxManager.SFX.SLAM)
 
 func use():
 	print("using station: ", self)

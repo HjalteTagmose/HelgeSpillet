@@ -8,6 +8,9 @@ var har_ik_tid_pjat		= preload("res://Audio/har-ik-tid-til-pjat.wav")
 var jajaja				= preload("res://Audio/JAJAJA.wav")
 var ku_it_bli_anerledes = preload("res://Audio/ku-it-bli-anerledes.wav")
 var ledigang_rod_ondt	= preload("res://Audio/lediggang-roden-til-alt-ond.wav")
+var ka_slet_ik_køv_den	= preload("res://Audio/ve-du-va-du-ka-slet-ik-køv-den.wav")
+var ikke_fint_nok		= preload("res://Audio/ikke-fint-nok.wav")
+var danmark_for_blærerøv= preload("res://Audio/danmark-for-blærerøve.wav")
 
 var player : Subtitle
 
@@ -51,11 +54,27 @@ func speak(subtitle: Subtitle, line: Line):
 			play_clip(ku_it_bli_anerledes)
 			subtitle.update("Ku ik bli' anderles'", "Could not be otherwise", 0.032)
 			await finish_then_reset(subtitle)
+		Line.IKKE_FINT_NOK:
+			play_clip(ikke_fint_nok)
+			subtitle.update("Det er ikke fint nok ti' en vis del af publikum", "It's not good enough for a certain part of the audience", 0.055)
+			await finish_then_reset(subtitle)
+		Line.KA_SLET_IK_KØV_DEN:
+			play_clip(ka_slet_ik_køv_den)
+			subtitle.update("Ve' du hva' du ka' slet ik køv den", "Know you what, you can not buy it", 0.032)
+			await subtitle.finished
+			await time(.5)
+			subtitle.update("det meget enkelt", "its very simple", 0.032)
+			await finish_then_reset(subtitle)
+		Line.DANMARK_FOR_BLÆRERØVE:
+			play_clip(danmark_for_blærerøv)
+			subtitle.update("Er du ik' klar over at Danmark, det for blærerøve", "Are you not aware that Denmark is for show offs", 0.033)
+			await finish_then_reset(subtitle)
 
-func finish_then_reset(subtitle, time = 1):
+func finish_then_reset(subtitle, time = 1.0):
 	await finished
 	await time(time)
-	subtitle.update("","")
+	if subtitle != null:
+		subtitle.update("","")
 
 func play_clip(clip):
 	stream = clip
@@ -73,4 +92,7 @@ enum Line
 	JAJAJA,
 	LEDIGANG_ROD_ONDT,
 	KU_IT_BLI_ANERLEDES,
+	KA_SLET_IK_KØV_DEN,
+	IKKE_FINT_NOK,
+	DANMARK_FOR_BLÆRERØVE,
 }

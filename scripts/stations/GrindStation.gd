@@ -8,6 +8,7 @@ func use():
 		return
 	super.use()
 	spawn(hakket_flæsk_prefab)
+	SfxManager.play_sfx(SfxManager.SFX.KØDHAKKER)
 
 func can_use_item(item):
 	return item.can_grind
