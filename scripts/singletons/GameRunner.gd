@@ -126,20 +126,36 @@ func _ready():
 	for i in 20:
 		await spawn_random()
 
+	await randomized_time(17)
+
 	# INSPECTOR WARNING
 	print("INSPECTOR WARNING!")
 
 	for i in 20:
 		await spawn_random()
 
+	await randomized_time(14)
+
 	# INSPECTOR SPAWN
 	print("INSPECTOR SPAWN!")
+
+	await randomized_time(10)
 
 	for i in 20:
 		await spawn_random()
 
 	# finish game
 	print("FINISH!")
+
+func _process(delta):
+	if Input.is_action_just_pressed("restart"):
+		get_tree(). reload_current_scene()
+		metal_table_mat.rim_enabled = false
+		kniv_highlight_mat.rim_enabled = false
+		flæsk_highlight_mat.rim_enabled = false
+		mørbrad_highlight_mat.rim_enabled = false
+		kødhakker_highlight_mat.rim_enabled = false
+		spegepøls_container_mat.rim_enabled = false
 
 func spawn_random():
 	var rnd = randf() * 4
