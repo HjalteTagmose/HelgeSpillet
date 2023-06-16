@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bpaik3tlifuf5" path="res://Assets/Ting/SM_Krog.fbx" id="5_wj8xd"]
 [ext_resource type="PackedScene" uid="uid://df58hc2uxeep7" path="res://Assets/Ting/SM_Kniv.fbx" id="5_y0b85"]
 [ext_resource type="PackedScene" uid="uid://cd3d81wv6yqoa" path="res://Assets/Ting/SM_Spegepøls.fbx" id="6_h3mtq"]
-[ext_resource type="PackedScene" uid="uid://cpt8vw6jhdiyw" path="res://Assets/Ting/SM_Mørbrad.fbx" id="6_w7lcn"]
+[ext_resource type="PackedScene" uid="uid://hksiyjde2na4" path="res://Assets/Ting/SM_PakketKød.fbx" id="7_rkhov"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k4c7j"]
 sky_top_color = Color(0.317647, 0.466667, 0.568627, 1)
@@ -145,7 +145,7 @@ transform = Transform3D(1, 0, 0, 0, -0.120449, 0.99272, 0, -0.99272, -0.120449, 
 [node name="SM_Spegepøls3" parent="." instance=ExtResource("6_h3mtq")]
 transform = Transform3D(1, 0, 0, 0, -0.120449, 0.99272, 0, -0.99272, -0.120449, -1.31744, 0.804281, 0.554022)
 
-[node name="SM_Mørbrad2" parent="." instance=ExtResource("6_w7lcn")]
+[node name="SM_Mørbrad2" parent="." instance=ExtResource("7_rkhov")]
 transform = Transform3D(1.59646, 0, 0, 0, 0.59704, 0, 0, 0, 0.59704, -0.567661, 0.898421, 0.545654)
 
 [node name="SM_Spegepøls4" parent="." instance=ExtResource("6_h3mtq")]

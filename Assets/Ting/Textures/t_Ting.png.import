@@ -3,26 +3,25 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://06sxgd6igyne"
-path.s3tc="res://.godot/imported/t_Ting.png-68793d46e3b19e4de21c508a84670c63.s3tc.ctex"
+path="res://.godot/imported/t_Ting.png-68793d46e3b19e4de21c508a84670c63.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Ting/Textures/t_Ting.png"
-dest_files=["res://.godot/imported/t_Ting.png-68793d46e3b19e4de21c508a84670c63.s3tc.ctex"]
+dest_files=["res://.godot/imported/t_Ting.png-68793d46e3b19e4de21c508a84670c63.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
