@@ -1,5 +1,12 @@
 extends Node
 
+@export var metal_table_mat : BaseMaterial3D
+@export var kniv_highlight_mat : BaseMaterial3D
+@export var flæsk_highlight_mat : BaseMaterial3D
+@export var mørbrad_highlight_mat : BaseMaterial3D
+@export var kødhakker_highlight_mat : BaseMaterial3D
+@export var spegepøls_container_mat : BaseMaterial3D
+
 var customer_manager
 var cont = false
 
@@ -8,7 +15,8 @@ func _ready():
 	var customer
 	customer_manager = get_node("Kunder")
 	await get_tree().create_timer(0.1).timeout
-#
+#	mørbrad_highlight_mat.rim_enabled = true
+
 #	# spegepøls tutorial
 #	customer = customer_manager.spawn()
 #	customer.on_leave.connect(continue_game)

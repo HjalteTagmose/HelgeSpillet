@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dqy74fcljxryu"]
+
+[ext_resource type="Texture2D" uid="uid://06sxgd6igyne" path="res://Assets/Ting/Textures/t_Ting.png" id="1_wbr7l"]
+
+[resource]
+albedo_color = Color(0.745098, 0.745098, 0.745098, 1)
+albedo_texture = ExtResource("1_wbr7l")
+metallic_specular = 0.0
+texture_filter = 0
