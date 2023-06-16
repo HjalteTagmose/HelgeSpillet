@@ -92,9 +92,10 @@ func hide_prompt():
 	prompt.hide()
 
 func bark_hurry():
+	if randf() > 0.67:
+		return
 	print("bark")
 	LineManager.speak(subtitle, LineManager.Line.HVORDAN_MED_MØRBRAD)
-
 
 # VISUALS
 @export var kunde_mat_1 : Material
