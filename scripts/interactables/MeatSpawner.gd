@@ -26,5 +26,5 @@ func spawn(point):
 	var obj = prefab.instantiate()
 	point.add_child(obj)
 	obj.pickup(point)
-	spawned_meat.emit()
+	spawned_meat.emit(0)
 	return obj

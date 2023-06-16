@@ -27,19 +27,18 @@ func _ready():
 	spegepøls_container_mat.rim_enabled = false
 
 	# spegepøls play
-	for i in 5:
+	for i in 1:
 		customer = customer_manager.spawn()
 		await randomized_time(2)
 
 	# mørbrad tutorial
+	cont = false
 	customer = customer_manager.spawn(Meat.Type.PAKKET_MØRBRAD, 65)
+	customer.on_leave.connect(continue_game)
 	
 	var mørbrad_spawn = get_node("MørbradSpawner")
 	mørbrad_highlight_mat.rim_enabled = true
-	mørbrad_spawn.spawned_meat.connect(continue_game)
-	cont = false
 	await wait_until_continue();
-	mørbrad_spawn.spawned_meat.disconnect(continue_game)
 	mørbrad_highlight_mat.rim_enabled = false
 
 	# mørbrad play
@@ -181,5 +180,5 @@ func randomized_time(t):
 	t = t + t * randf_range(-.1, .1)
 	await get_tree().create_timer(t).timeout
 
-func continue_game():
+func continue_game(n):
 	cont = true
