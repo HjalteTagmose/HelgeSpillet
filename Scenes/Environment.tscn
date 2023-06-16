@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dnwetn36o4ein"]
+[gd_scene load_steps=17 format=3 uid="uid://dnwetn36o4ein"]
 
 [ext_resource type="PackedScene" uid="uid://dpw0ufq2ed4py" path="res://Assets/Ting/SM_KødHakker.fbx" id="1_ejjq1"]
 [ext_resource type="PackedScene" uid="uid://ln6o3aypdy37" path="res://Assets/SlagterEnv/SlagterEnv.fbx" id="1_tokn8"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cd3d81wv6yqoa" path="res://Assets/Ting/SM_Spegepøls.fbx" id="6_h3mtq"]
 [ext_resource type="PackedScene" uid="uid://hksiyjde2na4" path="res://Assets/Ting/SM_PakketKød.fbx" id="6_w7lcn"]
 [ext_resource type="PackedScene" uid="uid://djn3qogihxvqc" path="res://kølerdisk.tscn" id="7_oejni"]
+[ext_resource type="PackedScene" uid="uid://kf4iiqrljwpo" path="res://Assets/Ting/SM_Skraldespand.fbx" id="10_p88lh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k4c7j"]
 sky_top_color = Color(0.317647, 0.466667, 0.568627, 1)
@@ -267,3 +268,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48639, 1.74829, 5.41581)
 
 [node name="Kølerdisk" parent="." instance=ExtResource("7_oejni")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01024, 1.00977, 0.685181)
+
+[node name="SM_Skraldespand" parent="." instance=ExtResource("10_p88lh")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -4.44096, 0.475388, 5.34893)

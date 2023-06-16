@@ -12,10 +12,15 @@ var camera
 var progress: TextureProgressBar
 var announced_danger = false
 
+var flæsksteg = preload("res://Assets/UI/t_PakketFlæskesteg.png")
+var spegepøls = preload("res://Assets/UI/t_Spegepøls.png")
+var mørbraddd = preload("res://Assets/UI/t_Mørbrad.png")
+var svinekød  = preload("res://Assets/UI/t_PakketKød.png")
+
 func _ready():
 	camera = get_viewport().get_camera_3d()
 	label = get_node("Holder").get_node("Text")
-	image = get_node("Holder").get_node("Image")
+	image = get_node("Image2")
 	progress = get_node("TimerBar") 
 
 func set_progress(p):
@@ -33,7 +38,16 @@ func set_progress(p):
 
 func set_meat_type(meat_type: Meat.Type):
 	label.text = Meat.Type.keys()[meat_type]
-	
+	match meat_type:
+		Meat.Type.PAKKET_MØRBRAD:
+			image.texture = mørbraddd
+		Meat.Type.PAKKET_FLÆSKESTEG:
+			image.texture = flæsksteg
+		Meat.Type.PAKKET_SVINEKØD:
+			image.texture = svinekød
+		Meat.Type.SPEGEPØLSE:
+			image.texture = spegepøls
+
 func set_pos(world_pos, offset = Vector3.ZERO):
 	var world_position = world_pos + offset
 	var screen_position = camera.unproject_position(world_position)
