@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://su7gr0kg3pwy"]
+[gd_scene load_steps=60 format=3 uid="uid://su7gr0kg3pwy"]
 
 [ext_resource type="Script" path="res://scripts/singletons/GameRunner.gd" id="1_2myta"]
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_66jnj"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/stations/PackStation.gd" id="2_7upu7"]
 [ext_resource type="Script" path="res://scripts/stations/GrindStation.gd" id="2_bwmfc"]
 [ext_resource type="Script" path="res://scripts/player/Interact.gd" id="2_gl7je"]
+[ext_resource type="Material" uid="uid://di2ghdohr6pe5" path="res://metal-bord-highlight.tres" id="2_ry7jx"]
 [ext_resource type="Material" uid="uid://brxucv41wdl6f" path="res://Assets/Ting/Materials/M_Kødhakker.tres" id="3_3bjri"]
 [ext_resource type="Material" uid="uid://bmxibxdbc38gm" path="res://M_køler-highlight.tres" id="3_cxdkd"]
 [ext_resource type="Material" uid="uid://bcfj1snp5c10f" path="res://Assets/Ting/Materials/M_Flæsk-highlight.tres" id="3_q3bnx"]
@@ -243,6 +244,7 @@ material = SubResource("StandardMaterial3D_hqywc")
 [node name="root" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00629854, -1.19209e-07, 0.00031352)
 script = ExtResource("1_2myta")
+metal_table_mat = ExtResource("2_ry7jx")
 kniv_highlight_mat = ExtResource("2_5axvq")
 "flæsk_highlight_mat" = ExtResource("3_q3bnx")
 "mørbrad_highlight_mat" = ExtResource("13_i1lbk")

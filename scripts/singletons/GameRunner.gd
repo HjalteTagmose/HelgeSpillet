@@ -14,13 +14,17 @@ func _ready():
 	# setup
 	var customer
 	customer_manager = get_node("Kunder")
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(1.1).timeout
 
 	# spegepøls tutorial
-	spegepøls_container_mat.rim_enabled = true
 	customer = customer_manager.spawn()
-	customer.on_leave.connect(continue_game)
+	
+	var spegepøls_spawn = get_node("SpegepølsSpawner")
+	spegepøls_spawn.spawned_meat.connect(continue_game)
+	spegepøls_container_mat.rim_enabled = true
 	await wait_until_continue();
+	spegepøls_spawn.spawned_meat.disconnect(continue_game)
+	spegepøls_container_mat.rim_enabled = false
 
 	# spegepøls play
 	for i in 5:
@@ -29,12 +33,14 @@ func _ready():
 
 	# mørbrad tutorial
 	customer = customer_manager.spawn(Meat.Type.PAKKET_MØRBRAD, 65)
-	customer.on_leave.connect(continue_game)
-#	var mørbrad_spawn = get_node("MørbradSpawner")
-#	mørbrad_spawn.tutorial.visible = true
-#	mørbrad_spawn.spawned_meat.connect(func: mørbrad_spawn.tutorial.visible = false)
-
-	await wait_until_continue()
+	
+	var mørbrad_spawn = get_node("MørbradSpawner")
+	mørbrad_highlight_mat.rim_enabled = true
+	mørbrad_spawn.spawned_meat.connect(continue_game)
+	cont = false
+	await wait_until_continue();
+	mørbrad_spawn.spawned_meat.disconnect(continue_game)
+	mørbrad_highlight_mat.rim_enabled = false
 
 	# mørbrad play
 	customer_manager.spawn(Meat.Type.PAKKET_MØRBRAD, 45)
@@ -58,7 +64,13 @@ func _ready():
 	# svinekød tutorial
 	customer = customer_manager.spawn(Meat.Type.PAKKET_SVINEKØD, 75)
 	customer.on_leave.connect(continue_game)
-	await wait_until_continue()
+
+	kødhakker_highlight_mat.rim_enabled = true
+	metal_table_mat.rim_enabled = true
+	cont = false
+	await wait_until_continue();
+	kødhakker_highlight_mat.rim_enabled = false
+	metal_table_mat.rim_enabled = false
 
 	# svinekød play
 	customer_manager.spawn(Meat.Type.PAKKET_SVINEKØD, 55)
@@ -82,7 +94,13 @@ func _ready():
 	# flæskesteg tutorial
 	customer = customer_manager.spawn(Meat.Type.PAKKET_FLÆSKESTEG, 75)
 	customer.on_leave.connect(continue_game)
+	
+	flæsk_highlight_mat.rim = true
+	kniv_highlight_mat.rim = true
+	cont = false
 	await wait_until_continue()
+	flæsk_highlight_mat.rim = false
+	kniv_highlight_mat.rim = false
 
 	# flæskesteg play
 	customer_manager.spawn(Meat.Type.PAKKET_FLÆSKESTEG, 65)
@@ -147,5 +165,5 @@ func randomized_time(t):
 	t = t + t * randf_range(-.1, .1)
 	await get_tree().create_timer(t).timeout
 
-func continue_game(n):
+func continue_game():
 	cont = true

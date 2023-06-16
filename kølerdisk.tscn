@@ -1,5 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://djn3qogihxvqc"]
+[gd_scene load_steps=3 format=3 uid="uid://djn3qogihxvqc"]
 
 [ext_resource type="PackedScene" uid="uid://b4f0v5vqumlsr" path="res://Assets/Ting/SM_Kølerdisk.fbx" id="1_mkeo7"]
+[ext_resource type="Material" uid="uid://bmxibxdbc38gm" path="res://M_køler-highlight.tres" id="2_w8vwh"]
 
 [node name="Kølerdisk" instance=ExtResource("1_mkeo7")]
+
+[node name="SM_Kølerdisk" parent="RootNode" index="0"]
+surface_material_override/0 = ExtResource("2_w8vwh")
