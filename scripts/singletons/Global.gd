@@ -28,7 +28,8 @@ func translate(txt):
 		"Smid ud": 		return "Throw out"
 	
 	match txt:
-		"Ja, gu' det da rigtigt":	return "God damn right"
+		"Ja, gu' det da rigtigt":				return "God damn right"
+		"Hvordan går det mæ min mørbra'?":		return "How goes it with my tenderloin?"
 
 	print("Couldn't translate: ", txt)
 	return txt

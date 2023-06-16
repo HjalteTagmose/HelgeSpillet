@@ -10,6 +10,7 @@ signal on_leave
 
 var prompt : Prompt = preload("res://Prefabs/prompt.tscn").instantiate()
 var orderbox : Order = preload("res://Prefabs/order_box.tscn").instantiate()
+var subtitle : Subtitle = preload("res://Prefabs/subtitle.tscn").instantiate()
 
 var goal = 0
 var speed = 3
@@ -21,8 +22,10 @@ var timer = Timer.new()
 func _ready():
 	point_system = get_node("/root/PointSystem")
 	var ui = get_tree().get_root().get_node("root").get_node("UI")
-	ui.add_child(prompt)
 	ui.add_child(orderbox)
+	add_child(subtitle)
+	add_child(prompt)
+	orderbox.time_danger.connect(bark_hurry)
 	speed += randf_range(-0.1 * speed, 0.1 * speed)
 	prompt.hide()
 	await get_tree().create_timer(0.1).timeout
@@ -45,6 +48,7 @@ func _process(delta):
 	move(delta)
 	prompt.set_pos(global_position + prompt_offset)
 	orderbox.set_pos(global_position+ order_offset)
+	subtitle.set_pos(global_position + Vector3.UP * 2)
 
 	var pct = timer.get_time_left() / start_time * 100
 	orderbox.set_progress(pct)
@@ -71,6 +75,7 @@ func time_out():
 
 func leave():
 	on_leave.emit(num)
+	subtitle.queue_free()
 	orderbox.queue_free()
 	prompt.queue_free()
 	timer.queue_free()
@@ -84,3 +89,7 @@ func update_prompt(meat):
 
 func hide_prompt():
 	prompt.hide()
+
+func bark_hurry():
+	print("bark")
+	subtitle.update("Hvordan går det mæ min mørbra'?")

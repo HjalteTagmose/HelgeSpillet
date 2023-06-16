@@ -9,6 +9,9 @@ func _ready():
 	customer_manager = get_node("Kunder")
 	await get_tree().create_timer(0.1).timeout
 
+	# TEST
+	customer_manager.spawn(Meat.Type.PAKKET_MØRBRAD, 10)
+
 	# spegepøls tutorial
 	customer = customer_manager.spawn()
 	customer.on_leave.connect(continue_game)

@@ -1,3 +1,4 @@
+class_name Subtitle
 extends Label
 
 var translated= ""
