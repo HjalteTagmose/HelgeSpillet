@@ -92,4 +92,4 @@ func hide_prompt():
 
 func bark_hurry():
 	print("bark")
-	subtitle.update("Hvordan går det mæ min mørbra'?")
+	LineManager.speak(subtitle, LineManager.Line.HVORDAN_MED_MØRBRAD)

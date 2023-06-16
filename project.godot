@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 PointSystem="*res://scripts/singletons/PointSystem.gd"
 Global="*res://scripts/singletons/Global.gd"
+LineManager="*res://scripts/singletons/LineManager.gd"
 
 [input]
 

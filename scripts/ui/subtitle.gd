@@ -30,9 +30,10 @@ func _process(delta):
 	else:
 		timer += delta
 
-func update(msg):
-	orig_text = msg
-	translated= Global.translate(msg)
+func update(dansk, english, speed = -1):
+	time_pr_letter = speed if speed > 0 else .1
+	orig_text = dansk
+	translated= english
 	temp_text = ""
 	text = ""
 	on_switch_language(Global.language)
