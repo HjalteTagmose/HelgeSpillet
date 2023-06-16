@@ -15,9 +15,9 @@ func _ready():
 	var customer
 	customer_manager = get_node("Kunder")
 	await get_tree().create_timer(0.1).timeout
-#	mørbrad_highlight_mat.rim_enabled = true
 
 	# spegepøls tutorial
+	spegepøls_container_mat.rim_enabled = true
 	customer = customer_manager.spawn()
 	customer.on_leave.connect(continue_game)
 	await wait_until_continue();
