@@ -1,7 +1,11 @@
 extends Label
 
-var orig_text
+var orig_text = ""
+var temp_text = ""
 var camera
+
+var time_pr_letter = 0.1
+var timer = 0
 
 func _ready():
 	get_node("/root/Global").switch_language.connect(on_switch_language)
@@ -14,9 +18,20 @@ func set_pos(world_pos, offset = Vector3.ZERO):
 	var size = get_minimum_size()
 	set_position(screen_position - Vector2.RIGHT * size.x / 2)
 
+func _process(delta):
+	if timer >= time_pr_letter:
+		timer = 0
+		if temp_text.length() < orig_text.length():
+			temp_text += orig_text[temp_text.length()]
+			text = temp_text
+	else:
+		timer += delta
+
 func update(msg):
 	orig_text = msg
-	text = msg
+	temp_text = ""
+	text = ""
+	set_size(Vector2(0,26))
 
 func on_switch_language():
 	pass
