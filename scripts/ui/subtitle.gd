@@ -10,6 +10,8 @@ var camera
 var time_pr_letter = 0.1
 var timer = 0
 
+signal finished
+
 func _ready():
 	get_node("/root/Global").switch_language.connect(on_switch_language)
 	camera = get_viewport().get_camera_3d()
@@ -27,10 +29,14 @@ func _process(delta):
 		if temp_text.length() < goal_text.length():
 			temp_text += goal_text[temp_text.length()]
 			text = temp_text
+		elif temp_text == goal_text:
+			timer = 100232
+			finished.emit()
 	else:
 		timer += delta
 
 func update(dansk, english, speed = -1):
+	timer = 0
 	time_pr_letter = speed if speed > 0 else .1
 	orig_text = dansk
 	translated= english

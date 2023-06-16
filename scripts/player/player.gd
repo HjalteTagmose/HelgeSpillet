@@ -70,4 +70,5 @@ func move(delta):
 	move_and_slide()
 
 func spit_fire():
+	await get_tree().create_timer(1).timeout
 	LineManager.speak(subtitle, LineManager.Line.FLÆSK_PÅ_HYLDERNE)
