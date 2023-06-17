@@ -279,10 +279,10 @@ transform = Transform3D(1, 0, 0, 0, -0.120449, 0.99272, 0, -0.99272, -0.120449, 
 transform = Transform3D(1.59646, 0, 0, 0, 0.59704, 0, 0, 0, 0.59704, -0.567661, 0.898421, 0.545654)
 
 [node name="SM_Mørbrad5" parent="." instance=ExtResource("6_w7lcn")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.74344, 2.02562, 2.03833)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.74344, 1.90192, 2.03833)
 
 [node name="SM_Mørbrad6" parent="." instance=ExtResource("6_w7lcn")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.74344, 2.02562, 3.0407)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.74344, 1.90192, 3.0407)
 
 [node name="SM_Spegepøls4" parent="." instance=ExtResource("6_h3mtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75858, 1.74829, 5.41581)

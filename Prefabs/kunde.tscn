@@ -324,29 +324,36 @@ transform = Transform3D(-1, 0, -8.56817e-08, 0, 1, 0, 8.56817e-08, 0, -1, 0, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112587, 1.03915, 0.117279)
 mesh = SubResource("ArrayMesh_0po0p")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jis52")
 
 [node name="VenstreHånd" type="MeshInstance3D" parent="Mesh/RootNode"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112587, 1.03915, 0.117279)
 mesh = SubResource("ArrayMesh_cckys")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jis52")
 
 [node name="Halstørklæde" type="MeshInstance3D" parent="Mesh/RootNode"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00216151, 1.12695, -0.0320874)
 mesh = SubResource("ArrayMesh_15f3b")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("6_miss2")
 
 [node name="Hue" type="MeshInstance3D" parent="Mesh/RootNode"]
 mesh = SubResource("ArrayMesh_350xa")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("6_miss2")
 
 [node name="Brilleglas" type="MeshInstance3D" parent="Mesh/RootNode"]
 mesh = SubResource("ArrayMesh_yamk7")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("6_miss2")
 
 [node name="Hoved" type="MeshInstance3D" parent="Mesh/RootNode"]
 mesh = SubResource("ArrayMesh_85g27")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jis52")
 
 [node name="Krop" type="MeshInstance3D" parent="Mesh/RootNode"]
 mesh = SubResource("ArrayMesh_rdnhh")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jis52")
