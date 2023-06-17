@@ -18,7 +18,7 @@ func _ready():
 
 	# spegepøls tutorial
 	customer = customer_manager.spawn()
-	
+
 	var spegepøls_spawn = get_node("SpegepølsSpawner")
 	spegepøls_spawn.spawned_meat.connect(continue_game)
 	spegepøls_container_mat.rim_enabled = true
@@ -35,7 +35,7 @@ func _ready():
 	cont = false
 	customer = customer_manager.spawn(Meat.Type.PAKKET_MØRBRAD, 65)
 	customer.on_leave.connect(continue_game)
-	
+
 	var mørbrad_spawn = get_node("MørbradSpawner")
 	mørbrad_highlight_mat.rim_enabled = true
 	await wait_until_continue();
@@ -93,7 +93,7 @@ func _ready():
 	# flæskesteg tutorial
 	customer = customer_manager.spawn(Meat.Type.PAKKET_FLÆSKESTEG, 75)
 	customer.on_leave.connect(continue_game)
-	
+
 	flæsk_highlight_mat.rim = true
 	kniv_highlight_mat.rim = true
 	cont = false
@@ -121,11 +121,12 @@ func _ready():
 	customer_manager.spawn(Meat.Type.SPEGEPØLSE, 35)
 	await randomized_time(10)
 
-	# Gameplay!
-	for i in 20:
+	# More Gameplay!
+	for i in 7:
 		await spawn_random()
 
-	await randomized_time(17)
+	await randomized_time(5)
+	customer_manager.spawn(Meat.Type.PAKKET_FLÆSKESTEG, 65)
 
 #	# INSPECTOR WARNING
 #	print("INSPECTOR WARNING!")
@@ -147,6 +148,8 @@ func _ready():
 	
 	# finish game
 	print("FINISH!")
+	
+	get_node("UI/Rapport").visible = true
 	get_node("UI/Rapport").finish()
 
 func _process(delta):

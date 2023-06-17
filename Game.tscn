@@ -329,7 +329,7 @@ spawn_point = NodePath("SpawnPoint")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48703, -0.271808)
 
 [node name="SpawnPoint" type="Node3D" parent="GrindStation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.624569, -1.28102)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12634, 0.624569, -1.28102)
 
 [node name="Mesh" type="MeshInstance3D" parent="GrindStation"]
 visible = false
@@ -621,6 +621,30 @@ spawnType = 2
 prompt_text = "Flæsk"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FlæskSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.897145, 0, 0.533891)
+shape = SubResource("BoxShape3D_rh34m")
+
+[node name="FlæskSpawner2" type="RigidBody3D" parent="." groups=["interactable"]]
+transform = Transform3D(7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, -9.321, 0.483397, 3.57306)
+lock_rotation = true
+freeze = true
+script = ExtResource("15_j2r0l")
+spawnType = 2
+prompt_text = "Flæsk"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FlæskSpawner2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.897145, 0, 0.533891)
+shape = SubResource("BoxShape3D_rh34m")
+
+[node name="FlæskSpawner3" type="RigidBody3D" parent="." groups=["interactable"]]
+transform = Transform3D(-1, 0, -3.17865e-08, 0, 1, 0, 3.17865e-08, 0, -1, -12.6164, 0.483398, 4.78805)
+lock_rotation = true
+freeze = true
+script = ExtResource("15_j2r0l")
+spawnType = 2
+prompt_text = "Flæsk"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FlæskSpawner3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.897145, 0, 0.533891)
 shape = SubResource("BoxShape3D_rh34m")
 

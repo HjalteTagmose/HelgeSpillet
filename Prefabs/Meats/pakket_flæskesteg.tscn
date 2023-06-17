@@ -145,7 +145,7 @@ mesh = SubResource("BoxMesh_e4tjj")
 surface_material_override/0 = SubResource("StandardMaterial3D_jkfqn")
 
 [node name="SM_Flæskesteg" parent="." index="3" instance=ExtResource("2_4tldh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.176848, 0)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0.203146, 0)
 
 [node name="SM_PakketKød" type="Node3D" parent="." index="4"]
 transform = Transform3D(2.21165, 0, 0, 0, 2.23709, 0, 0, 0, 1.48, 0, -0.0379316, 0)
