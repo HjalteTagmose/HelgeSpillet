@@ -34,11 +34,11 @@ func finish():
 	label_1.text = str(PointSystem.sales_mørbrad) + "x mørbrad"
 	label_2.text = str(PointSystem.sales_svinekød) + "x svinekød"
 	label_3.text = str(PointSystem.sales_flæskesteg) + "x flæskesteg"
-	
-	set_smiley(smiley_main, PointSystem.points, 5000, 1000)
-	set_smiley(smiley_1, PointSystem.sales_mørbrad, 20, 15)
-	set_smiley(smiley_2, PointSystem.sales_svinekød, 20, 15)
-	set_smiley(smiley_3, PointSystem.sales_flæskesteg, 15, 10)
+
+	set_smiley(smiley_main, PointSystem.points, 5000, 7500)
+	set_smiley(smiley_1, PointSystem.sales_mørbrad, 5, 10)
+	set_smiley(smiley_2, PointSystem.sales_svinekød, 5, 10)
+	set_smiley(smiley_3, PointSystem.sales_flæskesteg, 5, 10)
 
 func set_smiley(smiley, val, low, med):
 	if val < low:

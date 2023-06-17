@@ -350,7 +350,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_g0g2x")
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.76523, 0.720612, 3.82899)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.97766, 0.720612, 0.60453)
 axis_lock_linear_y = true
 script = ExtResource("1_66jnj")
 

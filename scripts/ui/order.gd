@@ -15,7 +15,7 @@ var announced_danger = false
 var flæsksteg = preload("res://Assets/UI/t_PakketFlæskesteg.png")
 var spegepøls = preload("res://Assets/UI/t_Spegepøls.png")
 var mørbraddd = preload("res://Assets/UI/t_PakketMørbrad.png")
-var svinekød  = preload("res://Assets/UI/t_PakketKød.png")
+var svinekød  = preload("res://Assets/UI/t_PakketKd.png")
 
 func _ready():
 	camera = get_viewport().get_camera_3d()
