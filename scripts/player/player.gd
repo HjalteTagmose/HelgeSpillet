@@ -71,7 +71,7 @@ func move(delta):
 
 func spit_fire():
 	await get_tree().create_timer(1).timeout
-	LineManager.speak(subtitle, LineManager.Line.VI_DANSKERE)
+	LineManager.speak(subtitle, LineManager.Line.FLÆSK_PÅ_HYLDERNE)
 	
 	while(true):
 		await get_tree().create_timer(20.0 + randf() * 10.0).timeout
