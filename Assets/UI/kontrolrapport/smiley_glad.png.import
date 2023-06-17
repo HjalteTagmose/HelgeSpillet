@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkht1cvp2tmrp"
-path="res://.godot/imported/t_Pokerfjæs.png-92c858f10e5302c606347c1a729087b2.ctex"
+uid="uid://cokhnrnhotn6j"
+path="res://.godot/imported/smiley_glad.png-06c87ed8a08a037a7b24378ae0c2d083.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/slut/t_Pokerfjæs.png"
-dest_files=["res://.godot/imported/t_Pokerfjæs.png-92c858f10e5302c606347c1a729087b2.ctex"]
+source_file="res://Assets/UI/kontrolrapport/smiley_glad.png"
+dest_files=["res://.godot/imported/smiley_glad.png-06c87ed8a08a037a7b24378ae0c2d083.ctex"]
 
 [params]
 

@@ -65,6 +65,13 @@ func give(meat):
 	point_system.add_points(meat.type)
 	print("got meat")
 	meat.free()
+	
+	var r = randf()
+	if r < 0.2:
+		LineManager.speak(LineManager.player, LineManager.Line.KU_IT_BLI_ANERLEDES)
+	elif r < 0.4:
+		LineManager.speak(LineManager.player, LineManager.Line.FÆRDIG_SLUT)
+	
 	leave()
 #	timer.stop()
 #	timer.start(100)
@@ -72,6 +79,12 @@ func give(meat):
 
 func time_out():
 	point_system.adjust_points(-150)
+	var r = randf()
+	if r < 0.3: 
+		LineManager.speak(LineManager.player, LineManager.Line.FOR_HELVETE)
+	elif r < 0.7:
+		LineManager.speak(LineManager.player, LineManager.Line.KA_SLET_IK_KØV_DEN)
+	
 	leave()
 
 func leave():
@@ -92,7 +105,7 @@ func hide_prompt():
 	prompt.hide()
 
 func bark_hurry():
-	if randf() > 0.67:
+	if randf() > 0.5:
 		return
 	print("bark")
 	LineManager.speak(subtitle, LineManager.Line.HVORDAN_MED_MØRBRAD)

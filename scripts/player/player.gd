@@ -71,7 +71,7 @@ func move(delta):
 
 func spit_fire():
 	await get_tree().create_timer(1).timeout
-	LineManager.speak(subtitle, LineManager.Line.FLÆSK_PÅ_HYLDERNE)
+	LineManager.speak(subtitle, LineManager.Line.VI_DANSKERE)
 	
 	while(true):
 		await get_tree().create_timer(20.0 + randf() * 10.0).timeout
@@ -86,4 +86,9 @@ var bars = [
 	LineManager.Line.LEDIGANG_ROD_ONDT, 
 	LineManager.Line.IKKE_FINT_NOK, 
 	LineManager.Line.DANMARK_FOR_BLÆRERØVE,
+	LineManager.Line.BFT,
+	LineManager.Line.FLÆSK_FORBUDT,
+	LineManager.Line.HÆ_HÆ,
+	LineManager.Line.MIKROMA,
+	LineManager.Line.VI_DANSKERE,
 ]

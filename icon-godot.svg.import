@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btb4b2aror66q"
-path="res://.godot/imported/t_Rapport.png-b1eb4047914c84da3182170a50d82a4d.ctex"
+uid="uid://d1ntl5824xivu"
+path="res://.godot/imported/icon-godot.svg-70ed6bbc2d6150a1d9d87f47522cbeb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/slut/t_Rapport.png"
-dest_files=["res://.godot/imported/t_Rapport.png-b1eb4047914c84da3182170a50d82a4d.ctex"]
+source_file="res://icon-godot.svg"
+dest_files=["res://.godot/imported/icon-godot.svg-70ed6bbc2d6150a1d9d87f47522cbeb4.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

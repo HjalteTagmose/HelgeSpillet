@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://su7gr0kg3pwy"]
+[gd_scene load_steps=64 format=3 uid="uid://su7gr0kg3pwy"]
 
 [ext_resource type="Script" path="res://scripts/singletons/GameRunner.gd" id="1_2myta"]
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_66jnj"]
@@ -20,7 +20,10 @@
 [ext_resource type="PackedScene" uid="uid://dnwetn36o4ein" path="res://Scenes/Environment.tscn" id="14_et0hk"]
 [ext_resource type="Script" path="res://CamTrigger.gd" id="14_sqa7d"]
 [ext_resource type="Script" path="res://scripts/Trashcan.gd" id="14_wwowi"]
+[ext_resource type="Texture2D" uid="uid://dyw6iuufkejtj" path="res://Assets/UI/kontrolrapport/kontrol-rapport.png" id="15_3e11f"]
 [ext_resource type="Script" path="res://scripts/interactables/MeatSpawner.gd" id="15_j2r0l"]
+[ext_resource type="Script" path="res://Rapport.gd" id="16_735vg"]
+[ext_resource type="Texture2D" uid="uid://cokhnrnhotn6j" path="res://Assets/UI/kontrolrapport/smiley_glad.png" id="16_ehgxx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g0p8o"]
 size = Vector3(60, 2, 60)
@@ -165,6 +168,10 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fnddb")
+
+[sub_resource type="LabelSettings" id="LabelSettings_k4is6"]
+font_size = 30
+font_color = Color(0.0745098, 0.25098, 0.188235, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_mba5a"]
 bake_interval = 0.1
@@ -421,6 +428,93 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Rapport" type="TextureRect" parent="UI"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 41.0
+offset_top = 21.0
+offset_right = 1121.0
+offset_bottom = 621.0
+texture = ExtResource("15_3e11f")
+stretch_mode = 5
+script = ExtResource("16_735vg")
+
+[node name="SmileyMain" type="TextureRect" parent="UI/Rapport"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 636.0
+offset_top = 117.0
+offset_right = 722.0
+offset_bottom = 203.0
+texture = ExtResource("16_ehgxx")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/Rapport/SmileyMain"]
+layout_mode = 0
+offset_left = -258.0
+offset_top = 20.0
+offset_right = -5.0
+offset_bottom = 65.0
+text = "4350 points"
+label_settings = SubResource("LabelSettings_k4is6")
+
+[node name="Smiley1" type="TextureRect" parent="UI/Rapport"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 640.0
+offset_top = 261.0
+offset_right = 719.0
+offset_bottom = 340.0
+texture = ExtResource("16_ehgxx")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/Rapport/Smiley1"]
+layout_mode = 0
+offset_left = -280.0
+offset_top = -6.0
+offset_right = -11.0
+offset_bottom = 39.0
+text = "30 Mørbrad"
+label_settings = SubResource("LabelSettings_k4is6")
+
+[node name="Smiley2" type="TextureRect" parent="UI/Rapport"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 640.0
+offset_top = 358.0
+offset_right = 719.0
+offset_bottom = 437.0
+texture = ExtResource("16_ehgxx")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/Rapport/Smiley2"]
+layout_mode = 0
+offset_left = -280.0
+offset_top = -6.0
+offset_right = -11.0
+offset_bottom = 39.0
+text = "30 Mørbrad"
+label_settings = SubResource("LabelSettings_k4is6")
+
+[node name="Smiley3" type="TextureRect" parent="UI/Rapport"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 640.0
+offset_top = 454.0
+offset_right = 719.0
+offset_bottom = 533.0
+texture = ExtResource("16_ehgxx")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/Rapport/Smiley3"]
+layout_mode = 0
+offset_left = -280.0
+offset_top = -6.0
+offset_right = -11.0
+offset_bottom = 39.0
+text = "30 Mørbrad"
+label_settings = SubResource("LabelSettings_k4is6")
 
 [node name="Kunder" type="Path3D" parent="."]
 curve = SubResource("Curve3D_mba5a")

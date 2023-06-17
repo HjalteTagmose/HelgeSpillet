@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnvqvivt1fdvx"
-path="res://.godot/imported/t_Glad.png-db10279993bbe9bdb33d115a290044b9.ctex"
+uid="uid://dyw6iuufkejtj"
+path="res://.godot/imported/kontrol-rapport.png-24cde5f05e00b2df3aef20b5064ca5cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/slut/t_Glad.png"
-dest_files=["res://.godot/imported/t_Glad.png-db10279993bbe9bdb33d115a290044b9.ctex"]
+source_file="res://Assets/UI/kontrolrapport/kontrol-rapport.png"
+dest_files=["res://.godot/imported/kontrol-rapport.png-24cde5f05e00b2df3aef20b5064ca5cb.ctex"]
 
 [params]
 

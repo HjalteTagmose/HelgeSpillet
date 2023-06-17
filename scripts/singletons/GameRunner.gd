@@ -27,7 +27,7 @@ func _ready():
 	spegepøls_container_mat.rim_enabled = false
 
 	# spegepøls play
-	for i in 1:
+	for i in 5:
 		customer = customer_manager.spawn()
 		await randomized_time(2)
 
@@ -127,24 +127,27 @@ func _ready():
 
 	await randomized_time(17)
 
-	# INSPECTOR WARNING
-	print("INSPECTOR WARNING!")
+#	# INSPECTOR WARNING
+#	print("INSPECTOR WARNING!")
+#
+#	for i in 20:
+#		await spawn_random()
+#
+#	await randomized_time(14)
+#
+#	# INSPECTOR SPAWN
+#	print("INSPECTOR SPAWN!")
+#
+#	await randomized_time(10)
+#
+#	for i in 20:
+#		await spawn_random()
 
-	for i in 20:
-		await spawn_random()
-
-	await randomized_time(14)
-
-	# INSPECTOR SPAWN
-	print("INSPECTOR SPAWN!")
-
-	await randomized_time(10)
-
-	for i in 20:
-		await spawn_random()
-
+	await customer_manager.no_customers
+	
 	# finish game
 	print("FINISH!")
+	get_node("UI/Rapport").finish()
 
 func _process(delta):
 	if Input.is_action_just_pressed("restart"):

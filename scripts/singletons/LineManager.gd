@@ -11,6 +11,13 @@ var ledigang_rod_ondt	= preload("res://Audio/lediggang-roden-til-alt-ond.wav")
 var ka_slet_ik_køv_den	= preload("res://Audio/ve-du-va-du-ka-slet-ik-køv-den.wav")
 var ikke_fint_nok		= preload("res://Audio/ikke-fint-nok.wav")
 var danmark_for_blærerøv= preload("res://Audio/danmark-for-blærerøve.wav")
+var bft					= preload("res://Audio/bft.wav")
+var flæsk_forbudt		= preload("res://Audio/fedt-flæsk-forbudt.wav")
+var for_helvete			= preload("res://Audio/for-helvete.wav")
+var hæ_hæ				= preload("res://Audio/ha-hæ.wav")
+var ikke_fornuft		= preload("res://Audio/ikke-noet-med-fornuft-at-gøre.wav")
+var mikroma				= preload("res://Audio/mikroma-sovs-kartofler-bøf.wav")
+var vi_danskere			= preload("res://Audio/vi-danskere.wav")
 
 var player : Subtitle
 
@@ -72,6 +79,52 @@ func speak(subtitle: Subtitle, line: Line):
 			play_clip(danmark_for_blærerøv)
 			subtitle.update("Er du ik' klar over at Danmark, det for blærerøve", "Are you not aware that Denmark is for show offs", 0.033)
 			await finish_then_reset(subtitle)
+		Line.BFT:
+			play_clip(bft)
+			subtitle.update("Bft", "Bft", 0.05)
+			await finish_then_reset(subtitle)
+		Line.FLÆSK_FORBUDT:
+			play_clip(flæsk_forbudt)
+			subtitle.update("Du må jo ik no'et. Du må ingen gang spise fedt flæsk. Det forbudt", "bft", 0.05)
+			await finish_then_reset(subtitle)
+		Line.FOR_HELVETE:
+			play_clip(for_helvete)
+			subtitle.update("For helvete", "Damn it")
+			await finish_then_reset(subtitle)
+		Line.HÆ_HÆ:
+			play_clip(hæ_hæ)
+			subtitle.update("Ha hæ ha hæ hæ", "Ha hæ ha hæ hæ", 0.09)
+			await finish_then_reset(subtitle)
+		Line.IKKE_FORNUFT:
+			play_clip(ikke_fornuft)
+			subtitle.update("Det har jo no'et at gøre, som jeg siger, mæ det kommer an på hvordan humøret er og hvordan ve'kommende's humør er", "It has jo something to do, how I  say, it depends on how the humor is and how their humor is", 0.04)
+			await subtitle.finished
+			await time(.3)
+			subtitle.update("Det har ik noget mæ fornuft at gøre, nej ha", "It has nothing to do with sense, no ha", 0.04)
+			await finish_then_reset(subtitle)
+		Line.MIKROMA:
+			play_clip(mikroma)
+			subtitle.update("Tænk sig de ska' ha' mikroma'", "Just think, they eat micro-food",0.05)
+			await subtitle.finished
+			await time(.3)
+			subtitle.update("Og jeg vil ha' sovs og kartofler og bøf", "And I want sauce and potatos and beef", 0.06)
+			await subtitle.finished
+			await time(.85)
+			subtitle.update("Jeg vil sgu' ik ha' mikroma' eller pizza eller burger. Aldrig.", "I will sku not have microfood or pizza or burger. Never.", 0.07)
+			await subtitle.finished
+			await time(1)
+			subtitle.update("Hahahaahah... nej, det var sgu' forfærdeli'", "Hahahaahah... no, that was horrible", 0.05)
+			await finish_then_reset(subtitle)
+		Line.VI_DANSKERE: 
+			play_clip(vi_danskere)
+			subtitle.update("Og så undskylder de mæ at det kommer fra EU bestemmelser", "And then ",0.04)
+			await subtitle.finished
+			await time(.1)
+			subtitle.update("Jamen, så ku' de si' ve' i hva'", "Well, then they could say, you know what",0.04)
+			await subtitle.finished
+			await time(.2)
+			subtitle.update("Det bestemmer vi selv, vi danskere", "That we decide ourselves, we're Danish",0.04)
+			await finish_then_reset(subtitle)
 
 func finish_then_reset(subtitle, time = 1.0):
 	await finished
@@ -98,4 +151,11 @@ enum Line
 	KA_SLET_IK_KØV_DEN,
 	IKKE_FINT_NOK,
 	DANMARK_FOR_BLÆRERØVE,
+	BFT,
+	FLÆSK_FORBUDT,
+	FOR_HELVETE,
+	HÆ_HÆ,
+	IKKE_FORNUFT,
+	MIKROMA,
+	VI_DANSKERE,
 }

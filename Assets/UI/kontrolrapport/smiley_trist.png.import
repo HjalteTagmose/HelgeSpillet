@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfbjp8y456fn4"
-path="res://.godot/imported/T_Lykkelig.png-34456e311374bd6307fb475cf1347785.ctex"
+uid="uid://brknq8l080xr3"
+path="res://.godot/imported/smiley_trist.png-3b06b9cf7f310626c1f6407be3c95d7d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/slut/T_Lykkelig.png"
-dest_files=["res://.godot/imported/T_Lykkelig.png-34456e311374bd6307fb475cf1347785.ctex"]
+source_file="res://Assets/UI/kontrolrapport/smiley_trist.png"
+dest_files=["res://.godot/imported/smiley_trist.png-3b06b9cf7f310626c1f6407be3c95d7d.ctex"]
 
 [params]
 

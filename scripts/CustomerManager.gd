@@ -8,6 +8,8 @@ var customers = []
 var length
 var total = 0
 
+signal no_customers
+
 func _ready():
 	length = get_curve().get_baked_length()-.1
 
@@ -36,3 +38,6 @@ func update_queue(n):
 
 	if rm >= 0:
 		customers.remove_at(rm)
+		
+	if customers.size() == 0:
+		no_customers.emit()
