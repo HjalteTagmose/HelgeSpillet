@@ -27,6 +27,8 @@ func _process(_delta):
 	if !has_occupant():
 		if !force_show:
 			prompt.hide()
+		else:
+			prompt.set_pos(global_position, prompt_offset)
 		return
 
 	if occupant.is_held:

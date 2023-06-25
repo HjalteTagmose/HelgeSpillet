@@ -4,6 +4,7 @@ extends RigidBody3D
 @export var offset = Vector3(.5,.5,0)
 @export var prompt_text = "Saml op"
 var prompt : Prompt = preload("res://Prefabs/prompt.tscn").instantiate()
+var prompt_on = false
 
 func _ready():
 	print(prompt)
@@ -16,9 +17,11 @@ func interact(point):
 func show_prompt():
 	prompt.set_pos(global_position, offset)
 	prompt.show() 
+	prompt_on = true
 
 func hide_prompt():
 	prompt.hide()
+	prompt_on = false
 	
 func setup_prompt(text = null):
 	if text == null:

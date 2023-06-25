@@ -10,6 +10,10 @@ var spegepøls_prefab = preload("res://Prefabs/Meats/spegepølse.tscn")
 func pickup(point):
 	return spawn(point)
 
+func _process(delta):
+	if prompt_on:
+		prompt.set_pos(global_position, offset)
+
 func spawn(point):
 	var prefab = null
 	match spawnType:
