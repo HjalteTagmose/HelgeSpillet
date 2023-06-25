@@ -22,7 +22,8 @@ func _ready():
 	var spegepøls_spawn = get_node("SpegepølsSpawner")
 	spegepøls_spawn.spawned_meat.connect(continue_game)
 	spegepøls_container_mat.rim_enabled = true
-	await wait_until_continue();
+	spegepøls_spawn.show_prompt()
+	await wait_until_continue()
 	spegepøls_spawn.spawned_meat.disconnect(continue_game)
 	spegepøls_container_mat.rim_enabled = false
 
@@ -37,9 +38,13 @@ func _ready():
 	customer.on_leave.connect(continue_game)
 
 	var mørbrad_spawn = get_node("MørbradSpawner")
+	var pack_station = get_node("PackStation")
+	mørbrad_spawn.spawned_meat.connect(func(x): pack_station.show_prompt_force())
 	mørbrad_highlight_mat.rim_enabled = true
+	mørbrad_spawn.show_prompt()
 	await wait_until_continue();
 	mørbrad_highlight_mat.rim_enabled = false
+	pack_station.disable_prompt_force()
 
 	# mørbrad play
 	customer_manager.spawn(Meat.Type.PAKKET_MØRBRAD, 45)
@@ -64,10 +69,12 @@ func _ready():
 	customer = customer_manager.spawn(Meat.Type.PAKKET_SVINEKØD, 75)
 	customer.on_leave.connect(continue_game)
 
+	var grind_station = get_node("GrindStation")
 	kødhakker_highlight_mat.rim_enabled = true
 	metal_table_mat.rim_enabled = true
 	cont = false
-	await wait_until_continue();
+	grind_station.show_prompt_force()
+	await wait_until_continue()
 	kødhakker_highlight_mat.rim_enabled = false
 	metal_table_mat.rim_enabled = false
 
@@ -97,6 +104,10 @@ func _ready():
 	flæsk_highlight_mat.rim = true
 	kniv_highlight_mat.rim = true
 	cont = false
+	var flæsk_spawner = get_node("FlæskSpawner")
+	var cut_station = get_node("CutStation")
+	flæsk_spawner.spawned_meat.connect(func(x): cut_station.show_prompt_force())
+	flæsk_spawner.show_prompt()
 	await wait_until_continue()
 	flæsk_highlight_mat.rim = false
 	kniv_highlight_mat.rim = false

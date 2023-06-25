@@ -9,6 +9,7 @@ extends StaticBody3D
 var prompt : Prompt = preload("res://Prefabs/prompt.tscn").instantiate()
 var trigger : Area3D
 var occupant
+var force_show = false
 
 func _ready():
 	trigger = get_node("Trigger")
@@ -24,7 +25,8 @@ func setup_prompt():
 
 func _process(_delta):
 	if !has_occupant():
-		prompt.hide()
+		if !force_show:
+			prompt.hide()
 		return
 
 	if occupant.is_held:
@@ -68,3 +70,11 @@ func spawn(prefab):
 	obj.global_position = spawn_point.global_position
 	occupant.free()
 	occupant = null
+	
+func show_prompt_force():
+	prompt.set_pos(global_position, prompt_offset)
+	prompt.show()
+	force_show = true
+	
+func disable_prompt_force():
+	force_show = false

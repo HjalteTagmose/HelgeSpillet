@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Helge Spillet"
+config/name="Den Vrisne Slagter"
 run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
-config/icon="res://icon-godot.svg"
+config/icon="res://icon.ico"
 
 [autoload]
 

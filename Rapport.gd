@@ -33,12 +33,18 @@ func finish():
 	label_main.text = str(PointSystem.points) + " kroner"
 	label_1.text = str(PointSystem.sales_mørbrad) + "x mørbrad"
 	label_2.text = str(PointSystem.sales_svinekød) + "x svinekød"
-	label_3.text = str(PointSystem.sales_flæskesteg) + "x flæskesteg"
+	label_3.text = str(PointSystem.sales_flæskesteg) + "x ribbensteg"
 
 	set_smiley(smiley_main, PointSystem.points, 5000, 7500)
 	set_smiley(smiley_1, PointSystem.sales_mørbrad, 5, 10)
 	set_smiley(smiley_2, PointSystem.sales_svinekød, 5, 10)
 	set_smiley(smiley_3, PointSystem.sales_flæskesteg, 5, 10)
+	
+	if Global.language == Global.Language.English:
+		label_main.text = str(PointSystem.points) + " crowns"
+		label_1.text = str(PointSystem.sales_mørbrad) + "x tenderloin"
+		label_2.text = str(PointSystem.sales_svinekød) + "x ground meat"
+		label_3.text = str(PointSystem.sales_flæskesteg) + "x porkroast"
 
 func set_smiley(smiley, val, low, med):
 	if val < low:
